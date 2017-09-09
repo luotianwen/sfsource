@@ -1,0 +1,64 @@
+<ion-modal-view ng-controller="SearchModelCtrl" class="custom-slide-in-up">
+
+    <ion-header-bar ng-click="$rootScrollTop()" style="padding-left: 15px;">
+        <i class="icon ion-ios-search button button-light backgroundF4" style="border-radius: 0;"></i>
+        <input type="text" ng-model="keyword" id="in_search_input" placeholder="请输入您要查找的商品" style="width: 71%;" class="backgroundF4"/>
+        <i ng-click="cancel()" class="button button-clear" style="color: #343843;margin-left: 10px;">取消</i>
+    </ion-header-bar>
+    
+    <ion-content>
+        <!--  **当点击输入框时 显示下面 的 ion-list 其他 的ion-list影藏**  -->
+
+        <!--  下拉框  -->
+        <ion-list ng-if="searchData.length > 1">
+            <!--<ion-item>
+                <span style="font-size: 0.437rem;color: #666666;font-weight: 500;">搜索“户外”相关的店铺<a class="icon icon-merchant" href="#/tab/seekShop">&lt;!&ndash;  点击这个图标跳转至店铺搜索页面  &ndash;&gt;</a></span>
+            </ion-item>-->
+            <ion-item ng-click="getKeywordSearchData(item)" ng-repeat="item in searchData">
+                <span ng-bind="item" class="span-item"></span>
+            </ion-item>
+        </ion-list>
+        <!--  下拉框  -->
+
+        <!--  **当点击输入框时 显示下面 的 ion-list 其他 的ion-list影藏**  -->
+
+
+<!--  默认显示这个ion-list  -->
+        <ion-list ng-if="historySearch">
+
+            <!--  最近搜索  -->
+            <ion-item>
+                <span class="color3 font-w400">最近搜索</span>
+                <i class="icon ion-ios-trash-outline item-note" style="color: #a9a9a9;font-size: 24px;"><!--  点击此处有个弹窗  --></i>
+            </ion-item>
+            <!--  最近搜索  -->
+
+            <!--  是否有历史记录  -->
+            <ion-item class="row row-wrap">
+                <!--<span class="color9">无搜索历史</span>-->   <!--  ** 无搜索记录时  显示这个span **  -->
+
+                <!--  有搜索记录时  影藏上个span  记录样式如下  -->
+                <span ng-repeat="item in historySearch" ng-bind="item" style="padding: 5px 10px;border: 1px solid #ddd;margin: 5px;border-radius: 5px;"></span>
+                <!--  有搜索记录时  影藏上个span  记录样式如下  -->
+
+            </ion-item>
+            <!--  是否有历史记录  -->
+
+            <!--  热门推荐  -->
+            <ion-item class="row row-wrap">
+                <div class="color3 font-w400 col col-90" style="margin-left: 6px;">热门搜索</div><br/>
+                <span style="padding: 5px 10px;border: 1px solid #ddd;margin: 5px;border-radius: 5px;">裤子</span>
+                <span style="padding: 5px 10px;border: 1px solid #ddd;margin: 5px;border-radius: 5px;">很多裤子</span>
+                <span style="padding: 5px 10px;border: 1px solid #ddd;margin: 5px;border-radius: 5px;">红色的裤子</span>
+                <span style="padding: 5px 10px;border: 1px solid #ddd;margin: 5px;border-radius: 5px;">半头裤子</span>
+                <span style="padding: 5px 10px;border: 1px solid #ddd;margin: 5px;border-radius: 5px;">牛仔裤子</span>
+                <span style="padding: 5px 10px;border: 1px solid #ddd;margin: 5px;border-radius: 5px;">屎黄色的裤子</span>
+                <span style="padding: 5px 10px;border: 1px solid #ddd;margin: 5px;border-radius: 5px;">各种裤子</span>
+                <span style="padding: 5px 10px;border: 1px solid #ddd;margin: 5px;border-radius: 5px;">透明裤子</span>
+            </ion-item>
+              热门推荐
+        </ion-list>
+
+<!--  默认显示这个ion-list  -->
+    </ion-content>
+</ion-modal-view>

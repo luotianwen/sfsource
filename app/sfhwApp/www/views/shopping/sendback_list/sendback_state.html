@@ -1,0 +1,86 @@
+<ion-view view-title="退换货" class="backgroundF4">
+  <ion-header-bar>
+    <button class="button-icon icon ion-ios-arrow-left" ng-click="rootBack()"></button>
+    <h1 class="title fonF"  >
+      退货
+    </h1>
+  </ion-header-bar>
+<ion-content>
+  <ion-list class="has-header border-N">
+    <ion-item class="border-N mt-13">
+      <span class="mR25" ng-switch="ProcessFlag">
+      	状态
+      	<span class="color-fe404c" ng-switch-when="0">&nbsp;&nbsp;全部</span>
+      	<span class="color-fe404c" ng-switch-when="1">&nbsp;&nbsp;等待审核</span>
+      	<span class="color-fe404c" ng-switch-when="2">&nbsp;&nbsp;等待用户发货</span>
+      	<span class="color-fe404c" ng-switch-when="3">&nbsp;&nbsp;等待卖家确认收货</span>
+      	<span class="color-fe404c" ng-switch-when="4">&nbsp;&nbsp;等待卖家处理</span>
+      	<span class="color-fe404c" ng-switch-when="5">&nbsp;&nbsp;完成</span>
+      	<span class="color-fe404c" ng-switch-when="6">&nbsp;&nbsp;未解决</span>
+      	<span class="color-fe404c" ng-switch-when="7">&nbsp;&nbsp;用户放弃</span>
+      	<span class="color-fe404c" ng-switch-when="8">&nbsp;&nbsp;审核未通过</span>
+      	<span class="color-fe404c" ng-switch-when="9">&nbsp;&nbsp;已退款</span>
+      </span>
+      <!--<span class="color-fe404c display-N">等待审核</span>
+      <span class="color-fe404c display-N">正在审核</span>
+      <span class="color-fe404c">等待审核</span>-->
+    </ion-item>
+    <ion-item  class="border-N mt-13 padding3530">
+      <div class="has-img floatL">
+        <img ng-src={{ossUrl}}{{particularsData.ImageDescUrl}}>
+      </div>
+      <p class="overPaceN position-r">
+        <span class="fons032" ng-bind="particularsData.ProName"></span>
+      <div class="mT034rem">
+      <span class="floatL fonS0293"></span>
+      <i class="floatR fonS032" ng-bind="'×'+ particularsData.ReviewCount"></i>
+    </div>
+      </p>
+    </ion-item>
+    <ion-item class="border-N  mt-13 padding3530 pTpB fonS032 sendback_state_item">
+      <p class="w10 lineH09">
+        <span>退款金额</span>
+        <span class="color-fe404c" ng-bind="particularsData.ProTotal | currency:'¥'"></span>
+      </p>
+      <!--<p class="w10 lineH09">
+        <span>退回至原支付卡</span>
+        <span ng-bind="particularsData.ProTotal | currency:'¥'"></span>
+      </p>-->
+      <!--<p class="w10 lineH09">
+        <span>服务类型</span>
+        <span>申请退货</span>
+      </p>-->
+      <p class="w10 lineH09">
+        <span>退货原因</span>
+        <span ng-switch="particularsData.Reason">
+        	<span ng-switch-when="1">商品规格不合适</span>
+	        <span ng-switch-when="2">性能/耗电/漏电断电/故障</span>
+	        <span ng-switch-when="3">与网站商品描述不符</span>
+	        <span ng-switch-when="4">包装商品破损</span>
+	        <span ng-switch-when="5">物流慢/收货太迟</span>
+	        <span ng-switch-when="6">七天无理由退换货</span>
+	        <span ng-switch-when="7">发错货</span>
+	        <span ng-switch-when="8">多发\漏发商品\配件</span>
+        </span>
+        
+        
+        
+      </p>
+      <p class="w10 lineH09">
+        <span>问题说明</span>
+        <span ng-bind="particularsData.QuestionDesc"></span>
+      </p>
+    </ion-item>
+    <ion-item class="border-N mt-13 pT11pB11">
+      <p class="w10 lineH09">
+        <span>订单号</span>
+        <span ng-bind="particularsData.OrderID"></span>
+      </p>
+      <p class="w10 lineH09">
+        <span>申请时间</span>
+        <span ng-bind="particularsData.SubTime |  date:'yyyy-MM-dd HH:mm'"></span>
+      </p>
+    </ion-item>
+  </ion-list>
+</ion-content>
+</ion-view>

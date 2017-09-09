@@ -1,0 +1,150 @@
+.seckill-header .title,.seckill-header .button-icon{
+  margin: 0 !important;
+}
+.seckill-header{
+  height: 44px!important;
+}
+.seckill-subar ul li p{
+  line-height:0.6rem;
+  margin: 0;
+  font-size: 0.3rem;
+}
+.seckillLiOnclick{
+  background:#fe404c !important;
+  height:1.33333333333333rem;
+  position: relative;
+}
+.seckill-subar ul li{
+  float: left;
+  background: #343843;
+  line-height:1.2rem;
+  /*width: 20%;*/
+  color: #888888;
+  text-align: center;
+}
+.seckill-subar ul{
+  /*overflow: hidden;*/
+  height:1.14rem;
+}
+.seckill-subar div{
+  height: 1.18rem;
+  background: #f4f4f4;
+}
+.seckill-subar{
+  height: 2.1067rem;
+  margin-top: 44px;
+}
+#seckillUlWarp{
+  position: relative;
+  background: #343843;
+}
+#seckillUl{
+  position: absolute;
+}
+.seckill-subarDiv i{
+  line-height: 0.5rem;
+  background: #000000;
+  margin-top: 0.1rem;
+  color: #fffffe;
+  padding: 0 5px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.seckill-subarDiv{
+  line-height: 0.66rem;
+  background: #dcdcdc!important;
+  color: #333333;padding: 0 10px;
+  font-size:0.2933rem;overflow: hidden;margin: 0 auto;
+}
+#seckillContent{
+  background: #f4f4f4;
+}
+.seckillContentFirstDivs img{
+  width: 100%;
+  height: 100%;
+}
+.seckillContentFirstDivs p{
+  position:absolute;
+  left: 0;
+  bottom: 0;
+  width:100%;
+  line-height:0.6rem;
+  background: rgba(0,0,0,0.4);
+  color:#FFFFFF;
+  text-align: center;
+}
+.seckillContentFirstDivs{
+  position: relative;
+  width:30%;
+  height: 100%;
+  border: 1px solid #eeeeee;float: left;
+}
+#seckillContent .item{
+  border: none;
+  height: 3.5rem;
+  margin-bottom: 10px;
+}
+.seckill-item-div p{
+  font-weight: bolder;
+}
+.seckill-item-div{
+  float: left;
+  width: 70%;
+  padding-left: 10px;
+  position: relative;
+  height: 100%;
+}
+.seckilSold{
+  position: inherit;
+  right:55px;
+  bottom: 0;
+  line-height: 1;
+  font-size: 0.266rem;color: #999;
+}
+.seckill-item-div-inner span:nth-child(3){
+  font-size: 0.26rem;
+  color: #999999;
+  text-decoration: line-through;
+  line-height: 1;
+}
+.seckill-item-div-inner span:nth-child(1){
+  font-size: 0.4rem;
+  color: #fe404c;
+  font-weight: bold;
+}
+.seckill-item-div-inner{
+  position: absolute;
+  left: 10px;
+  bottom: 0;width:80%;
+}
+.seckillRate i{
+  width:50%;
+  background: #fe404c;
+  height: 100%;
+  display: block;
+}
+.seckillRate{
+  width:100px;
+  float: left;
+  height: 10px;
+  border-radius: 10px;
+  background: #ebebeb;overflow: hidden;
+}
+.seckillMore{
+  position: absolute;
+  width: 80px;
+  line-height:36px;
+  background: #ffffff;border: 1px solid #fe404c; color: #fe404c;border-radius: 8px;font-size: 0.32rem;text-align: center;right: 16px;bottom: 16px;
+}
+.seckillNow{
+  position: absolute;
+  width: 80px;
+  line-height:36px;
+  background: #fe404c;border: 1px solid #fe404c; color: #fff;border-radius: 8px;font-size: 0.32rem;text-align: center;right: 16px;bottom: 16px;
+}
+.seckillOver{
+  position: absolute;
+  width: 80px;
+  line-height:36px;
+  background: #504a4a;border: 1px solid #3a3737; color: #fff;border-radius: 8px;font-size: 0.32rem;text-align: center;right: 16px;bottom: 16px;
+}

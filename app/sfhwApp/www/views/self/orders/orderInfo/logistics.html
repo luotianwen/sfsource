@@ -1,0 +1,52 @@
+<ion-view view-title="物流详情">
+    <ion-header-bar class="backimgNot" ng-click="$rootScrollTop()">
+        <i class=" icon ion-ios-arrow-left button button-clear"  ng-click="rootBack()" style="color: #333 !important;"></i>
+        <h1 class="title">物流详情</h1>
+    </ion-header-bar>
+    <ion-content class="backgroundF4 border-N">
+        <ion-list>
+            <ion-item class="m5 border-N">
+                <div class="color3 mT-0 fontS13">订单号：<i class="color3 fontS13" ng-bind="express.orderId"></i></div>
+            </ion-item>
+
+            <ion-item class="logistics-state border-N">
+                <div class="color3 fontS12 logistics-now" ng-if="logistics.state" ng-switch="logistics.state">快递状态:
+                	<i class="color3" ng-switch-when="0">在途</i>
+                	<i class="color3" ng-switch-when="1">揽件</i>
+                	<i class="color3" ng-switch-when="2">疑难</i>
+                	<i class="color3" ng-switch-when="3">签收</i>
+                	<i class="color3" ng-switch-when="4">退签</i>
+                	<i class="color3" ng-switch-when="5">派件</i>
+                	<i class="color3" ng-switch-when="6">退回</i>
+                </div>
+                
+                <div class="color3 fontS12 logistics-now" ng-if="!logistics.state">快递状态:
+                	<i class="color3">派件</i>
+                </div>
+                
+                <br/>
+                <div class="color3 fontS12">快递公司:<i class="color3" ng-bind="express.val"></i></div><br/>
+                <div class="color3 fontS12">运单编号:<i class="color3" ng-bind="express.postid"></i></div><br/>
+                <div class="color3 fontS12">下单时间:<i class="color3" ng-bind="express.SubTime  | date:'yyyy-MM-dd HH:mm:ss'"></i></div>
+            </ion-item>
+        </ion-list>
+
+        <ion-list>
+            <ion-item class="border-N logistics-state-itme">
+                <div class="logistics-state-middle paddingB" ng-repeat="item in logistics.data">
+                    <span class="logistics-state-middleF" ng-bind="item.context"></span>
+                    <br/>
+                    <span class="font12-c9" ng-bind="item.time"></span>
+                    <i class="logistics-circelW"></i>
+                </div>
+                <!--<div class="logistics-state-middle paddingB">
+                    <span class="logistics-state-middleF">您提交了订单，请等待系统确认</span>
+                    <br/>
+                    <span class="font12-c9">2016-09-13 09:40</span>
+                    <i class="logistics-circelW"></i>
+                </div>-->
+
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

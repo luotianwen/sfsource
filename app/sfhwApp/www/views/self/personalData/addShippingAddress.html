@@ -1,0 +1,106 @@
+<ion-view style="height:100%;">
+    <ion-header-bar class="bar-dark">
+        <i class=" icon ion-ios-arrow-left button button-clear" ng-click="rootBack()"></i>
+        <h1 class="title" ng-bind="title">新增收货地址</h1>
+    </ion-header-bar>
+
+    <ion-content scroll="false" class="bar-subheader" style="height: auto;"><!--  手机上为top：44px;  -->
+        <ion-list>
+
+            <!--  姓名部分  -->
+            <ion-item class="item-input fonS035 lineH0826">
+                <span class="input-label padding-W font-w400">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
+                <input type="text" ng-model="address.consignee" maxlength="10" placeholder="请输入您的姓名">
+            </ion-item>
+            <!--  姓名部分  -->
+
+            <!--  联系电话部分  -->
+            <ion-item class="item-input fonS035 lineH0826">
+                <span class="input-label padding-W font-w400">联系电话</span>
+                <input type="number" ng-model="address.cellphone" placeholder="请输入11位手机号码">
+            </ion-item>
+            <!--  联系电话部分  -->
+
+            <ion-item ng-click="showAddress()" class="fonS035 lineH0826" style="padding: 6px 16px 5px 16px;">
+                <span id="showChooseProvinces" class="input-label padding-W font-w400" style="float: left;">省/市/区</span>
+                <input id="saveCityIds" type="hidden" value="" />
+                <div class="floatR">
+                   <a class="color9"><i class="icon ion-ios-arrow-right"></i></a>
+               </div>
+            </ion-item>
+
+            <!--  地址部分  -->
+            <ion-item class="item-input fonS035 lineH0826" >
+                <span class="input-label padding-W font-w400">详细地址</span>
+                <input type="text" ng-model="address.streetaddress" maxlength="50" placeholder="请输入详细街道地址">
+            </ion-item>
+            <!--  地址部分  -->
+
+            <!--  邮编部分  -->
+            <ion-item class="item-input fonS035 lineH0826" >
+                <span class="input-label padding-W font-w400">邮政编码</span>
+                <input type="number" ng-model="address.zipcode" placeholder="请输入您所在地区的邮编(非必填)">
+            </ion-item>
+            <!--  邮编部分  -->
+
+<!--
+              按钮部分
+            <ion-item style="padding: 0 16px;">
+                <button ng-disabled="checkAddressInfo()" ng-click="saveAddress()" class="button button-block" style="background-color: #fe404c;color: #fff;font-size: 18px;font-weight: 600;">保存</button>
+            </ion-item>
+              按钮部分
+-->
+
+        </ion-list>
+      <!--  18end-->
+    </ion-content>
+  <ion-footer-bar ng-if="checkAddressInfo()">
+    <h1 class="title marginZ background-fe404c colorF" ng-click="saveAddress()" >保存</h1>
+  </ion-footer-bar>
+  
+  
+
+      <!--18star-->
+      <div class="zhezhao" ng-show="module.fifteen"></div>
+      <!--custom_hide-->
+      <!--单击时li的commIntro-liClick-->
+      <div class="commIntro__coupon custom_hide" ng-class="{'custom_show':module.eighteen}">
+        <ion-list class="subOrder_list_tanchuang bottom0 paddingB20px comm_story_name H8">
+          <ion-item class="pTpB border-N">
+            <p class="borderBe lineH10666 text-center color-333">选择地址</p>
+          </ion-item>
+          <div class="tranFor commIntro-region position-r w10">
+            <div class="w10 commIntro-scoll H585 position-a">
+            	
+              <ul class="he10">
+	            <li ng-class="{'commIntro-liClick':item.click}" ng-repeat="item in provinces" ng-bind="item.name" ng-click="chooseProvinces()"></li>
+	          </ul>
+	          
+            </div>
+          </div>
+          <div class="tranFor commIntro-region position-r w10" ng-class="{'left100':addressTwo.twoAddress100,'left50':addressTwo.twoAddress50,'left33':addressTwo.twoAddress33}">
+            <div class="w10 commIntro-scoll H585 position-a">
+            	
+              <ul class="he10">
+	            <li ng-class="{'commIntro-liClick':item.click}" ng-repeat="item in citys" ng-bind="item.name" ng-click="chooseCitys()"></li>
+	          </ul>
+	          
+            </div>
+          </div>
+          <div ng-class="{'left100':addressThree.threeAddress100,'left66':addressThree.threeAddress66}" class="tranFor commIntro-region position-r w10 left100" >
+            <div class="w10 commIntro-scoll H585 position-a">
+            	
+              <ul class="he10">
+	            <li ng-class="{'commIntro-liClick':item.click}" ng-repeat="item in county" ng-bind="item.name" ng-click="chooseCounty()"></li>
+	          </ul>
+	          
+            </div>
+          </div>
+          <div class="subOrder_btn" ng-click="closeLayer()">×</div>
+        </ion-list>
+        <div class="clear"></div>
+      </div>
+  
+  
+</ion-view>
+

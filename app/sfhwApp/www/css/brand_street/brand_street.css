@@ -1,0 +1,68 @@
+.brand_street{
+    background: red;
+    width: 4px;
+    height: 4px;
+}
+/*.brand_street_ul li{
+  line-height: 0.84rem;
+  font-size: 0.36rem;
+  padding-left: 16px;
+  color:rgba(0,0,0,0.8);
+  font-weight: 400;
+}*/
+.brand_street_ul{
+  width:100%;
+}
+.brand_street_ul li p{
+  height:44px;
+  font-size:10px;
+  width:80%;
+  overflow:hidden !important;
+  text-overflow: clip !important;
+  white-space: normal !important;
+  margin:0 auto;
+  display: block;
+}
+.brand_street_ul li img{
+  width:70%;margin: 0 auto;display: block;
+  height:50%;margin-top:10px;
+}
+.brand_street_ul li{
+  width: 33%;
+  height: 100px;background: #FFFFFF;border: 1px solid #eeeeee;float: left;margin-top:-1px;margin-right:-1px;
+}
+.brand_street_ul_two a{
+  color: #000000;
+}
+.brand_street_ul_two{
+  position: fixed;
+  right: 0;
+  top:105px;
+  bottom: 0;
+  font-size: 0.32rem;
+  font-weight:600;
+  line-height: 0.56rem;
+  text-align: center;
+}
+.brand_street_myhover{
+  display: block;padding: 12px;border-bottom: 1px solid #ddd;width: 95%;margin: 0 auto;color: #333;
+  padding-left: 10px;
+}
+
+/* 个人资料页出生日期css */
+.mbsc-w-p{
+	width: 100%;
+}
+.brand_street_ul_two>li{
+	font-size: 16px;
+	padding: 1px 0;
+}
+.col-93{
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 93%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 93%;
+  -ms-flex: 0 0 93%;
+  flex: 0 0 93%;
+  max-width: 93%;
+}

@@ -1,0 +1,128 @@
+.icon-merchant {
+    background: url("../../../img/app/center/merchant.png") no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    display: inline-block;
+    vertical-align: bottom;
+    float: right;
+}
+
+.span-item {
+    white-space: initial;
+    font-size: 0.437rem;
+    color: #333333;
+    font-weight: 500;
+}
+
+/*searchGood_1*/
+.searchGood_1_btn_warp{
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 0.413rem;
+}
+.searchGood_1_btn_item p {
+    font-size: 0.346rem;
+}
+
+.searchGood_1_btn_item:first-child i {
+    font-size: 20px;
+}
+.searchGood_1_btn_item:first-child p {
+    line-height: 0.826rem;
+}
+.searchGood_1_btn_warp a{
+    display: inline-block;
+    padding: 0.2rem 0.26rem;
+    border: 1px solid #cccccc;
+    border-radius:8px;
+    font-size: 0.293rem;
+    color: #333333;
+    margin-top: 0.26rem;
+    margin-right: 0.22rem;
+}
+.searchGood_cancel{
+    position: absolute;
+    right: 10px;
+}
+.searchGood_1_list_two .list{
+    padding-top:10px;
+}
+.searchGood_1_list_two_warp a{
+    color:#333333;
+    width: 2rem;
+    line-height: 0.68rem;
+    text-align: center;
+    border: 1px solid #343843;
+    border-radius: 6px;
+}
+.searchGood_1_list_two_warp p:first-child span i:nth-child(2){
+    color: #fe404c;
+    font-size: 0.32rem;
+}
+.searchGood_1_list_two_warp p:first-child span i:first-child{
+    display: inline-block;
+    background: #f4f4f4;
+    font-size:0.35rem;
+    width:2.65rem;
+    line-height:0.69rem;
+    text-align: center;
+}
+.searchGood_1_list_two_warp p{
+    margin: 0!important;
+}
+.searchGood_1_list_two_warp p:first-child{
+    display: inline-block;
+    padding:0.293rem 0.32rem;
+    border-bottom: 1px solid #f4f4f4;
+    width: 100%;
+}
+.searchGood_1_list_two_warp{
+    width: 90%;
+    margin: 0 auto;
+    background: #fffffe;
+    height:4.49rem;
+    padding:0 ;
+    margin-bottom: 7px;
+}
+.searchGood_1_img_warp div{
+    text-align: center;
+}
+.searchGood_1_img_warp div img{
+    width:80%;
+}
+.searchGood_1_img_warp div p{
+    text-align: center;
+    font-size: 0.32rem;
+}
+.searchGood_1_img_warp{
+    display: flex;
+    justify-content: space-around;
+}
+.searchGood_1_three_div span i{
+	color: #333333;
+    font-weight: 400;
+}
+.searchGood_1_three_div span {
+    font-size: 0.347rem;
+    color: #666666;
+}
+.searchGood_1_three_div img {
+    width: 22px;
+    vertical-align: text-top;
+
+}
+.searchGood_1_three_div{
+    line-height: 1.147rem;
+    display: block;
+}
+.searchGood_1_item_p{
+    line-height: 1.147rem;
+    font-size: 0.347rem;
+}
+.search_cancel{
+    padding: 8px 12px !important;
+    text-align: center;
+    line-height: 0 !important;
+    font-size: 14px !important;
+
+}

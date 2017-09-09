@@ -1,0 +1,176 @@
+<ion-view class="backgroundF4">
+  <div ng-class="{'search-backdrop':searchBackdrop}" ng-click="closeFilter()"></div>
+
+
+  <div class="shop_list_header">
+    <div class="shop_list_header_top">
+      <div class="w3 text-left floatL">
+        <span class="ion-ios-arrow-left" ng-click="rootBack()"></span>
+      </div>
+      <div class="w3 text-center floatL fons035" ng-bind="num"></div>
+
+      <!--<div class="w3 text-right floatL">
+        <span class="shop_list_three">
+            <img src="img/app/shop_inner/three.png">
+        </span>
+        <span class="ion-ios-more"></span>
+      </div>-->
+
+      <div class="clear"></div>
+    </div>
+    <div class="shop_list_bottom w10 shop_list_4Sbottom">
+      <!--<a class="shop_list_story" href="#/tab/Comm_story">品牌故事</a>-->
+      <span class="shop_list_red" ng-click="collect()" ng-if="showObj.myButton">收藏</span>
+      <span class="shop_list_grey" ng-if="showObj.myCollect">已收藏</span>
+    </div>
+  </div>
+  <ion-item class="shop_list_subheader padding0 backgroundF mB006666 position-r">
+    <a class="text-center color3 oneIndex" ng-click="myclick(3)" style="width: 25%;">综合</a>
+    <a class="text-center color3 oneIndex" ng-click="myclick(1)" style="width: 25%;">销量</a>
+    <a class="text-center color3 oneIndex" ng-click="myclick(2)" style="width: 25%;">价格</a>
+    <!-- <a class="w20 text-center color3 oneIndex" ng-click="filter()">筛选</a>-->
+    <a class="text-center color3 oneIndex shop_listSort" ng-class="{'shop_listSort':!choose,'shop_listSortVersa':choose}"  ng-click="paixuTwo()" style="width: 25%;text-align: center;"></a>
+    <!--<a ng-class="{'icon-paixu':!showClassiFy,'top-icon-paixu':showClassiFy}" class="text-center color3 oneIndex icon-paixu"></a> -->
+    <i class="shop_list_redW position-a"></i>
+  </ion-item>
+  <ion-content class="shop_content backgroundF4 paddingT6 bottom0" style="top: 0">
+
+    <ion-infinite-scroll ng-if="infinite" ng-show="infiniteShow" on-infinite="loadMore()"></ion-infinite-scroll>
+    <!--//文本模式-->
+    <ion-list class="shop_list_list" ng-if="showObj.chooseTwo">
+      <ion-item class="item-thumbnail-left border-N shop_list_item overPaceN mT8 shop_list_h325" ng-repeat="itemSendback in showObj.proList">
+        <img ng-src={{ossUrl}}{{itemSendback.ImagePath}} class="left-img-icon-all" ng-click="goProductDetailInfo(itemSendback.Sku)">
+        <div class="mL353rem shop_list_onebyone position-r" >
+          <p class="fonts16 color-343843 mT-10 chaoguolianghangshengluexianshi overPaceN" ng-bind="itemSendback.PName" ng-click="goProductDetailInfo(itemSendback.Sku)"></p>
+          <p class="color-fe404c shop_list_money" ng-bind="itemSendback.Price | currency:'¥'" ng-click="goProductDetailInfo(itemSendback.Sku)"></p>
+          <!--<p class="font12-c9">评价11条&nbsp;好评100%</p>-->
+          <p class="font12-c9 shop_inner-shop-title" ng-bind="num">
+          </p>
+          <i class="icon ion-ios-cart-outline shop_inner_icon_btn" ng-click="myAddition(itemSendback.Sku,itemSendback.PId,{{skuId.categoryId}})"></i>
+
+        </div>
+        <!--<ion-option-button class="button-assertive" ng-click="remove(items,item)"> 删除</ion-option-button>-->
+      </ion-item>
+    </ion-list>
+    <!--//列表模式-->
+    <ion-list ng-if="choose">
+
+      <ion-item class="row row-wrap abcd" style="padding: 0;margin: 0;border:none;background-color: #f4f4f4;">
+
+        <a ng-repeat="itemSendback in showObj.proList" class="icon col col-47 mT backgroundF cardname ml6mr6">
+          <img ng-src={{ossUrl}}{{itemSendback.ImagePath}} class="w10"  ng-click="goProductDetailInfo(itemSendback.Sku)" />
+          <span class="money-css333-class slide-zoom" ng-bind="itemSendback.PName"  ng-click="goProductDetailInfo(itemSendback.Sku)"></span>
+          <span class="money-css-class text-left-mL" ng-bind="itemSendback.Price | currency:'¥'"></span>
+        </a>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+  <!--  筛选  -->
+  <ion-view ng-class="{'filter-left-show':filterLeft,'filter-left-hide':filterRight,'filter-page':true}">
+    <ion-header-bar>
+      <h1 class="title">
+        筛选
+      </h1>
+    </ion-header-bar>
+    <!--<ion-list class="has-header">
+      <div class="item item-toggle border-N fonS032 background-f6f5f5" style="margin-top: 65px">
+        <label class="toggle toggle-dark">
+          <input type="checkbox"/>
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>是否有折扣
+      </div>
+      <div class="item item-toggle border-N fonS032 background-f6f5f5 mT">
+        <label class="toggle toggle-dark">
+          <input type="checkbox"/>
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>是否免运费
+      </div>
+    </ion-list>-->
+    <div class="classify_two_view_main">
+      <ion-content class="classify_two_view_main_left">
+        <ion-list class="item-icon-right" id="shop_list_father">
+          <ion-item ng-click="switch(1)" ng-class="{'shop_inner_btn':oneClassify,'item-icon-right':!oneClassify}">
+            <span>分类</span><i class="icon ion-ios-arrow-right ddd"></i>
+          </ion-item>
+          <ion-item ng-click="switch(2)" ng-class="{'shop_inner_btn':twoClassify,'item-icon-right':!twoClassify}">
+            <span>品牌</span><i class="icon ion-ios-arrow-right ddd"></i>
+          </ion-item>
+
+          <!--有待商榷功能-->
+          <!--<ion-item ng-click="switch(3)" ng-class="{'shop_inner_btn':thereClassify,'item-icon-right':!thereClassify}">
+              <span>暂缓开通</span><i class="icon ion-ios-arrow-right ddd"></i>
+          </ion-item>-->
+
+        </ion-list>
+      </ion-content>
+      <!--<ion-content class="classify_two_view_main_right" ng-if="oneClassify">-->
+      <ion-content class="classify_two_view_main_right" ng-show="oneClassify">
+        <div class="border-N item" id="classify_two_view_main_right_all">
+          全部
+        </div>
+        <ion-list>
+          <ion-item class="item-icon-right border1Se paddingZ" ng-repeat="classify in showObj.classify"
+                    ng-click="myOneClassify()" >
+            <div class="shop_list_right_div">
+            <span ng-bind="classify.Descript">
+            </span>
+              <span ng-bind="classify.myBind" class="floatR mR25 color9"></span><!-- gai  -->
+              <i class="icon ddd" ng-class="{'ion-ios-arrow-up':!classify.thereClassify,'ion-ios-arrow-down':classify.thereClassify}"></i>
+            </div>
+            <ul class="shop_inner_ul" ng-if="classify.thereClassify" ng-repeat="nLi in showObj.oneClassifyN" ng-click="bind(classify)">
+              <li ng-bind="nLi.Descript"></li>
+            </ul>
+          </ion-item>
+          <!--<ion-item class="item-icon-right border1Se pLpR" ng-repeat="classify in showObj.classify" ng-click="myOneClassify()">
+                                  <span ng-bind="classify.Descript" class="mLR16"></span><i class="icon ion-ios-arrow-down ddd"></i>
+                                  <ul class="shop_inner_ul" ng-if="classify.thereClassify" ng-repeat="nLi in showObj.oneClassifyN">
+                                    <li ng-bind="nLi.Descript"></li>
+                                  </ul>
+                              </ion-item>-->
+        </ion-list>
+      </ion-content>
+
+      <ion-content class="classify_two_view_main_right" ng-show="twoClassify">
+        <div class="border-N item" id="classify_two_view_main_right_all_two">
+          全部
+        </div>
+        <ion-list>
+          <ion-item class="item-icon-right border1Se" ng-repeat="classify in showObj.brandClassify"
+                    ng-click="myTwoClassify()">
+            <span ng-bind="classify.BrandName" class="text-center display-B" ng-click="shopBrabdName(classify)"></span>
+            <!--<ul class="shop_inner_ul" ng-if="classify.thereClassify" ng-repeat="nLi in showObj.twoClassify">-->
+            <!--<li ng-bind="classify.BrandName"></li>-->
+            <!--</ul>-->
+          </ion-item>
+        </ion-list>
+      </ion-content>
+
+
+      <!--有待商榷功能-->
+      <!--<ion-content class="classify_two_view_main_right" ng-show="thereClassify">
+        <div ng-class="{'search-backdrop':searchBackdrop}" ng-click="closeFilter()"></div>
+        <div class="border-N item">
+         暂缓开通
+        </div>
+        <ion-list >
+          <ion-item class="item-icon-right border1Se" >
+            <span ></span><i class="icon ion-ios-arrow-down ddd"></i>
+            <ul class="shop_inner_ul" ng-if="classify.thereClassify">
+              <li>暂缓开通</li>
+            </ul>
+          </ion-item>
+        </ion-list>
+      </ion-content>-->
+    </div>
+    <ion-footer-bar class="paddingZ">
+      <a ng-click="closeFilter()" class="screen-fontSize-b fontSize-b-f display-ib floatL borderTc w5 border-N">取消</a>
+      <a ng-click="demand()" class="screen-fontSize-b display-ib floatL w5">确定</a>
+    </ion-footer-bar>
+  </ion-view>
+  <!--  筛选  -->
+</ion-view>

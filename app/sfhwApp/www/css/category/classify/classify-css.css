@@ -1,0 +1,159 @@
+
+.col-47{
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 47.6%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 47.6%;
+    -ms-flex: 0 0 47.6%;
+    flex: 0 0 47.6%;
+    max-width: 47.6%;
+}
+.col-49{
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 48.6%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 48.6%;
+    -ms-flex: 0 0 48.6%;
+    flex: 0 0 48.6%;
+    max-width: 48.6%;
+}
+.money-css-class{
+    font-size:18px;
+    color: #ff5858;
+    padding-bottom: 0.25rem;
+  margin-top:6px;
+  padding-left: 5px;
+}
+.money-css333-class{
+    font-size: 0.32rem;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.icon-paixu{
+    background: url("../../../img/app/center/paixu.png") no-repeat;
+    background-size: contain;
+    width: 29px;
+    height: 29px;
+    position: absolute;
+    right:23px;
+    top: 8px;
+}
+.mTr:nth-child(odd){
+    margin-top: 8px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.mTr:nth-child(even){
+    margin-top: 8px;
+}
+.text-left-mL{
+    display: block;
+    text-align: left;
+    margin-left: 3px;
+}
+.cardname{
+    position:relative;
+}
+
+.cardname img{
+    width: 100%;
+    height: 100%;
+    min-width: 145px;
+    min-height: 150px;
+    max-height: 190px;
+}
+
+.image-loader-container{
+    position:absolute;
+    left: 43%;
+    top: 29%;
+}
+
+.filter-left-show{
+    left:10% !important;
+    transition: left 0.5s;
+    -moz-transition:left 0.5s; /* Firefox 4 */
+    -webkit-transition:left 0.5s; /* Safari and Chrome */
+    -o-transition:left 0.5s; /* Opera */
+}
+.filter-left-hide{
+    left:100% !important;
+    transition: left 0.5s;
+    -moz-transition:left 0.5s; /* Firefox 4 */
+    -webkit-transition:left 0.5s; /* Safari and Chrome */
+    -o-transition:left 0.5s; /* Opera */
+}
+
+.header-slide-up{
+    top:-64px !important;
+    transition: top 0.5s;
+    -moz-transition:top 0.5s; /* Firefox 4 */
+    -webkit-transition:top 0.5s; /* Safari and Chrome */
+    -o-transition:top 0.5s; /* Opera */
+}
+
+.header-slide-down{
+    top:0 !important;
+    transition: top 0.5s;
+    -moz-transition:top 0.5s; /* Firefox 4 */
+    -webkit-transition:top 0.5s; /* Safari and Chrome */
+    -o-transition:top 0.5s; /* Opera */
+}
+.subheader-slide-up{
+    top:-64px !important;
+    transition: top 0.5s;
+    -moz-transition:top 0.5s; /* Firefox 4 */
+    -webkit-transition:top 0.5s; /* Safari and Chrome */
+    -o-transition:top 0.5s; /* Opera */
+}
+.subheader-slide-down{
+    transition: top 0.5s;
+    -moz-transition:top 0.5s; /* Firefox 4 */
+    -webkit-transition:top 0.5s; /* Safari and Chrome */
+    -o-transition:top 0.5s; /* Opera */
+}
+
+.content-top{
+    top:0 !important;
+    transition: top 0.5s;
+    -moz-transition:top 0.5s; /* Firefox 4 */
+    -webkit-transition:top 0.5s; /* Safari and Chrome */
+    -o-transition:top 0.5s; /* Opera */
+}
+
+.filter-page{
+    position: absolute;
+    top:0 !important;
+    left: 100%;
+    z-index: 100;
+    width: 90%;
+    background-color: white;
+}
+.search-backdrop{
+    width: 100%;
+    height: 112%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-bottom: 161%;
+    background: rgba(0,0,0,0.4);
+    z-index: 10;
+}
+
+/*.myClassify-redW{*/
+    /*display: block;*/
+    /*border-bottom: 2px solid #fe404c;*/
+    /*width: 25%;*/
+    /*margin-left: -100%;*/
+    /*margin-top: 12px;*/
+/*}*/
+
+/*自定义搜索页面弹出速度*/
+.custom-slide-in-up{
+    transition:all ease-in-out 50ms !important;
+}
+.classify-bbbbb{
+  float: left;
+}

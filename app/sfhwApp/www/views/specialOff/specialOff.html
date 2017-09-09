@@ -1,0 +1,18 @@
+<ion-view>
+  <ion-header-bar class="background-343843">
+    <p class="specialOffTittle shishangzhonghei colorF">九点上新<br><span class="specialOffTittle displayblack">NEW</span></p>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list class="specialOffOffContent">
+              <ion-item class="specialOffItem" ng-repeat="pro in specialOffProduct">
+        <a href="#/tab/commIntro/{{pro.SKU}}"><img src="http://seebong-hangzhou.img-cn-hangzhou.aliyuncs.com/{{pro.ImageUrl}}@!app"></a>
+        <a href="#/tab/commIntro/{{pro.SKU}}"><p class="fangzhenglanting mB016" ng-bind="pro.ProductName"></p></a>
+        <p class="text-center specialOffPfirst"><span>RMB</span><span ng-bind="pro.ActivityPrice | number"></span></p>
+        <p class="text-center specialOffPfirst"><span class="text-decoration colorc9c9c9">RMB</span><span class="text-decoration colorc9c9c9" ng-bind="pro.MarketPrice | number"></span></p>
+      </ion-item>
+
+         
+      <div class="clear"></div>
+    </ion-list>
+  </ion-content>
+</ion-view>

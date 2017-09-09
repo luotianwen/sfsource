@@ -1,0 +1,66 @@
+<ion-view title="品牌街">
+    <ion-header-bar class="background-343843 paddingL16">
+        	<i class=" icon ion-ios-arrow-left button button-clear" style="color: #FFFFFF" ng-click="rootBack()"></i>
+            <div class="item-input-wrapper backgroundF">
+                <i class="icon ion-ios-search color-cc fonS2"></i>
+                <!--<input type="text" placeholder="请输入搜索关键字" class="w10 pL030" ng-model="content">-->
+                <input type="text" placeholder="请输入搜索关键字" class="w10" id="classify_search_key_word" ng-model="searchKeyword" ng-click="showSearchModal()">
+
+            </div>
+    </ion-header-bar>
+  <div class="bar bar-subheader has-header border-N backimgNot" style="z-index: 0;">
+    <span class="title fonS035">全部品牌</span>
+  </div>
+  <ion-content class="has-header has-subheader">
+    <ion-list>
+
+      <ion-item class="border-N col-93" ng-repeat="item in shopName" style="padding-top: 0">
+        <a class="w10 background-f6f5f5 padding16 pT11pB11 fontW600 display-ib color-b anchor" ng-bind="item.key" style="margin-bottom:13px"></a>
+        <ul class="brand_street_ul" ng-repeat="items in item.Brands">
+          <!--<li  ng-click="skip()"></li>-->
+            <li ng-click="skip()">
+			<img src="{{ossUrl}}BrandLogo/{{items.BrandLogo}}" />
+            <p ng-bind="items.BrandName" class="text-center"></p>
+          </li>
+        </ul>
+        <ul class="brand_street_ul" ng-if="!item.Brands">
+        	<li style="width:100%;height: auto;border: none;text-align: center;">暂无</li>
+        </ul>
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+
+  <div>
+    <ul class="brand_street_ul_two" style="overflow-x:hidden ;min-height: 200px;width: 30px;">
+      <li ng-click="gotoTop('mo0')">A</li>
+      <li ng-click="gotoTop('mo1')">B</li>
+      <li ng-click="gotoTop('mo2')">C</li>
+      <li ng-click="gotoTop('mo3')">D</li>
+      <li ng-click="gotoTop('mo4')">E</li>
+      <li ng-click="gotoTop('mo5')">F</li>
+      <li ng-click="gotoTop('mo6')">G</li>
+      <li ng-click="gotoTop('mo7')">H</li>
+      <li ng-click="gotoTop('mo8')">I</li>
+      <li ng-click="gotoTop('mo9')">J</li>
+      <li ng-click="gotoTop('mo10')">K</li>
+      <li ng-click="gotoTop('mo11')">L</li>
+      <li ng-click="gotoTop('mo12')">M</li>
+      <li ng-click="gotoTop('mo13')">N</li>
+      <li ng-click="gotoTop('mo14')">O</li>
+      <li ng-click="gotoTop('mo15')">P</li>
+      <li ng-click="gotoTop('mo16')">Q</li>
+      <li ng-click="gotoTop('mo17')">R</li>
+      <li ng-click="gotoTop('mo18')">S</li>
+      <li ng-click="gotoTop('mo19')">T</li>
+      <li ng-click="gotoTop('mo20')">U</li>
+      <li ng-click="gotoTop('mo21')">V</li>
+      <li ng-click="gotoTop('mo22')">W</li>
+      <li ng-click="gotoTop('mo23')">X</li>
+      <li ng-click="gotoTop('mo24')">Y</li>
+      <li ng-click="gotoTop('mo25')">Z</li>
+      <li ng-click="gotoTop('mo0')">#</li>
+    </ul>
+  </div>
+
+</ion-view>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <!--公共样式-->
+
+    <!-- lib js -->
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+    <script src="lib/jQuery/jquery-2.1.1.min.js"></script>
+    <script src="lib/layer/layer.js"></script>
+    <script src="lib/ionic/js/ionic-image-lazy-load.js"></script><!--图片延迟加载-->
+
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <!-- 切勿删除，该文件在项目编译成android项目时才会生成 -->
+    <script src="cordova.js"></script>
+
+ 	<!-- lib css库-->
+    <link rel="stylesheet" type="text/css" href="lib/ionic/css/ionic.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/layer/need/layer.css">
+
+    <!-- 自定义 css -->
+    <link rel="stylesheet" href="css/self/login/one.css"/>
+    <link rel="stylesheet" href="css/home/home.css"/>
+    <link rel="stylesheet" href="css/all-css.css"/>
+
+    <link rel="stylesheet" href="css/self/about/about.css" />
+
+    <!--  个人中心页  -->
+    <link rel="stylesheet" href="css/self/login/center-css.css"/>
+    <!--  个人中心页  -->
+
+    <!--  装备分类页  -->
+    <link rel="stylesheet" href="css/category/equipment-css.css"/>
+    <!--  装备分类页  -->
+
+    <!--  品牌街分类页  -->
+    <link rel="stylesheet" href="css/brand_street/brand_street.css"/>
+    <!--  品牌街分类页  -->
+
+    <!--  筛选页 css  -->
+    <link rel="stylesheet" href="css/category/screen/screen-css.css"/>
+    <!--  筛选页 css  -->
+
+    <!--  装备分类聚合页 css  -->
+    <link rel="stylesheet" href="css/category/classify/classify-css.css"/>
+
+    <!--  装备分类聚合页 列表模式 css  -->
+    <link rel="stylesheet" href="css/category/classify/classify-list-css.css"/>
+    <!--  装备分类聚合页 css  -->
+
+    <!--  购物车商品展示页 css  -->
+    <link rel="stylesheet" href="css/shopping/shopping-css.css"/>
+    <!--  购物车商品展示页 css  -->
+
+    <!--  搜索页面 css  -->
+    <link rel="stylesheet" href="css/category/classify/searchGood-css.css"/>
+    <!--  搜索页面 css  -->
+
+    <!--  店铺搜索页面 css  -->
+    <link rel="stylesheet" href="css/category/classify/seekShop-css.css"/>
+    <!--  店铺搜索页面 css  -->
+
+    <!--  城市三级联动 js文件  -->
+    <link rel="stylesheet" href="lib/city/css/LArea.css"/>
+    <!--  城市三级联动 js文件  -->
+
+    <!--  订单页 css  -->
+    <link rel="stylesheet" href="css/self/self-indent/self-indent-css.css"/>
+    <!--  订单页 css  -->
+
+    <!--  订单详情页 css  -->
+    <link rel="stylesheet" href="css/self/indentParticulars/indentParticulars-css.css"/>
+    <!--  订单详情页 css  -->
+
+    <!--  物流详情 css  -->
+    <link rel="stylesheet" href="css/self/indentParticulars/logisticsParticulars.css"/>
+    <!--  物流详情 css  -->
+
+    <!--  我的收藏 css  -->
+    <link rel="stylesheet" href="css/self/myCollect/myCollect-css.css"/>
+    <!--  我的收藏 css  -->
+
+    <!--商铺页（列表）-->
+    <link rel="stylesheet" href="css/shopping/shop_list/shop_list.css"/>
+    <!--商铺页（列表）-->
+
+    <!--设置及设置内容-->
+    <link rel="stylesheet" href="css/self/set/set.css"/>
+    <!--设置及设置内容-->
+
+    <!--优惠券页-->
+    <link rel="stylesheet" href="css/self/coupon/coupon.css"/>
+    <!--优惠券页-->
+
+    <!--积分页-->
+    <link rel="stylesheet" href="css/self/integral/integral.css"/>
+    <!--积分页-->
+
+    <!--评价页-->
+    <link rel="stylesheet" href="css/shopping/user_evalu/user_evalu.css"/>
+    <!--评价页-->
+
+    <!--商品页-->
+    <link rel="stylesheet" href="css/shopping/commIntro/commIntro.css"/>
+    <!--商品页-->
+
+    <!--提交订单-->
+    <link rel="stylesheet" href="css/shopping/subOrder/subOrder.css"/>
+    <!--提交订单-->
+
+    <!--品牌故事-->
+    <link rel="stylesheet" href="css/shopping/comm_story/comm_story.css"/>
+    <!--品牌故事-->
+
+    <!--退换货-->
+    <link rel="stylesheet" href="css/self/sendback_list/sendback_list.css"/>
+    <!--退换货-->
+
+    <!--秒杀-->
+    <link rel="stylesheet" href="css/seckill/seckill.css"/>
+    <!--秒杀-->
+
+  <!--客服-->
+    <link rel="stylesheet" href="css/serviceman/serviceman.css"/>
+    <!--秒杀-->
+
+  <!--上新-->
+    <link rel="stylesheet" href="css/specialOff/specialOff.css"/>
+    <!--秒杀-->
+
+    <!-- ios和android适配问题 -->
+    <link rel="stylesheet" href="css/ios-android/ios-android.css" />
+
+    <!-- 自定义 js -->
+    <script src="js/main.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controller_index.js"></script>
+    <script src="js/home/controller_home.js"></script>
+    <script src="js/category/controller_category.js"></script>
+    <script src="js/self/controller_self.js"></script>
+    <script src="js/brand_street/controller_brand_street.js"></script>
+    <script src="js/seckill/controller_seckill.js"></script>
+    <script src="js/specialOff/specialOff.js"></script>
+    <!--<script src="js/self/star.js"></script>-->
+    <script src="js/shopping/controller_shopping.js"></script>
+    <script src="js/serviceman/serviceman.js"></script>
+    <script type="text/javascript" src="lib/jQuery/jquery.raty.min.js"></script>
+
+
+    <!--  选择日期弹窗组件样式  -->
+    <link href="lib/iphone/css/mobiscroll_003.css" rel="stylesheet" type="text/css">
+    <!--  选择日期弹窗组件样式  -->
+
+    <!--  城市三级联动 js文件  -->
+    <script src="lib/city/js/LArea.min.js"></script>
+    <script src="lib/city/js/LAreaData.js"></script>
+
+    <!--  退款理由插件 关联选择日期弹窗组件样式（共用这两个文件） -->
+    <link rel="stylesheet" href="lib/mobiscroll/css/mobiscroll.custom-2.17.0.min.css"/>
+    <script src="lib/mobiscroll/js/mobiscroll.custom-2.17.0.min.js"></script>
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <!--  退款理由插件 关联选择日期弹窗组件样式（共用这两个文件） -->
+</head>
+<body ng-app="ionicApp" class="platform-cordova platform-webview">
+<ion-nav-view>
+
+</ion-nav-view>
+
+<script type="application/javascript">
+ 	window.onerror = function(msg, url, line) {
+	   var idx = url.lastIndexOf("/");
+	   if(idx > -1) {
+	    url = url.substring(idx+1);
+	   }
+	   // alert("ERROR in " + url + " (line #" + line + "): " + msg);
+	   return false;
+	};
+</script>
+</body>
+</html>

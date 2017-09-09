@@ -1,0 +1,42 @@
+<ion-view>
+  <ion-header-bar class="bar-dark background-343843 equipment-header" ng-click="$rootScrollTop()">
+    <!--<button class="button button-icon colorF icon ion-ios-arrow-left" ng-click="rootBack()"></button>-->
+    <h1 class="title">装备分类</h1>
+    <!--<button class="button-icon button ion-ios-search placeholder-icon search_ion tab-home-search-ionic fonS25" style="line-height: 34px;color:#fff;"></button>-->
+    <!--<a class="button button-light icon ion-ios-search-strong button-clear" href="#/tab/screen"></a>-->
+  </ion-header-bar>
+  <div class="equipment-content">
+  	<!--一级分类-->
+    <ul>
+      <li ng-repeat="item in category1.data"  ng-bind="item.Descript" ng-click="oneCategory()" ng-class="{'equipment-li-click':item.background}">
+      </li>
+    </ul>
+    
+    <!--子级分类展示区域-->
+    <ul id="childrenShowView">
+      <li>
+        <img ng-if="oneImage" src="{{aliOssUrl+oneImage}}">
+        <img ng-if="!oneImage" src="img/app/center/1231.png">
+      </li>
+      
+      <!--主内容  二级分类-->
+      <div ng-repeat="item in category2">
+        <li class="equipment-tittle" ng-bind="item.Descript">
+        </li>
+				
+				<!--三级分类-->
+        <li class="equipment-main">
+          <div class="w3qd" ng-repeat="item in item.Childrens" ng-click="threeCategory()">
+            <img ng-if="item.Image" src="{{aliOssUrl+item.Image}}">
+            <img ng-if="!item.Image" src="img/app/center/category_default.png">
+            <p ng-bind="item.Descript"></p>
+          </div>
+        </li>
+      </div>
+      
+    </ul>
+    <ul>
+
+    </ul>
+  </div>
+</ion-view>

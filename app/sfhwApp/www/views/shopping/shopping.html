@@ -1,0 +1,85 @@
+<ion-view class="bgefede7" view-title="购物车">
+
+  <ion-header-bar class="bar-dark background-343843" ng-click="$rootScrollTop()">
+    <button ng-if="hideTabs" class="button-icon icon ion-ios-arrow-left colorF" ng-click="rootBack()"></button>
+    <h1 class="title">购物车</h1>
+    <i class="button button-clear" ng-if="shopData.length > 0" ng-click="edit()" ng-bind="editOrDelete"></i>
+  </ion-header-bar>
+
+  <ion-content class="backgroundF4">
+    <ion-list ng-repeat="items in shopData">
+      <ion-item class="shop-item shopping_marginLR044" ng-class="{'mt-13':$index>0}">
+        <div class="borderBd shopping-cartMl-044">
+          <ion-checkbox ng-model="items.choose" ng-click="chooseAllChildrens(items)"
+                        class="checkbox-size mL26">
+          </ion-checkbox>
+          <span class="checkbox-size-span" ng-bind="items[0].ShopName"></span>
+        </div>
+      </ion-item>
+      <ion-item ng-repeat="item in items" class="item item-thumbnail-left row-wrap shopping-comm_fir border-N borderBf42 shopping_marginLR044 sonpT0 shopping-cartMlSon-044">
+        <img ng-click="goProductDetailInfo(item.SKU)" ng-src="{{ossUrl}}{{item.Image}}" class="mL26 shopping-l10">
+        <p ng-click="goProductDetailInfo(item.SKU)" class="shopName max-space mL393rem mT overPaceN chaoguolianghangshengluexianshi" ng-bind="item.PName"></p>
+
+        <p ng-click="goProductDetailInfo(item.SKU)" class="shopName-colour mt0 mL393rem">
+          <i ng-bind="item.Color"></i>
+          <i ng-bind="item.Specification"></i>
+        </p>
+
+        <p class="mt0 mL393rem" ng-switch="item.ProductType">
+          <i ng-switch-when="1" class="subOrder_vip floatL">赠品</i>
+          <i ng-switch-when="2" class="subOrder_vip floatL" ng-bind="item.Discount+'折'"></i>
+          <i ng-switch-when="4" class="subOrder_vip floatL" >包邮</i>
+        </p>
+
+        <div class="onebyone mL393rem">
+          <p class="color-fe404c font-w400 mt0 checkbox-position-bottom">
+            <i class="fontS14 color-fe404c" ng-bind="item.InitPrice | currency:'¥'"></i>
+          </p>
+          <div class="position-a-816 rigth14shoping top78">
+            <i ng-disabled="item.ProductType == 1" ng-click="reduceNum(item)" class="icon ion-ios-minus-empty position-a-816-i"></i>
+            <i class="aa icon checkbox-vertical-sub-input" ng-bind="item.Count"></i>
+            <i ng-disabled="item.ProductType == 1" ng-click="addNum(item)" class="icon ion-ios-plus-empty position-a-816-i"></i>
+          </div>
+        </div>
+        <ion-checkbox ng-click="clickShop(items)" class="checkbox-sizePositionI checkbox-size mL26" ng-model="item.choose"></ion-checkbox>
+
+        <!-- {0:'正常',1:'赠品',2:'打折',4:'包邮'} -->
+        <ion-option-button ng-if="item.ProductType != 1" class="button-assertive" ng-click="remove(items,item)">
+          删除
+        </ion-option-button>
+      </ion-item>
+
+      <!-- 占位footer -->
+      <ion-item ng-if="$index ==  (shopData.length-1)" style="height:50px;border:none;"></ion-item>
+    </ion-list>
+
+    <div  class="shopping_cart_null" ng-if="nullData">
+      <i class="ion ion-ios-cart-outline"></i>
+      <p>你的购物车是空的</p>
+      <span ng-click="goSearchShop()">去逛逛</span>
+    </div>
+  </ion-content>
+
+  <ion-footer-bar ng-if="shopData.length > 0"
+                  class="bar-subfooter background-Nborder-N padding0 w10 background-opacity pL044"
+                  style="height: 50px;bottom:{{bottompx}}px;">
+
+    <div style="width: 0.373rem;height: 0.453rem;position: relative;z-index: 3;">
+      <ion-checkbox ng-click="chooseAll()" ng-model="choose.allChoose" class="checkbox-bottom"></ion-checkbox>
+    </div>
+
+    <span class="shopping-Sall">全选</span>
+
+        <span class="cost-css" ng-if="!deleteshop">
+        	合计：<i class="color-fe404c fontS19" ng-bind="prices | currency:'¥'"></i>
+        </span>
+    <br/>
+    <!--<span style="top: 26px;" class="cost-css">免运费</span>-->
+
+    <button class="button button-css shopping_btn" ng-click="account()" ng-if="!deleteshop" ng-bind="'结算('+shopNum+')'"></button>
+
+    <button class="button button-css shopping_btn" ng-if="deleteshop" ng-click="deleteShops()">删除商品</button>
+  </ion-footer-bar>
+</ion-view>
+
+

@@ -1,0 +1,97 @@
+<ion-view view-title="设置">
+    <ion-header-bar ng-click="$rootScrollTop()">
+        <button class="button-icon icon ion-ios-arrow-left" ng-click="rootBack()"></button>
+        <h1 class="title fonF">
+            优惠券
+        </h1>
+    </ion-header-bar>
+    <ion-header-bar class="bar-subheader row padding0" >
+        <a class="col col-33 text-center color3 oneIndex" ng-click="myclick(0)">未使用</a>
+        <a class="col col-33 text-center color3 oneIndex" ng-click="myclick(1)">已使用</a>
+        <a class="col col-33 text-center color3 oneIndex" ng-click="myclick(2)">已过期</a>
+        <i class="selfIndex-redY"></i>
+    </ion-header-bar>
+    <ion-content class="backgroundF4" style="bottom: 0;top:108px;">
+        <ion-infinite-scroll ng-if="infinite" ng-show="infiniteShow" on-infinite="loadMore()" ></ion-infinite-scroll>
+
+        <ion-list ng-if="showObj[0].choose">
+            <ion-item class="border-N coupon_warp mT6" ng-repeat="itemNo in showObj[0].data">
+                <div class="coupon_red">
+                    <span class="coupon_red_title">优惠券</span>
+                    <div class="coupon_red_text">
+
+                        <span ng-bind="itemNo.CouponsFaceValue | currency:'¥'" class="subOrder_top_i colorfc3f4c">
+                        </span>
+
+                        <span class="fonS0293">优惠券</span>
+
+                        <div class="coupon_red_content fonS0293 color-333">
+                        	<span>适用范围</span>
+                        	<span ng-bind="itemNo.GetLevelName"></span>
+                        </div>
+
+                        <div class="coupon_red_content fonS0293 color-333">
+                        	<span>使用期限</span>
+                        	<span>{{itemNo.CouponsStartTimeName.replace(reg,".")}}-{{itemNo.CouponsEndTimeName.replace(reg,".")}}</span>
+                        </div>
+
+                    </div>
+                    <span class="trans tran4S" ng-bind="itemNo.CouponsTypeName"></span>
+                </div>
+            </ion-item>
+
+        </ion-list>
+
+        <ion-list  ng-if="showObj[1].choose">
+            <ion-item class="border-N coupon_warp mT6" ng-repeat="itemUse in showObj[1].data">
+                <div class="coupon_red">
+                    <span class="coupon_red_title">优惠券</span>
+                    <div class="coupon_red_text">
+                        <div class="coupon_red_txt">
+                            <span ng-bind="itemUse.CouponsFaceValue | currency:'¥'"></span>
+                            <span class="fonS0293">优惠券</span>
+                        </div>
+                        <div class="coupon_red_content fonS0293 color-333"><span>适用范围</span><span ng-bind="itemUse.GetLevelName"></span></div>
+                        <div class="coupon_red_content fonS0293 color-333"><span>使用期限</span><span>{{itemUse.CouponsStartTimeName.replace(reg,".")}}-{{itemUse.CouponsEndTimeName.replace(reg,".")}}</span></div>
+
+                    </div>
+                    <span class="trans background-ccc tran4S" ng-bind="itemUse.CouponsTypeName"></span>
+                </div>
+            </ion-item>
+        </ion-list>
+
+        <ion-list ng-if="showObj[2].choose">
+            <ion-item class="border-N coupon_warp mT6" ng-repeat="itemS in showObj[2].data">
+                <div class="coupon_red">
+                    <span class="coupon_red_title">优惠券</span>
+                    <div class="coupon_red_text" >
+                        <div class="coupon_red_txt">
+                            <span ng-bind="itemS.CouponsFaceValue | currency:'¥'"></span>
+                            <span class="fonS0293">优惠券</span>
+                        </div>
+                        <div class="coupon_red_content fonS0293 color-333"><span>适用范围</span><span ng-bind="itemS.GetLevelName"></span></div>
+                        <div class="coupon_red_content fonS0293 color-333"><span>使用期限</span><span>{{itemS.CouponsStartTimeName.replace(reg,".")}}-{{itemS.CouponsEndTimeName.replace(reg,".")}}</span></div>
+                    </div>
+                    <span class="trans background-ccc tran4S" ng-bind="itemS.CouponsTypeName"></span>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+
+    <ion-content ng-show="(showObj[0].choose && showObj[0].data.length == 0)
+    	|| (showObj[1].choose && showObj[1].data.length == 0)
+    	|| (showObj[2].choose && showObj[2].data.length == 0)">
+        <div class="shopping_cart_null">
+            <i><img src="img/app/center/youhuiquan.png"></i>
+            <p class="fonS0293 mT16 color-cc">您还没有优惠券哦</p>
+        </div>
+    </ion-content>
+</ion-view>
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+.integral_item p,.integral_item a{
+    font-size: 0.293rem;
+    color: #adadaf;
+    margin-bottom: 0.4rem;
+    line-height: 1;
+}
+.integral_03146{
+    font-size: 0.32rem !important;
+}
+.integral_category{
+    width: 1.093rem;
+    line-height: 0.506rem;
+    display: inline-block;
+    text-align: center;
+    background: #ddbd72;
+    color: #333;
+    border-radius: 0.23rem;
+}
+.integral_record{
+    line-height: 1.26rem;
+    border-bottom: 1px solid #eeeeee;
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+}

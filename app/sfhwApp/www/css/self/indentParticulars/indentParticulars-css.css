@@ -1,0 +1,153 @@
+.one:before {
+    content: "提交订单";
+    font-size: 12px;
+    margin-top: 10px;
+    display: inline-block;
+    margin-left: -18px;
+    color: #999;
+}
+
+.one1:before {
+    content: "付款成功";
+    font-size: 12px;
+    margin-top: 10px;
+    display: inline-block;
+    margin-left: -18px;
+    color: #999;
+}
+
+.one2:before {
+    content: "商品出库";
+    font-size: 12px;
+    margin-top: 10px;
+    display: inline-block;
+    margin-left: -18px;
+    color: #999;
+}
+
+.one3:before {
+    content: "等待收货";
+    font-size: 12px;
+    margin-top: 10px;
+    display: inline-block;
+    margin-left: -18px;
+    color: #999;
+}
+
+.one4:before {
+    content: "交易完成";
+    font-size: 12px;
+    margin-top: 10px;
+    display: inline-block;
+    margin-left: -18px;
+    color: #999;
+}
+
+.indentParticulars-top {
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+}
+
+.indentParticulars-wire {
+    width: 84%;
+    border: 1px solid #999;
+    margin: 0 auto;
+    display: block;
+    height: auto;
+    padding: 0 5px;
+    position: relative;
+}
+
+.indentParticulars-circle-all {
+    width: 10px;
+    height: 10px;
+    background-color: #999;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    top: -4px;
+    left: -1%;
+}
+
+.indentParticulars-circle-1 {
+    left: 25%;
+}
+
+.indentParticulars-circle-2 {
+    left: 50%;
+}
+
+.indentParticulars-circle-3 {
+    left: 75%;
+}
+
+.indentParticulars-circle-4 {
+    left: 100%;
+}
+
+.font12-W500 {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+}
+
+.font12-W600 {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+}
+
+.font14-W600 {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+.borderBottom-N {
+    border-bottom: none !important;
+}
+
+.color6 {
+    color: #666;
+}
+
+.m5 {
+    margin: 5px 0;
+}
+
+.m10 {
+    margin: 10px 0;
+}
+
+.border-343843 {
+    border: 1px solid #343843 !important;
+}
+
+.indentParticulars-circle_last:before {
+    color: #00bf62;
+}
+
+.indentParticulars-circle_last {
+    background: #00bf62 !important;
+}
+
+.indentParticulars-circle_now:before {
+    color: #343843;
+}
+
+.indentParticulars-circle_now {
+    background: #343843 !important;
+}
+
+.indentParticulars-btn {
+    width: 75px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #343843;
+    color: #343843;
+    margin-left: 5px;
+    display: block;
+    float: right;
+}
+
+.indentParticulars-footer {
+    display: block;
+}

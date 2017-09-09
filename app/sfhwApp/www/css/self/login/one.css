@@ -1,0 +1,96 @@
+/*  login里的样式可复用  */
+.icon-see{margin-right: 12px;
+  background: url("../../../img/app/center/icon-eye.png") no-repeat;
+  background-size: contain;
+  width:20px;
+  height:13px;margin-top: 4px;
+  display: block;}
+
+.icon-eye{
+    margin-top: 2px;
+    margin-right: 12px;
+    background: url("../../../img/app/center/icon-see.png") no-repeat;
+    background-size: contain;
+  width:20px;
+  height:13px;
+  display: block;
+}
+.color-font{
+    background-color: #cccccc;
+    color: #999999;
+    font-weight: 600;
+    font-size: 17px;
+    margin: 0 !important;
+}
+.color{
+    background-color: #FE404C;
+    color: #fff;
+}
+.content-css{
+    margin-top: 10px !important;background-color: #f4f4f4 !important;
+}
+.border-M{
+    border-radius:5px;
+    margin: 0 auto;
+    margin-top: 8px;
+    width: 91%;
+}
+.padding-W{
+    padding: 0;width: auto;padding-right: 10px;
+}
+.mpwd{
+    margin: 0 10px;padding: 0;width: 100%;background-color: #f4f4f4;
+}
+.dwf{
+    display: inline-block;width: auto;float: right;margin-right: 10px;
+}
+.display-ib{
+    display: inline-block;width: auto;
+}
+.all{
+    width: 100%;
+    max-height: 100%;
+    min-height: 40px !important;
+}
+.button:hover {
+/*    color: #fff !important;*/
+    text-decoration: none;
+}
+.register-num-grand-father{
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.register-num-father{
+  width:140px;
+  height: 47px;
+  padding: 0;
+  border-left: 1px solid #999999;
+}
+.bcfbw img{
+  padding: 0 10px   ;
+  width: 100%;
+  height: 100%;
+}
+.fcbb{
+    font-size: 14px;
+    color: #999999 !important;
+    background-color: #f4f4f4 !important;
+    border: none;
+}
+.disMt{
+    display: inline-block;
+    margin-top: 6px;
+}
+.reister-list .item{
+  border: none;
+}
+.register-num{
+  width:54px;
+  height: 68px;
+}
+.register-num-input{
+  border-right: 1px solid #999999;
+}
+.register-yanzhengma{
+  font-size:0.32rem;
+}

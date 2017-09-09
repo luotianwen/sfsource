@@ -1,0 +1,87 @@
+<ion-view view-title="我的收藏">
+    <ion-header-bar ng-click="$rootScrollTop()">
+        <i class=" icon ion-ios-arrow-left button button-clear" ng-click="rootBack()" style="color: #333 !important;"></i>
+        <h1 class="title">我的收藏</h1>
+    </ion-header-bar>
+
+    <ion-header-bar class="bar-subheader bar-dark row" style="padding: 0 5px;">
+        <div class="col col-60 margin-auto" style="padding: 0 5px;">
+            <a class="subheader-a" id="one" ng-click="myclick(0)">商品</a>
+            <a class="subheader-a" id="two"  ng-click="myclick(1)">店铺</a>
+            <a class="subheader-a" id="there" ng-click="myclick(2)">品牌</a>
+            <i class="myCollect-redW"></i>
+        </div>
+    </ion-header-bar>
+    <ion-content style="bottom: 0;background: #f4f4f4">
+        <ion-infinite-scroll ng-if="infinite" ng-show="infiniteShow" on-infinite="loadMore()" ></ion-infinite-scroll>
+
+        <ion-list ng-if="showObj[0].choose">
+            <ion-item class=" item item-thumbnail-left myCollect-item backgroundF4" ng-repeat="item in showObj[0].data" style="border:none">
+                <!--ng-repeat="item in shops"-->
+                <img ng-click="goProductDetailInfo(item.Sku)" class="left-img-icon-all" ng-src={{ossUrl}}{{item.IPath}}>
+                <!--ng-src="ossUrl+item.SShopLogo"-->
+                    <div class="onebyone mL353rem">
+                        <p ng-click="goProductDetailInfo(item.Sku)" class="fonts16 color-343843 mT-10" ng-bind="item.PName"></p>
+                        <p class="color-fe404c mT034rem"><i class="fontS19" ng-bind="item.Price | currency:'¥'"></i></p>
+                        <p class="font12-c9 mT"><span>暂无评价</span>&nbsp;<span>好评100%</span></p>
+                        <p class="font12-c9" ng-bind="item.ShopName"></p>
+                        <i ng-click="addShopCart()" class="icon ion-ios-cart-outline icon-img-css color9 mT"></i>
+                    </div>
+
+	                <ion-option-button class="button-assertive" ng-click="remove(item.PId,'UnFollowProduct',showObj[0].data,$index)">
+	                    删除
+	                </ion-option-button>
+            </ion-item>
+        </ion-list>
+
+
+        <ion-list ng-if="showObj[1].choose">
+
+            <ion-item class=" item item-thumbnail-left backgroundF4 item-icon-right" ng-repeat="itemS in showObj[1].data" ng-click="goBrandDetailInfo(itemS.SId)" style="border: none">
+                <img class="left-img-icon-all" ng-src="{{ossUrl}}{{itemS.SShopLogo}}">
+                <div class="mL353rem">
+                    <p class="fonts16 color-343843 mySb-font" ng-bind="itemS.SShopName"></p>
+                    <i class="icon ion-ios-arrow-right color9"></i>
+                </div>
+
+                <ion-option-button class="button-assertive" ng-click="remove(itemS.SId,'UnFollowShop',showObj[1].data,$index)">
+                    删除
+                </ion-option-button>
+            </ion-item>
+
+        </ion-list>
+
+
+        <ion-list ng-if="showObj[2].choose">
+
+            <ion-item class=" item item-thumbnail-left backgroundF4 item-icon-right"  ng-repeat="item in showObj[2].data" ng-click="goShopInnerDetailInfo(item.BId)">
+                <img alt="#"  class="left-img-icon-all"  ng-src="{{ossUrl}}{{item.BrandLogo}}">
+                <div class="mL353rem">
+                    <p class="fonts16 color-343843 mySb-font"  ng-bind="item.BrandName"></p>
+                    <i class="icon ion-ios-arrow-right color9"></i>
+                </div>
+
+                <ion-option-button class="button-assertive" ng-click="remove(item.BId,'UnFollowBrand',showObj[2].data,$index)">
+                    删除
+                </ion-option-button>
+
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <ion-content class="backgroundF4" ng-show="showObj[0].choose && showObj[0].data.length == 0">
+        <div class="shopping_cart_null">
+            <p class="mT16 color-cc fonS037">您还没有收藏的商品哦</p>
+        </div>
+    </ion-content>
+    <ion-content class="backgroundF4" ng-show="showObj[1].choose && showObj[1].data.length == 0">
+        <div class="shopping_cart_null">
+            <p class="mT16 color-cc fonS037">您还没有收藏的店铺哦</p>
+        </div>
+    </ion-content>
+    <ion-content class="backgroundF4" ng-show="showObj[2].choose && showObj[2].data.length == 0">
+        <div class="shopping_cart_null">
+            <p class="mT16 color-cc fonS037">您还没有收藏的品牌哦</p>
+        </div>
+    </ion-content>
+</ion-view>
+

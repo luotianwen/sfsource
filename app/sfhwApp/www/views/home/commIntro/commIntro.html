@@ -1,0 +1,754 @@
+<ion-view class="backgroundF4">
+
+  <!--
+   默认单品页： 02 03 09
+   上滑变化页：01  05 09
+   左滑图文详情：02 05 09
+   右上角弹窗：14
+   促销弹窗：13  15
+   加入购物车： 11 15
+   地区：18  15
+   优惠券 15
+   左滑评价：
+   -->
+
+
+  <!--标题-->
+  <ion-header-bar class="backimgNot borderB">
+    <button class="button-icon icon ion-ios-arrow-left" ng-click="rootBack()"></button>
+
+    <!-- 001 start -->
+    <h1 ng-show="module.one" class="title fonF fonS04">
+      图文详情
+    </h1>
+    <!-- 001 end -->
+
+    <!--用的时候直接给上面 或者下面的display 设为none-->
+
+
+    <!-- 002 star -->
+    <!--<div ng-show="module.two" class="title">-->
+    <div ng-show="module.two" class="title left0">
+      <ul class="commIntro_ul w4 margin-auto">
+
+        <li class="Comm floatL col col-33" ng-click="switchShowModule(0)">
+          <a class="color-b">商品</a>
+        </li>
+
+        <li class="Comm floatL col col-33" ng-click="switchShowModule(1)">
+          <a class="color-b">详情</a>
+        </li>
+
+        <!--<li class="Comm floatL col col-33" ng-click="switchShowModule(2)">
+            <a class="color-b">评价</a>
+        </li>-->
+
+        <div class="commIntro-i-red"></div>
+      </ul>
+    </div>
+    <!-- 002 end -->
+
+
+    <!--<div class="buttons backgroundF lineH10666 mR15 commIntro_mor_btn">
+        <i class="shop_header_three mR15">
+            <img src="img/app/shop_inner/share.png">
+        </i>
+
+        <i class="icon ion-more position-r">
+            <span class="red-btn-R"></span>
+            -->
+    <!--右上角弹窗-->
+    <!--14 star-->
+    <!--
+    <div ng-show="module.fourteen" class="right_box color-b">
+        <div class="triangle-up"></div>
+        <p><i class="ion-chatbox-working"></i><span>消息</span></p>
+        <p><i class="ion ion-android-search"></i><span>消息</span></p>
+        <p><i class="ion ion-ios-home-outline"></i><span>消息</span></p>
+    </div>
+    <!--14 end-->
+    <!--</i>
+</div>-->
+    <button class="button button-icon icon ion-share floatR commIntro-share" ng-click="shareBtn()"></button>
+  </ion-header-bar>
+
+  <!--05  star-->
+  <!--商品详情页subheader   -->
+  <div ng-if="module.five" class="backgroundF commIntro_tabs bar-subheader tabs tabs-top backimgNot border-N">
+    <a class="tab-item" ng-click="chooseContent(0)">
+      商品详情
+    </a>
+    <a class="tab-item" ng-click="chooseContent(1)">
+      商品参数
+    </a>
+    <a class="tab-item" ng-click="chooseContent(2)">
+      售后保障
+    </a>
+  </div>
+  <!--05 end-->
+
+
+
+  <!--04  star-->
+  <!--上滑详情页content-->
+  <ion-content ng-show="module.four && !content.detailOneIsHide" class="commIntro_content has-subheader border-N">
+    <ion-list class="backgroundF">
+
+      <!--04   0star-->
+      <ion-item class="commIntro_table overPaceN" ng-class="{'display-N':content.detailOneIsHide}" >
+        <custom ng-bind-html="product.PDescribe" class="img-b overPaceN">
+
+        </custom>
+      </ion-item>
+      <!--04  0end-->
+    </ion-list>
+  </ion-content>
+  <ion-content ng-show="module.four && !content.detailTwoIsHide" class="commIntro_content has-subheader border-N">
+    <ion-list class="backgroundF">
+
+      <!--商品参数-->
+      <!--04   1star-->
+      <ion-item class="border-N" ng-class="{'display-N':content.detailTwoIsHide}">
+        <custom ng-bind-html="product.PParameter" class="overPaceASon overPaceN">
+
+        </custom>
+      </ion-item>
+      <!--04  1end-->
+    </ion-list>
+  </ion-content>
+  <ion-content ng-show="module.four && !content.detailThreeIsHide" class="commIntro_content has-subheader border-N">
+    <ion-list class="backgroundF">
+
+      <!--售后-->
+      <!--04 2 star-->
+      <ion-item class="commIntro_table" ng-class="{'display-N':content.detailThreeIsHide}">
+        <ion-item class="border-N pdmd_z">
+          <a class="w10 background-f6f5f5 padding16 pT11pB11 fontW600 display-ib color-b anchor" style="margin-bottom:13px;font-size:13px;line-height:11px;margin-top: 15px;">一、功能性故障或质量问题</a>
+          <ul class="commIntro-Shou-ul">
+            <li>
+              1. 国家关于“三包”的法律法规所规定的功能性故障、商品质量问题或非人
+              为质量问题；
+
+            </li>
+            <li>2. 经由生产厂家指定或特约售后服务中心检测确认并出具检测报告的商品质
+              量问题（如售后服务中心无法提供检测报告，则需提供商品检测或故障单）;
+             </li>
+            <li> 3. 经世峰商城卖家售后确认的商品质量问题；
+             </li>
+            <li><p class="fontW900">4. 支持7天退货、支持15天换货、不收取返回运费。</p>
+              备注：图片及信息仅供参考，不属于质量问题。因拍摄灯光及不同显示器色
+              差等问题可能造成商品图片与实物有色差，一切以实物为准；当地无检测条
+              件的请联系商城卖家客服处理</li>
+          </ul>
+        </ion-item>
+        <ion-item class="border-N pdmd_z">
+          <a class="w10 background-f6f5f5 padding16 pT11pB11 fontW600 display-ib color-b anchor" style="margin-bottom:13px;font-size:13px;line-height:11px;margin-top: 15px;">二、到货物流损、缺件等物流问题</a>
+          <ul class="commIntro-Shou-ul">
+            <li>
+              1. 物流损指在物流运输过程中造成的损坏、漏液、破碎、性能故障等经售后
+              人员核查情况属实；缺件指商品原装配件缺失；</li>
+            <li>
+              <p class="fontW900">2. 支持7天退货、支持15天换货、不收取返回运费。</p>
+              备注：审核期间可能需要快递公司人员证明或要求您提供商品实物照片，以
+              便商城卖家售后快速做出判断并及时处理。</li>
+          </ul>
+        </ion-item>
+        <ion-item class="border-N pdmd_z">
+          <a class="w10 background-f6f5f5 padding16 pT11pB11 fontW600 display-ib color-b anchor" style="margin-bottom:13px;font-size:13px;line-height:11px;margin-top: 15px;">三、商品描述不符问题</a>
+          <ul class="commIntro-Shou-ul">
+            <li>
+              1. 所收商品与网站描述不符的问题；
+            </li>
+            <li>
+              <p class="fontW900">2. 支持7天退货、支持15天换货、不收取返回运费。</p>
+              备注：要求您提供商品实物照片，以便商城卖家售后快速做出判断并及时处理。</li>
+          </ul>
+        </ion-item>
+        <ion-item class="border-N pdmd_z">
+          <a class="w10 background-f6f5f5 padding16 pT11pB11 fontW600 display-ib color-b anchor" style="margin-bottom:13px;font-size:13px;line-height:11px;margin-top: 15px;">四、无理由退换货</a>
+          <ul class="commIntro-Shou-ul">
+            <li>1. 未使用、未破坏原包装且不影响二次销售的商品；
+            </li>
+            <li><p class="fontW900">2. 支持7天退货、暂不支持15天换货、收取返回运费。 </p>
+              备注：由客户承担商品返回商城卖家的运费。</li>
+          </ul>
+        </ion-item>
+<!--        <custom ng-bind-html="product.Descript" class="overPaceASon">
+
+        </custom>-->
+      </ion-item>
+      <!--04 2 end-->
+    </ion-list>
+  </ion-content>
+  <!--04  end-->
+
+
+
+
+  <!--03 star-->
+  <!--正常商品页content-->
+  <ion-content ng-show="module.three" class="backgroundCF left0">
+
+    <!-- sku图片轮播图 -->
+    <ion-slide-box class="he10 borderBf4 commIntro_content_main"  >
+      <ion-slide ng-repeat="img in product.IPath.split('|')">
+        <div class="box commIntro_img">
+          <img src="http://seebong-hangzhou.img-cn-hangzhou.aliyuncs.com/{{img}}@!app">
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+
+    <ion-list class="commintro_list">
+
+      <ion-item>
+        <p class="fonS04 fonF color-fe5d67">
+          <i class="fonS_066" ng-bind="product.Price | currency:'¥'"></i>
+        </p>
+        <p class="fonS035 text-decoration mT color9" ng-bind="product.PMarketPrice | currency:'¥'"></p>
+        <a class="commIntro_shop_name" href="#/tab/shop_list/{{product.SId}}">
+          <span ng-bind="product.SShopName" style="margin-left: 15px"></span>
+          <i class="icon ion-ios-arrow-right ddd floatR"></i>
+        </a>
+      </ion-item>
+
+      <ion-item>
+        <p class="overPaceN color-6 fontW600" ng-bind="product.PName"><!--<i>【预售】</i>--></p>
+        <p class="color-fe5d67" ng-bind="product.PGoodsSubTitle"></p>
+      </ion-item>
+
+      <ion-item class="commIntro_morActi">
+        <p ng-click="youhui()" ng-if="youhuiquanArrays.length > 0">
+          <i class="red_tag">领券</i>
+          <span>点击领取优惠券</span>
+        </p>
+
+        <p ng-click="cuxiao()" ng-if="cuxiaoArrays.length > 0">
+          <i class="red_tag">
+            <span>促销</span>
+          </i>
+            		<span ng-repeat="item in cuxiaoArrays">
+            			<span ng-bind="item"></span>
+            			<span ng-if="cuxiaoArrays.length > $index+1">、</span>
+            		</span>
+        </p>
+
+        <p>
+          <i class="red_tag">积分</i>
+          <span ng-bind="'购买即可得'+product.Price+'个积分'"></span>
+        </p>
+      </ion-item>
+
+      <ion-item class="border-N commIntro_baozheng pTpB fonS0293">
+        <span class="col col-33 floatL pdmd_z">厂家直销正品保证</span>
+        <span class="col col-33 floatL pdmd_z text_align">安全保障</span>
+        <span class="col col-33 floatL pdmd_z text_alignR">7天退换货保证</span>
+      </ion-item>
+
+      <ion-item class="pTpB border-N lineH10666 fonS032 commIntro_region" ng-click="showAddress()">
+
+        <div class="floatL">
+          <span>送至</span>
+          <span ng-bind="address.currentProvinceName"></span>
+          <span ng-bind="address.currentCityName"></span>
+          <span ng-bind="address.currentCountyName"></span>
+        </div>
+
+        <i class="icon ion-ios-arrow-right ddd floatR"></i>
+      </ion-item>
+
+      <ion-item class="pTpB lineH10666 fonS032 commIntro_region" ng-click="chooseColorSpec()" id="commIntro-yixuan">
+        <div class="floatL">
+          <span>已选</span>
+          <span ng-bind="color"></span>
+          <span ng-bind="spec"></span>
+        </div>
+        <i class="icon ion-ios-arrow-right ddd floatR"></i>
+      </ion-item>
+
+      <ion-item class="pTpB lineH10666 fonS032 commIntro_region  borderBf4">
+        <div class="floatL">
+          <span>运费</span>
+          <span ng-bind="freight"><i>元</i></span>
+        </div>
+      </ion-item>
+
+      <!-- 商品评价 start -->
+      <!--<ion-item class="pTpB lineH10666 fonS032 commIntro_region border-N borderBf4" >
+        <div class="floatL">
+          <span>商品评价</span>
+          <span>（<i>999999人</i>）</span>
+        </div>
+        <i class="icon ion-ios-arrow-right ddd floatR"></i>
+      </ion-item>-->
+      <!-- 商品评价 end -->
+
+      <ion-item class="fonS032 border-N borderBf4 padding1111" ng-click="goShopDetail(product.SId)" >
+        <div>
+          <div class="floatL commIntro_dianPu_Name">
+            <div class="commIntro_imgWarp">
+              <img src="{{product.SShopLogo}}" class="floatL">
+            </div>
+            <p class="fons032 color-b" ng-bind="product.SShopName"></p>
+            <p class="fons032 color-fe5d67">
+              <span ng-bind="shopInfo.Synthesize.toFixed(2)"></span>
+              <i>分</i>
+            </p>
+          </div>
+          <i class="icon ion-ios-arrow-right ddd floatR"></i>
+        </div>
+        <div class="commIntro_pingJia mB8">
+          <span class="w3">商品评价：<i ng-bind="shopInfo.Describe"></i></span>
+          <span class="w3">服务态度：<i ng-bind="shopInfo.Service"></i></span>
+          <span class="w3">物流速度：<i ng-bind="shopInfo.Shipments"></i></span>
+        </div>
+      </ion-item>
+
+      <!--<ion-item class='border-N backgroundF4 pdmd_z commIntro_middle'>
+          <p>继续拖动将要浏览更多商品详情</p>
+      </ion-item>-->
+      <div></div>
+    </ion-list>
+  </ion-content>
+  <!--03 end-->
+
+
+
+
+  <!--评价-->
+  <!--06 star-->
+  <!--评价副标题-->
+  <!--<div ng-show="module.six" class="bar bar-subheader border-N backimgNot commIntro_eva_sub">
+      <div class="">
+          <p>全部评价</p>
+          <span>100%</span>
+      </div>
+      <div>
+          <p>好评</p>
+          <span>30%</span>
+      </div>
+      <div>
+          <p>中评</p>
+          <span>30%</span>
+      </div>
+      <div>
+          <p>差评</p>
+          <span>30%</span>
+      </div>
+      <div>
+          <p>有图评价</p>
+          <span>30</span>
+      </div>
+  </div>-->
+  <!--06 end-->
+
+
+  <!--07 star-->
+  <!--有内容的评价-->
+  <!--<ion-content ng-show="module.seven" class="commIntro_eva_cont">
+      <ion-list class="commIntro_item-warp">
+        <ion-item class="border-N pLpR">
+              <div class="commIntro_user_int">
+                  <div class="floatL item-avatar commIntro_user_img">
+                      <img src="img/adam.jpg">
+                      <p>hahahhahaha</p>
+                      <span class="nostar"></span>
+                    <div class="clear"></div>
+                  </div>
+                  <span class="floatR commIntro_time">2016-7-22 15:55</span>
+                <div class="clear"></div>
+              </div>
+              <div class="commIntro_user_eva paddingLR16">
+                  <p>还行 一般般</p>
+                <div class="w10">
+                    <img src="img/adam.jpg" class="col col-20 background-r commIntro-back-img paddingZ floatL">
+                    <img src="img/adam.jpg" class="col col-20 background-r commIntro-back-img paddingZ floatL">
+                    <img src="img/adam.jpg" class="col col-20 background-r commIntro-back-img paddingZ floatL">
+                    <img src="img/adam.jpg" class="col col-20 background-r commIntro-back-img paddingZ floatL">
+                  <div class="clear"></div>
+                </div>
+                  <p class="commIntro_user_eva_two">
+                      <span class="floatL">规格：卡其色</span>
+                      <span class="floatR">Telent天伦天官方旗舰店</span>
+                  </p>
+                <div class="clear"></div>
+              </div>
+
+          </ion-item>
+        <ion-item class="border-N pLpR">
+          <div class="commIntro_user_int">
+            <div class="floatL item-avatar commIntro_user_img">
+              <img src="img/adam.jpg">
+              <p>hahahhahaha</p>
+              <span class="oneS"></span>
+              <div class="clear"></div>
+            </div>
+            <span class="floatR commIntro_time">2016-7-22 15:55</span>
+            <div class="clear"></div>
+          </div>
+          <div class="commIntro_user_eva paddingLR16">
+            <p>还行 一般般</p>
+            <div class="w10">
+              <div class="clear"></div>
+            </div>
+            <p class="commIntro_user_eva_two">
+              <span class="floatL">规格：卡其色</span>
+              <span class="floatR">Telent天伦天官方旗舰店</span>
+            </p>
+            <div class="clear"></div>
+          </div>
+
+        </ion-item>
+        <ion-item class="border-N pLpR">
+          <div class="commIntro_user_int">
+            <div class="floatL item-avatar commIntro_user_img">
+              <img src="img/adam.jpg">
+              <p>hahahhahaha</p>
+              <span class="twoS"></span>
+              <div class="clear"></div>
+            </div>
+            <span class="floatR commIntro_time">2016-7-22 15:55</span>
+            <div class="clear"></div>
+          </div>
+          <div class="commIntro_user_eva paddingLR16">
+            <p>还行 一般般</p>
+            <div class="w10">
+              <div class="clear"></div>
+            </div>
+            <p class="commIntro_user_eva_two">
+              <span class="floatL">规格：卡其色</span>
+              <span class="floatR">Telent天伦天官方旗舰店</span>
+            </p>
+            <div class="clear"></div>
+          </div>
+
+        </ion-item>
+        <ion-item class="border-N pLpR">
+          <div class="commIntro_user_int">
+            <div class="floatL item-avatar commIntro_user_img">
+              <img src="img/adam.jpg">
+              <p>hahahhahaha</p>
+              <span class="threeS"></span>
+              <div class="clear"></div>
+            </div>
+            <span class="floatR commIntro_time">2016-7-22 15:55</span>
+            <div class="clear"></div>
+          </div>
+          <div class="commIntro_user_eva paddingLR16">
+            <p>还行 一般般</p>
+            <div class="w10">
+              <div class="clear"></div>
+            </div>
+            <p class="commIntro_user_eva_two">
+              <span class="floatL">规格：卡其色</span>
+              <span class="floatR">Telent天伦天官方旗舰店</span>
+            </p>
+            <div class="clear"></div>
+          </div>
+
+        </ion-item>
+        <ion-item class="border-N pLpR">
+          <div class="commIntro_user_int">
+            <div class="floatL item-avatar commIntro_user_img">
+              <img src="img/adam.jpg">
+              <p>hahahhahaha</p>
+              <span class="fourS"></span>
+              <div class="clear"></div>
+            </div>
+            <span class="floatR commIntro_time">2016-7-22 15:55</span>
+            <div class="clear"></div>
+          </div>
+          <div class="commIntro_user_eva paddingLR16">
+            <p>还行 一般般</p>
+            <div class="w10">
+              <div class="clear"></div>
+            </div>
+            <p class="commIntro_user_eva_two">
+              <span class="floatL">规格：卡其色</span>
+              <span class="floatR">Telent天伦天官方旗舰店</span>
+            </p>
+            <div class="clear"></div>
+          </div>
+
+        </ion-item>
+        <ion-item class="border-N pLpR">
+          <div class="commIntro_user_int">
+            <div class="floatL item-avatar commIntro_user_img">
+              <img src="img/adam.jpg">
+              <p>hahahhahaha</p>
+              <span class="fiveS"></span>
+              <div class="clear"></div>
+            </div>
+            <span class="floatR commIntro_time">2016-7-22 15:55</span>
+            <div class="clear"></div>
+          </div>
+          <div class="commIntro_user_eva paddingLR16">
+            <p>还行 一般般</p>
+            <div class="w10">
+              <div class="clear"></div>
+            </div>
+            <p class="commIntro_user_eva_two">
+              <span class="floatL">规格：卡其色</span>
+              <span class="floatR">Telent天伦天官方旗舰店</span>
+            </p>
+            <div class="clear"></div>
+          </div>
+
+        </ion-item>
+      </ion-list>
+  </ion-content>-->
+
+  <!--
+        0颗星星nostar
+        oneS
+        twoS
+        threeS
+        fourS
+        fiveS
+        -->
+
+  <!--07 end-->
+
+
+  <!--08 star-->
+  <!--无内容的评价-->
+  <ion-content ng-show="module.eight">
+    <div class="shopping_cart_null">
+      <i class="ion ion-chatbox-working fonS3"></i>
+      <p class="fonS0293 mT16">暂时没有评价哦</p>
+    </div>
+  </ion-content>
+  <!--08 end-->
+
+
+  <!--正常的footer-->
+
+  <ion-footer-bar class="commIntro_footer pdmd_z">
+    <div class="w5 commIntro_btn">
+      <a class="w3 floatL fonS0293 he10" href="#/tab/shop_list/{{product.SId}}">
+        <p class="pdmd_z commIntro_dianpu">
+          <img src="img/app/shop_inner/dianpu.png">
+        </p>
+
+        <p>进入店铺</p>
+      </a>
+
+      <a ng-if="!isFollowProduct" class="w3 floatL fonS0293 he10 marginT3" ng-click="followProduct()">
+        <p class="pdmd_z commIntro_dianpu">
+          <img src="img/app/shop_inner/heart.png">
+        </p>
+        <p>收藏</p>
+      </a>
+
+      <a ng-if="isFollowProduct" class="w3 floatL fonS0293 he10 marginT3" ng-click="unFollowProduct()">
+        <p class="pdmd_z commIntro_dianpu">
+          <img src="img/app/shop_inner/red_heart.png">
+        </p>
+        <p>已收藏</p>
+      </a>
+
+
+      <a href="#/tab/shopping/true" class="w3 floatL fonS0293 he10 commIntro_dianpu_warp has-badge">
+        <p class="pdmd_z commIntro_dianpu">
+          <img src="img/app/shop_inner/cart.png">
+        </p>
+        <p>购物车</p>
+        <span class="badge badge-assertive" ng-bind="tab.shopCartNum" ng-if="tab.shopCartNum != 0"></span>
+      </a>
+    </div>
+
+
+    <!--09 star-->
+    <div ng-show="module.nine" class="w5 commIntro_bR left0">
+      <a><span class="background-343843" ng-click="addShopCart(skuId)">加入购物车</span></a>
+      <a><span class="background-fe404c" ng-click="buy()">购买</span></a>
+    </div>
+    <!--09end-->
+
+
+    <!--10 star-->
+    <div ng-show="module.ten" class="w5 commIntro_arrival_btn">
+      <a href="#"><span class="background-343843 w10">到货通知</span></a>
+    </div>
+    <!--10end-->
+  </ion-footer-bar>
+
+
+
+
+
+  <!--11star-->
+  <!--<custom ng-show="module.eleven">-->
+  <custom class="custom_hide" id="chooseSku" ng-class="{'custom_show':module.eleven}" >
+    <!--加入购物车-->
+    <ion-list class="commIntro_jion_cart has-footer paddingB index10 overPaceA" style="padding:16px;padding-bottom: 0">
+      <ion-item class="border-N borderBe commIntro_jion_cart_top overPaceA pdmd_z padding6 position-r">
+        <div class="commIntro_jion_cart_img">
+          <img src="{{ossUrl}}{{chooseSkuProductImg}}">
+        </div>
+        <div class="commIntro_jion_cart_text floatR">
+          <span class="fonS037 fontW600 pdmd_z" ng-bind="product.Price | currency:'¥'"></span>
+          <p class="fonS0293 overPaceN pdmd_z" ng-bind="product.PName"></p>
+        </div>
+        <div class="clear"></div>
+      </ion-item>
+
+
+      <!--commIntro_jion_cart_btn_red   commIntro_jion_cart_btn_grey  commIntro_jion_cart_btn_null -->
+      <div class="commIntro-parameter" id="commIntro-parameter">
+        <ion-item ng-repeat="rule in rules" class="border-N borderBe mT commIntro_jion_cart_btn_color padding6">
+          <input type="hidden" ng-bind="rulesIndex = $index" >
+          <p class="fonS032" ng-bind="rule.describe"></p>
+          <a ng-repeat="item in rule.values"
+             ng-class="{
+	            	'commIntro_jion_cart_btn_grey':true,
+	            	'commIntro_jion_cart_btn_red':(item.RId == colorId || item.RId == specId),
+	            	'commIntro_jion_cart_btn_null':item.btnNull}"
+             rid="{{item.RId}}"
+             ng-bind="item.RDescribe"
+             ng-click="chooseSku(rule.describe,$index)"
+          ></a>
+        </ion-item>
+      </div>
+
+      <ion-item class="border-N borderBe mT overPaceN padding6 position-r">
+        <span class="fonS032 floatL">购买数量</span>
+        <div class="position-a-816 shopping-right0" style="overflow: hidden;height: 30px">
+          <i ng-click="shopCountHandle(0)" class="icon ion-ios-minus-empty position-a-816-i width20px"></i>
+          <i ng-bind="chooseSkuInfo.count"></i>
+          <i class="icon ion-ios-plus-empty position-a-816-i width20px floatR" ng-click="shopCountHandle(1)"></i>
+        </div>
+        <div class="clear"></div>
+      </ion-item>
+
+      <div class="subOrder_btn remm05" ng-click="closeLayer('chooseSku')">×</div>
+    </ion-list>
+
+    <!--加入购物车的footer-->
+    <ion-footer-bar class="bar-assertive index10 pdmd_z">
+      <a ng-click="addShopCart(skuId,chooseSkuInfo.count)"
+         class="commIntro-buy-btn background-343843">加入购物车</a>
+      <a class="commIntro-buy-btn background-fe404c" ng-click="buy(chooseSkuInfo.count)">立即购买</a>
+    </ion-footer-bar>
+  </custom>
+  <!--11end-->
+
+
+  <!--13star-->
+  <!--促销弹窗-->
+  <div class="custom_hide" ng-class="{'custom_show':module.thirteen}">
+    <ion-list class="subOrder_list_tanchuang bottom0 padding16">
+      <ion-item class="border-N pTpB">
+        <p class="text-center fonS037 color-333 lineH1">促销</p>
+      </ion-item>
+      <ion-item ng-repeat="item in cuxiaoArrays" class="border-N borderBe">
+        <p>
+          <i class="red_tag">促销</i>
+          <span ng-bind="item"></span>
+        </p>
+      </ion-item>
+      <div class="subOrder_btn top83" ng-click="closeLayer()">×</div>
+    </ion-list>
+  </div>
+  <!--13end-->
+
+  <!--15star-->
+  <div class="zhezhao" ng-click="newWord()" ng-show="module.fifteen"></div><!-- ng-show="module.fifteen"-->
+  <!--15end-->
+
+
+  <!--17star-->
+  <div class="commIntro__coupon custom_hide" ng-class="{'custom_show':module.seventeen}">
+    <ion-list class="subOrder_list_tanchuang bottom0 paddingB20px comm_story_name">
+      <ion-item class="border-N pTpB">
+        <p class="text-center fonS037 color-33 lineH1">优惠券</p>
+      </ion-item>
+      <div class="padding16 commIntro-scoll">
+
+        <ion-item class="commIntro__coupon_inner" ng-repeat="item in youhuiquanArrays">
+          <div>
+            <p class="colorfc3f4c lineH09">
+              <i class="fonS046rem">¥</i>
+              <i class="fonS09 fonS0293" ng-bind="item.CouponsFaceValue"></i>
+              <i class="mL10">优惠券</i>
+            </p>
+            <div class="commIntro__div">
+              <p class="color-333 fonS0293">
+                <i ng-bind="item.CouponsName+'，'"></i><i ng-bind="'满'+item.CouponsMeetPrice+'减'+item.CouponsFaceValue"></i>
+              </p>
+              <p class="fonS0293 color9">
+                <i>使用期限  </i>
+                <i class="mL10">
+                  <span ng-bind="(item.CouponsStartTime | date:'yyyy.MM.dd') + ' -'"></span>
+                  <span ng-bind="item.CouponsEndTime | date:'yyyy.MM.dd'"></span>
+                </i>
+              </p>
+            </div>
+          </div>
+          <div class="commIntro_coupon_btn_warp">
+            <!-- commIntro_coupon_grey -->
+            <a ng-click="lingquyouhuiquan()" class="commIntro_coupon_btn commIntro_coupon_red">领取</a>
+          </div>
+        </ion-item>
+
+      </div>
+      <div class="subOrder_btn" ng-click="closeLayer()">×</div>
+    </ion-list>
+    <div class="clear"></div>
+  </div>
+  <!--17end-->
+
+  <!--18star-->
+  <div class="commIntro__coupon custom_hide" id="chooseAddress" ng-class="{'custom_show':module.eighteen}">
+    <ion-list class="subOrder_list_tanchuang bottom0 paddingB20px comm_story_name H8">
+      <ion-item class="pTpB border-N">
+        <p class="borderBe lineH10666 text-center color-333">选择地址</p>
+      </ion-item>
+      <div class="tranFor commIntro-region position-r w10">
+        <div class="w10 commIntro-scoll H585 position-a">
+          <ul class="he10">
+            <li ng-class="{'commIntro-liClick':item.click}" ng-repeat="item in provinces" ng-bind="item.name" ng-click="chooseProvinces()"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tranFor commIntro-region position-r w10 " ng-class="{'left100':addressTwo.twoAddress100,'left50':addressTwo.twoAddress50,'left33':addressTwo.twoAddress33}">
+        <div class="w10 commIntro-scoll H585 position-a">
+          <ul class="he10">
+            <li ng-class="{'commIntro-liClick':item.click}" ng-repeat="item in citys" ng-bind="item.name" ng-click="chooseCitys()"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tranFor commIntro-region position-r w10 left100" ng-class="{'left100':addressThree.threeAddress100,'left66':addressThree.threeAddress66}">
+        <div class="w10 commIntro-scoll H585 position-a">
+          <ul class="he10">
+            <li ng-class="{'commIntro-liClick':item.click}" ng-repeat="item in county" ng-bind="item.name" ng-click="chooseCounty()"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="subOrder_btn" ng-click="closeLayer('chooseAddress')" >×</div>
+    </ion-list>
+    <div class="clear"></div>
+  </div>
+  <!--  18end-->
+<!--19 star-->
+  <!-- ng-class="{'custom_show':module.seventeen}"      custom_hide-->
+  <div class="commIntro__coupon custom_hide" ng-class="{'custom_show':module.nineteen}">
+    <ion-list class="subOrder_list_tanchuang bottom0 paddingB20px comm_story_name">
+      <ion-item class="border-N pTpB">
+        <p class="text-center fonS037 color-33 lineH1">分享</p>
+      </ion-item>
+
+      <div class="subOrder_btn" ng-click="closeLayer()">×</div>
+      <div class="commIntro-share-div padding16">
+        <div ng-click="shareWechat(0)">
+          <img src="img/app/center/share2.jpg">
+          <p>微信好友</p>
+        </div>
+        <div ng-click="shareWechat(1)">
+          <img src="img/app/center/share3.jpg">
+          <p>朋友圈</p>
+        </div>
+      </div>
+    </ion-list>
+    <div class="clear"></div>
+  </div>
+</ion-view>

@@ -1,0 +1,187 @@
+<ion-view view-title="退换货">
+    <ion-header-bar class="mB02">
+        <button class="button-icon icon ion-ios-arrow-left" ng-click="rootBack()"></button>
+        <h1 class="title fonF"  >
+            退换货
+        </h1>
+    </ion-header-bar>
+    <!--    <ion-header-bar class="bar-subheader row padding0 backimgNot" >
+            <a class="col col-25 text-center color3 oneIndex">退货</a>
+            <a class="col col-25 text-center color3 oneIndex">换货</a>
+            <i class="selfIndex-redW"></i>
+        </ion-header-bar>-->
+    <ion-header-bar class="bar-subheader padding0 text-center" >
+        <div class="w10">
+            <a class="color3 oneIndex text-center" ng-click="myclick(0)" style="width: 49%;">售后申请</a>
+            <a class="color3 oneIndex text-center" ng-click="myclick(1)" style="width: 49%;">退换货查询</a>
+            <i class="selfIndex-redWWW col col-50" style="padding: 0;"></i>
+        </div>
+    </ion-header-bar>
+    <ion-content class="backgroundF4">
+        <ion-infinite-scroll ng-if="infinite" ng-show="infiniteShow" on-infinite="loadMore()" ></ion-infinite-scroll>
+
+
+        <ion-list ng-if="showObj[0].choose">
+            <div class="item backgroundF4 border-N sendback_list_search_warp">
+                <div class="item item-input sendback_list_search border-N">
+                    <i class="icon ion-search placeholder-icon" ng-click="mySeek()"></i>
+                    <input type="text" ng-model="orderInfo.orderId" placeholder="订单编号" id="myFouse">
+                    <i class="icon ion-close-round placeholder-icon mR15" ng-show="checkShowDelete()" ng-click="removeOut()"></i>
+                </div>
+            </div>
+            <!--<ion-item class="pdmd_z mT02 border-N" ng-repeat="itemSendback in showObj[0].data">-->
+                <!--&lt;!&ndash;<p class="shop_list_num_top fonS0293">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span class="fonS0293 floatL">订单号 :<i ng-bind="itemSendback.OrderId"></i></span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span class="floatR" showObj[0].ProcessFlag></span>&ndash;&gt;-->
+                <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                <!--<div class="padding16">-->
+                    <!--<p class="w10 fonS035">-->
+                        <!--<span class="fonS0293 floatL">订单号 :<i ng-bind="itemSendback.OrderId"></i></span>-->
+                        <!--<span class="floatR color-fe5d67" ng-switch="myType">-->
+                            <!--<span ng-switch-when="0">生成操作</span>-->
+                            <!--<span ng-switch-when="1">绑定操作</span>-->
+                            <!--<span ng-switch-when="2">使用操作</span>-->
+                            <!--<span ng-switch-when="3">作废操作</span>-->
+                        <!--</span>-->
+                    <!--</p>-->
+                    <!--<img ng-src={{ossUrl}}{{itemSendback.ProductImage}} alt="#" class="col-20 floatL mB20">-->
+                    <!--<div class="col-80 floatR">-->
+                        <!--<p class="color3 overPaceN" ng-bind="itemSendback.ProductName"></p>-->
+                        <!--<p class="fonS0293 color9" ng-bind="'×'+ itemSendback.Quantity"></p>-->
+                    <!--</div>-->
+
+
+                <!--</div>-->
+                <!--<p class="w10 borderTe padding16 fonS035 text-right">-->
+                    <!--&lt;!&ndash;<span class="floatR mR15">退款金额:<span class="color-fe5d67 ml10" ng-bind="itemSendback.RefundTotal | currency:'¥'">499</span></span>&ndash;&gt;-->
+                    <!--<a href="#/tab/sendback/{{itemSendback.Id}}" class="sendback_list_main_btn">申请售后</a>-->
+                    <!--&lt;!&ndash;<a href="#" class="sendback_list_main_btn">进度查询</a>&ndash;&gt;-->
+                <!--</p>-->
+
+            <!--</ion-item>-->
+
+            <!--  新版  ---><!-- ng-repeat="itemSendback in myData"-->
+            <ion-item class="border-N mT paddingZ" ng-repeat="itemSendback in showObj[0].data">
+                <p class="padding16 borderBe sendback_list_title pTpB color-333">
+                    <span class="floatL" >
+                        订单号
+                        <i  ng-bind="itemSendback.OrderId"></i>
+                    </span>
+
+                    <span class="floatR color9" ng-bind="itemSendback.subTime |  date:'yyyy年MM月dd'"></span>
+                </p>
+                <div class="sendback_list_main pTpB">
+                   <div class="col w20 floatL">
+                       <img ng-src={{ossUrl}}{{itemSendback.ProductImage}} class="w10" ng-click="goProductDetailInfo(itemSendback.ProductId)">
+                   </div>
+                    <div class="col col-67 floatL sendback_list_text">
+                        <p ng-bind="itemSendback.ProductName" class="color-343843 fons032" ng-click="goProductDetailInfo(itemSendback.ProductId)"></p>
+                        <span class="color9" ng-bind="'×'+ itemSendback.Quantity"></span>
+                        <a href="#/tab/sendback/{{itemSendback.Id}}" class="sendback_list_main_btn">申请售后</a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+              
+                
+            </ion-item>
+            
+            
+            	<div class="shopping_cart_null  sendback_list_bottom_ion" ng-if="salesReturn">
+			            <i>
+			                <img src="img/app/center/chaxun.png" alt="">
+			            </i>
+            			<p class="mT034rem">暂时没有售后申请</p>
+        		</div>
+
+
+            
+
+            <!--  新版  --->
+
+        </ion-list>
+
+
+            <ion-list ng-if="showObj[1].choose">
+                <ion-item class="pdmd_z mT02 border-N" ng-repeat="itemSendback_list in showObj[1].data">
+                    <div class="padding16">
+                        <p class="w10 fonS035">
+                            <span class="floatL" ng-bind="itemSendback_list.SShopName"></span>
+                            <span class="floatR color-fe5d67" ng-switch="itemSendback_list.ProcessFlag">
+                                <span ng-switch-when="1">等待审核</span>
+                                <span ng-switch-when="2">等待用户发货</span>
+                                <span ng-switch-when="3">等待买家确认收货</span>
+                                <span ng-switch-when="4">等待买家处理</span>
+                                <span ng-switch-when="5">完成</span>
+                                <span ng-switch-when="6">未解决</span>
+                                <span ng-switch-when="7">用户放弃</span>
+                                <span ng-switch-when="8">审核未通过</span>
+                                <span ng-switch-when="9">已退款</span>
+                            </span>
+                        </p>
+                        <img ng-src={{ossUrl}}{{itemSendback_list.ImageDescUrl}} alt="#" class="col-20 floatL mB20" ng-click="goProductDetailInfo(itemSendback_list.SKU)">
+                        <div class="col-80 floatR">
+                            <p class="color3 overPaceN mLR16" ng-bind="itemSendback_list.ProName" ng-click="goProductDetailInfo(itemSendback_list.SKU)"></p>
+                            <p class="fonS0293 color9" ng-bind="itemSendback_list.Color"></p>
+                        </div>
+                    </div>
+                    <p class="w10 borderTe padding16 fonS035 text-right">
+                        <!--<span class="floatR mR15">退款金额:<span class="color-fe5d67 ml10" ng-bind="itemSendback_list.paytotal | currency:'¥'"></span></span>-->
+                        <!--<span class="floatR mR15">交易金额:<span class="ml10">499</span></span>-->
+                        <!--<a href="#" class="sendback_list_main_btn">取消申请</a>-->
+
+                        <!-- TODO -->
+                        <a href="#/tab/sendback_state/{{itemSendback_list.ServiceID}}" class="sendback_list_main_btn">查看详情</a>
+                    </p>
+                </ion-item>
+
+
+                	<div class="shopping_cart_null sendback_list_bottom_ion" ng-if="exchangeGoods">
+			            <i>
+			                <img src="img/app/center/chaxun.png" alt="">
+			            </i>
+            			<p class="mT034rem">暂时没有需要退换货的商品</p>
+        			</div>
+
+
+            </ion-list>
+
+            <!--<ion-item class="pdmd_z mT02 border-N">-->
+                <!--<div class="padding16">-->
+
+                    <!--<p class="w10 fonS035">-->
+                        <!--<span class="floatL">订单号：</span>-->
+                        <!--<span class="floatR color-fe5d67">退款成功</span>-->
+                    <!--</p>-->
+                    <!--<img src="img/app/center/colthing.jpg" alt="#" class="col-20 floatL mB20">-->
+                    <!--<div class="col-80 floatR">-->
+                        <!--<p class="color3">ULVANG 于尔旺 欧洲制造 短款美利奴羊</p>-->
+                        <!--<p class="fonS0293 color9">天蓝色L</p>-->
+                    <!--</div>-->
+
+
+                <!--</div>-->
+                <!--<p class="w10 borderTe padding16 fonS035">-->
+                    <!--<span class="floatR mR15">退款金额:<span class="color-fe5d67 ml10">499</span></span>-->
+                    <!--<span class="floatR mR15">交易金额:<span class="ml10">499</span></span>-->
+                <!--</p>-->
+            <!--</ion-item>-->
+
+
+
+        <!--退换货页面为空的时候-->
+        <!--<div class="shopping_cart_null  sendback_list_bottom_ion" >
+            <i>
+                <img src="img/app/center/chaxun.png" alt="">
+            </i>
+            <p class="mT034rem">暂时没有售后申请</p>
+        </div>-->
+        <!--退换货页面为空的时候-->
+        <!--<div class="shopping_cart_null sendback_list_bottom_ion">
+            <i>
+                <img src="img/app/center/chaxun.png" alt="">
+            </i>
+            <p class="mT034rem">暂时没有需要退换货的商品</p>
+        </div>-->
+    </ion-content>
+</ion-view>

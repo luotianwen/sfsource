@@ -1,0 +1,87 @@
+.shop-Name-css{
+    color: #343843;font-size: 13px;font-weight: 500;
+}
+.activity-label{
+    color: #FFF !important;font-size: 12px !important;width: 54px;background-color: #fe404c;text-align: center;
+}
+.amount{
+    top: 80px;font-size: 18px;color: #999;
+}
+.close-an-account{
+    color: #333;font-size: 12px;text-align: right;font-weight: 500;
+}
+.button-all-css{
+    float: right;margin-top: 10px;
+}
+.self-button-all{
+    border-radius: 5px;
+    background: none;
+    width: 74px;
+    height: 25px;
+    line-height: 20px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.button-one{
+    color: #333333;
+    border: 1px solid #333;
+}
+.button-two{
+    border: none;
+    background-color: #fe404c;
+    color: #fff;
+}
+.reminder{
+    float: right;color: #fe404c;font-size: 12px;font-weight: 500;
+}
+.self-indexH{
+    min-width: 54px;width: 2rem;max-width: 96px;text-align: center;
+
+}
+.selfIndex-redW{
+    display: block;
+    border-bottom: 2px solid #fe404c;
+    width: 20%;
+    margin-left: -100%;
+    margin-top: 12px;
+}
+
+
+/*orderInfo*/
+.orderInfo_yiquxiao{
+    line-height:2;
+    background: #eeeeee;
+    color: #666666;
+    text-align: center;
+    margin-left: 15px;
+    padding: 0px 5px;
+}
+.orderInfo_jiaoyichenggong{
+    line-height:2;
+    background: #00bf62;
+    color: white;
+    text-align: center;
+    margin-left: 15px;
+    padding: 0px 5px;
+}
+.orderInfo_btn{
+    width:50px;
+    line-height: 0.6rem;
+    text-align: center;
+    border:1px solid #fe404c;
+    font-size: 0.32rem;
+    color: #fe404c;
+    position: absolute;
+    top: 50%;
+    right:0.387rem;
+    transform: translateY(-50%);
+
+}
+.lineHeight{
+    line-height: 0.93rem!important;
+}
+.orderInfo_Item{
+    position: relative;
+}

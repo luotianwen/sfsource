@@ -1,0 +1,8 @@
+.comm_story_logo{
+    width: 144px;
+    text-align: center;
+    margin: 0 auto;
+}
+.comm_story_logo img{
+    max-width: 144px;
+}

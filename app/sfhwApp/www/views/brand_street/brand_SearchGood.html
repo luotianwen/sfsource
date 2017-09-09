@@ -1,0 +1,88 @@
+<ion-modal-view ng-controller="bradn_SearchModelCtrl" class="custom-slide-in-up">
+
+    <ion-header-bar ng-click="$rootScrollTop()" class="backimgNot">
+        <div class="item-input searchGood_1_search_input border-N backgroundF4">
+            <i class="icon ion-ios-search placeholder-icon ml10 search_ion"></i>
+            <input ng-model="keyword" id="in_search_input" type="text" placeholder="搜索">
+            <i ng-click="keyword = ''" class="icon ion-close-round" ng-show="keyword != ''" style="padding-right: 6px;"></i>
+        </div>
+        <button class="button-clear color-b search_cancel" ng-click="cancel()">取消</button>
+    </ion-header-bar>
+
+    <ion-content class="backgroundF4">
+        <!--标签-->
+        <ion-list class="searchGood_1_btn_item" ng-show="showModule.historySearch">
+            <ion-item class="border-N pTpB mB1">
+                <p><span class="floatL fonS035">最近搜索</span><i class="floatR ion-trash-a color9"></i></p>
+                <div class="searchGood_1_btn_warp overPaceN">
+                    <a href="" class="color-b display-N fonS0293">裤子</a>
+                    <p class="fons032 color9">无搜索历史</p>
+                </div>
+
+            </ion-item>
+            <ion-item class="border-N pTpB">
+                <p><span class="floatL">热门搜索</span></p>
+                <div class="fons0293 searchGood_1_btn_warp overPaceN border-N">
+                    <a href="" class="color-b">裤子</a>
+                </div>
+            </ion-item>
+        </ion-list>
+
+        <!--店铺-->
+        <ion-list ng-show="showModule.shop" class="searchGood_1_list_two">
+            <div class="searchGood_1_list_two_warp">
+                <p class="marginZ">
+                    <span class="floatL">
+                        <i>牧高笛旗舰店</i>
+                        <i>4.555</i>
+                    </span>
+                    <a href="" class="floatR">进入店铺</a>
+                <div class="clear"></div>
+                </p>
+                <div class="searchGood_1_img_warp">
+                    <div>
+                        <img src="img/app/center/colthing.jpg" alt="">
+                        <p>1111</p>
+                    </div>
+                    <div>
+                        <img src="img/app/center/colthing.jpg" alt="">
+                        <p>2222</p>
+                    </div>
+                    <div>
+                        <img src="img/app/center/colthing.jpg" alt="">
+                        <p>3333</p>
+                    </div>
+                </div>
+            </div>
+        </ion-list>
+
+
+        <!--搜索的关键字-->
+        <ion-list>
+           <!-- <ion-item class="pTpB" ng-show="keyword != ''">
+                <div class="borderBe">
+                    <div class="searchGood_1_three_div">
+                    <span class="floatL">
+                        搜索“
+                        <i ng-bind="keyword"></i>
+                        ”相关的店铺
+                    </span>
+                        <i class="floatR">
+                            <img src="img/app/center/redshop.png" alt="">
+                            <div class="clear"></div>
+                        </i>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </ion-item>-->
+            <ion-item class="border-N pTpB" ng-show="searchData.length > 0" ng-repeat="item in searchData">
+            	<div ng-repeat="items in item.Brands">
+            		<p ng-click="getKeywordSearchData(item)" ng-bind="items.BrandName" class="borderBe searchGood_1_item_p"></p>
+            	</div>
+
+            </ion-item>
+        </ion-list>
+
+
+    </ion-content>
+</ion-modal-view>

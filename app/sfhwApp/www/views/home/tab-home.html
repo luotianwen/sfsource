@@ -1,0 +1,230 @@
+<ion-view class="overF" style="width: 100%">
+  <homeView ng-class="{'display-N':!hideSearchView}">
+  <ion-header-bar class="">
+    <h1 class="title fontW900">世峰户外商城</h1>
+    <i class="icon ion-ios-search placeholder-icon tab-home-search-ionic"  ng-click="showSearchModal()" style="line-height: 34px;color:#000;"></i>
+  </ion-header-bar>
+  <ion-content>
+    <!--banner图-->
+    <ion-slide-box delegate-handle="homeBannerSlideBox" slide-interval="3000" auto-play="true" show-pager="false" does-continue="true">
+      <ion-slide ng-repeat='homePageBaner in newHomePage.banler' ng-click="goZhuanTiView(homePageBaner.ImgLink)">
+        <div class="box commIntro_img minH4">
+          <img ng-src={{ossUrl}}MallPosterImage/{{homePageBaner.ImgPath}}?temp={{homePageBaner.ImgUploadTime}} >
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+
+       <div class="specialOffDoubleBtnWarp">
+      <div class="specialOffDoubleInner">
+        <div class="specialOffDoubleBtn specialOffDoubleOnBtn" id="nineDiv"><span class="ion-ios-cart-outline"></span> 9点上新</div>
+        <div class="specialOffDoubleBtn specialOffDoubleOffBtn" id="ysDiv"><span class="ion ion-ios-time-outline"></span>预售</div>
+      </div>
+        <span class="ion ion-more" style="color:#000;float: right;position: absolute;right:22px;bottom:8px;font-size: 20px" ng-click="GoToMore()"></span>
+    </div>
+    <ion-list id="nineList">
+        <ion-item class="specialOffItem specialOffDoubleItem" ng-repeat="pro in specialOffProduct">
+          <a href="#/tab/commIntro/{{pro.SKU}}"><img src="http://seebong-hangzhou.img-cn-hangzhou.aliyuncs.com/{{pro.ImageUrl}}@!app"></a>
+          <a href="#/tab/commIntro/{{pro.SKU}}"><p class="fangzhenglanting mB016" ng-bind="pro.ProductName"></p></a>
+          <p class="text-center specialOffPfirst"><span class="color-333">RMB</span><span class="color-333"  ng-bind="pro.ActivityPrice | number"></span></p>
+          <p class="text-center specialOffPfirst"><span class="text-decoration colorc9c9c9">RMB</span><span class="text-decoration colorc9c9c9"  ng-bind="pro.MarketPrice | number"></span></p>
+        </ion-item>
+    </ion-list>
+        <ion-list id="ysList" style="display:none">
+        <ion-item class="specialOffItem specialOffDoubleItem" ng-repeat="pro in presellProduct">
+          <a href="#/tab/commIntro/{{pro.SKU}}"><img src="http://seebong-hangzhou.img-cn-hangzhou.aliyuncs.com/{{pro.ImageUrl}}@!app"></a>
+          <a href="#/tab/commIntro/{{pro.SKU}}"><p class="fangzhenglanting mB016" ng-bind="pro.ProductName"></p></a>
+          <p class="text-center specialOffPfirst"><span class="color-333">RMB</span><span class="color-333"  ng-bind="pro.ActivityPrice | number"></span></p>
+          <p class="text-center specialOffPfirst"><span class="text-decoration colorc9c9c9">RMB</span><span class="text-decoration colorc9c9c9"  ng-bind="pro.MarketPrice | number"></span></p>
+        </ion-item>
+    </ion-list>
+    <!--户外装备-->
+    <div>
+      <ion-item class="hava-img border-N backgroundF4 w10 padding013" ng-click="goZhuanTiView(newHomePage.pedestrian[0].ImgLink)" >
+        <img ng-src="{{ossUrl}}MallPosterImage/{{newHomePage.pedestrian[0].ImgPath}}">
+      </ion-item>
+      <ion-item class="border-N pTpB pM0 tab-home-item-two">
+        <div>
+          <span class="floatL fontW900">户外装备</span>
+          <span class="floatR fonS035 color9" ng-click="viewMore('户外装备')">
+          	查看更多
+          	<i class="ion ion-ios-arrow-right fonS032 home-ionicS25"></i>
+          </span>
+        </div>
+      </ion-item>
+      <ion-item class="border-N backgroundF pdmd_z tab-home-ad-warp pLpR paddingBT0 w10 overPaceN">
+
+        <div class="hava-img w3 floatL tab-home-ad" ng-repeat="outdoors in newHomePage.outdoors" ng-if="$index <= 5" ng-click="tabHomeGoProductDetailInfo(outdoors.ImgLink)" >
+          <img ng-src={{ossUrl}}MallPosterImage/{{outdoors.ImgPath}} alt="#">
+          <p class="p06" ng-bind="outdoors.ImgTitle.split('|')[0]"></p>
+          <p style="height:20px;padding: 0px 20px;">{{outdoors.ImgTitle.split("|")[1]}}</p>
+          <p ng-bind="outdoors.ImgPrice | currency:'¥'" class="text-center"></p>
+        </div>
+        <div class="clear"></div>
+
+      </ion-item>
+    </div>
+
+
+    <!--骑行装备 -->
+    <div>
+      <ion-item class="hava-img border-N backgroundF4 w10 padding013" ng-click="goZhuanTiView(newHomePage.pedestrian[1].ImgLink)" >
+        <img ng-src="{{ossUrl}}MallPosterImage/{{newHomePage.pedestrian[1].ImgPath}}">
+      </ion-item>
+      <ion-item class="border-N pTpB pM0 tab-home-item-two tab-home-backQx">
+        <div>
+          <span class="floatL fontW900">骑行装备</span>
+          <span class="floatR fonS035 color9" ng-click="viewMore('骑行装备')">查看更多<i class="ion ion-ios-arrow-right fonS032 home-ionicS25"></i></span>
+        </div>
+      </ion-item>
+      <ion-item class="border-N backgroundF pdmd_z tab-home-ad-warp pLpR paddingBT0 w10 overPaceN">
+
+        <div class="hava-img w3 floatL tab-home-ad" ng-repeat="outdoors in newHomePage.riding" ng-if="$index <= 5" ng-click="tabHomeGoProductDetailInfo(outdoors.ImgLink)" >
+          <img ng-src={{ossUrl}}MallPosterImage/{{outdoors.ImgPath}} alt="#">
+          <p class="p06" ng-bind='outdoors.ImgTitle.split("|")[0]'></p>
+          <p style="height:20px;padding: 0px 20px;">{{outdoors.ImgTitle.split("|")[1]}}</p>
+          <p ng-bind="outdoors.ImgPrice | currency:'¥'" class="text-center"></p>
+        </div>
+        <div class="clear"></div>
+      </ion-item>
+    </div>
+
+
+    <!--登山服饰-->
+    <div>
+      <ion-item class="hava-img border-N backgroundF4 w10 padding013" ng-click="goZhuanTiView(newHomePage.pedestrian[2].ImgLink)" >
+        <img ng-src="{{ossUrl}}MallPosterImage/{{newHomePage.pedestrian[2].ImgPath}}">
+      </ion-item>
+      <ion-item class="border-N pTpB pM0 tab-home-item-two tab-home-backMen">
+        <div>
+          <span class="floatL fontW900">登山服饰</span>
+          <span class="floatR fonS035 color9" ng-click="viewMore('登山服饰')">查看更多<i class="ion ion-ios-arrow-right fonS032 home-ionicS25"></i></span>
+        </div>
+      </ion-item>
+      <ion-item class="border-N backgroundF pdmd_z tab-home-ad-warp pLpR paddingBT0 w10 overPaceN">
+
+        <div class="hava-img w3 floatL tab-home-ad" ng-repeat="outdoors in newHomePage.mountaineering" ng-if="$index <= 5" ng-click="tabHomeGoProductDetailInfo(outdoors.ImgLink)" >
+          <img ng-src={{ossUrl}}MallPosterImage/{{outdoors.ImgPath}} alt="#">
+          <p class="p06" ng-bind='outdoors.ImgTitle.split("|")[0]'></p>
+          <p style="height:20px;padding: 0px 20px;" ng-bind='outdoors.ImgTitle.split("|")[1]'></p>
+          <p ng-bind="outdoors.ImgPrice | currency:'¥'" class="text-center"></p>
+        </div>
+        <div class="clear"></div>
+      </ion-item>
+    </div>
+
+
+    <!--室内健身-->
+    <div>
+      <ion-item class="hava-img border-N backgroundF4 w10 padding013" ng-click="goZhuanTiView(newHomePage.pedestrian[3].ImgLink)" >
+        <img ng-src="{{ossUrl}}MallPosterImage/{{newHomePage.pedestrian[3].ImgPath}}">
+      </ion-item>
+      <ion-item class="border-N pTpB pM0 tab-home-item-two tab-home-backHc">
+        <div>
+          <span class="floatL fontW900">室内健身</span>
+          <span class="floatR fonS035 color9" ng-click="viewMore('室内健身')">查看更多<i class="ion ion-ios-arrow-right fonS032 home-ionicS25"></i></span>
+        </div>
+      </ion-item>
+      <ion-item class="border-N backgroundF pdmd_z tab-home-ad-warp pLpR paddingBT0 w10 overPaceN">
+
+        <div class="hava-img w3 floatL tab-home-ad" ng-repeat="outdoors in newHomePage.fitness" ng-if="$index <= 5" ng-click="tabHomeGoProductDetailInfo(outdoors.ImgLink)" >
+          <img ng-src={{ossUrl}}MallPosterImage/{{outdoors.ImgPath}} alt="#">
+          <p class="p06" ng-bind='outdoors.ImgTitle.split("|")[0]'></p>
+          <p style="height:20px;padding: 0px 20px;" ng-bind='outdoors.ImgTitle.split("|")[1]'></p>
+          <p ng-bind="outdoors.ImgPrice | currency:'¥'" class="text-center"></p>
+        </div>
+        <div class="clear"></div>
+      </ion-item>
+    </div>
+
+
+    <!--发现好货-->
+    <div>
+		  <p class="fonS032 tab-home-bottom margin0">
+		    <i class="fontW900">发现好货 </i><span class="tab-home-xiegang"></span><i class="fontW900 fonS0293">各品牌特色商品</i>
+		  </p>
+		  <ion-item id="test" class="border-N backgroundF4 pdmd_z tab-home-warp-father overF">
+		    <div class="w495 tab-home-end-div hava-img position-r" ng-repeat="goodCargo in newHomePage.goodCargo" ng-click="goProductDetailInfo(goodCargo.ImgLink.substring(goodCargo.ImgLink.lastIndexOf('/')+1,goodCargo.ImgLink.lastIndexOf('.')))">
+		      <img ng-src={{ossUrl}}MallPosterImage/{{goodCargo.ImgPath}} alt="">
+		      <div class="tab-home-leftjdjdj w10">
+		        <p ng-bind="goodCargo.ImgPrice | currency:'¥'"></p>
+		        <p ng-bind='goodCargo.ImgTitle.split("|")[0]'></p>
+		        <a class="tab-home-btn" ng-if="goodCargo.ImgTitle != '' && goodCargo.ImgTitle.split('|').length > 1" ng-bind="goodCargo.ImgTitle.split('|')[1]"></a>
+		      </div>
+		    </div>
+		  </ion-item>
+		</div>
+
+    <!--发现好店-->
+    <div>
+      <p class="fonS032 tab-home-bottom tab-home-bottomFindGd margin0">
+        <i class="fontW900">发现好店 </i><span class="tab-home-xiegang"></span><i class="fontW900 fonS0293">各品牌专卖店</i>
+      </p>
+      <ion-item class="padding0 findGdDian border-N">
+        <div class="w495 hava-img tab-home-FindGd" ng-click="goBrandDetailInfo(newHomePage.goodShop[0].ImgLink.substring(newHomePage.goodShop[0].ImgLink.lastIndexOf('?Sid=')+5,newHomePage.goodShop[0].ImgLink.length))">
+          <img ng-src="{{ossUrl}}MallPosterImage/{{newHomePage.goodShop[0].ImgPath}}">
+          <p ng-bind="newHomePage.goodShop[0].ImgTitle"></p>
+        </div>
+        <div class="w495 hava-img tab-home-FindGd" ng-click="goBrandDetailInfo(newHomePage.goodShop[1].ImgLink.substring(newHomePage.goodShop[1].ImgLink.lastIndexOf('?Sid=')+5,newHomePage.goodShop[1].ImgLink.length))">
+          <img ng-src="{{ossUrl}}MallPosterImage/{{newHomePage.goodShop[1].ImgPath}}">
+          <p ng-bind="newHomePage.goodShop[1].ImgTitle"></p>
+        </div>
+        <div class="w495 hava-img tab-home-FindGd" ng-click="goBrandDetailInfo(newHomePage.goodShop[2].ImgLink.substring(newHomePage.goodShop[2].ImgLink.lastIndexOf('?Sid=')+5,newHomePage.goodShop[2].ImgLink.length))">
+          <img ng-src="{{ossUrl}}MallPosterImage/{{newHomePage.goodShop[2].ImgPath}}">
+          <p ng-bind="newHomePage.goodShop[2].ImgTitle"></p>
+        </div>
+        <div class="w495 hava-img tab-home-FindGd" ng-click="goBrandDetailInfo(newHomePage.goodShop[3].ImgLink.substring(newHomePage.goodShop[3].ImgLink.lastIndexOf('?Sid=')+5,newHomePage.goodShop[3].ImgLink.length))">
+          <img ng-src="{{ossUrl}}MallPosterImage/{{newHomePage.goodShop[3].ImgPath}}">
+          <p ng-bind="newHomePage.goodShop[3].ImgTitle"></p>
+        </div>
+      </ion-item>
+    </div>
+
+  </ion-content>
+  </homeView>
+  <searchView ng-class="{'display-N':hideSearchView}">
+
+
+    <!--
+            作者：798823035@qq.com
+            时间：2016-09-24
+            描述：search
+        -->
+    <ion-header-bar class="backimgNot" id="searchGoodHeader">
+      <div class="item-input searchGood_1_search_input border-N display-Ih backgroundF4">
+        <i class="icon ion-ios-search placeholder-icon ml10 search_ion"></i>
+        <input ng-model="keyword" id="in_search_input" type="text" placeholder="搜索" >
+        <i ng-click="clearKeyword()" class="icon ion-close-round placeholder-icon mR15" ng-show="keyword != ''"></i>
+      </div>
+      <div class="button-clear color-b search_cancel" ng-click="cancel()" style="line-height: 17px !important;">取消</div>
+    </ion-header-bar>
+
+    <ion-content class="backgroundF4" id="searchGoodContent" style="bottom: 0px;top:64px;">
+      <!--标签-->
+      <ion-list class="searchGood_1_btn_item">
+        <ion-item class="border-N pTpB mB1">
+          <p>
+            <span class="floatL fonS035">最近搜索</span>
+            <i class="floatR ion-trash-a color9" ng-click="clearHistorySearch()"></i>
+          </p>
+          <div class="overPaceN searchGood_1_btn_warp" style="border-bottom: none;"> <!--分割线：searchGood_1_btn_warp-->
+            <p id="no_history_search_p" class="fons032 color9" >无搜索历史</p>
+          </div>
+        </ion-item>
+        <ion-item class="border-N pTpB display-N">
+          <p><span class="floatL">热门搜索</span></p>
+          <div class="fons0293 searchGood_1_btn_warp overPaceN border-N">
+            <a href="" class="color-b">裤子</a>
+          </div>
+        </ion-item>
+      </ion-list>
+
+
+      <!--搜索的关键字-->
+      <ion-list>
+        <ion-item class="border-N pTpB" ng-show="searchData.length > 0">
+          <p ng-click="getKeywordSearchData(item,0)" ng-repeat="item in searchData" ng-bind="item" class="borderBe searchGood_1_item_p"></p>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </searchView>
+</ion-view>

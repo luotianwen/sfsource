@@ -1,0 +1,153 @@
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <title>Title</title>
+                <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+                <style>
+                    *{margin: 0;padding: 0;}
+                    a{text-decoration: none;display: block}
+                    ul{
+                        list-style: none;
+                    }
+                    img{
+                        border: 0;
+                        width: 100%;
+                        height: 100%;display: block;
+                    }
+                    html{
+                        font-size: 62.5%;
+                    }
+                    .clear{
+                        clear: both;
+                    }
+                    .doubleElevenWarp{
+                        width: 100%;background:url("images/doubleEleven.jpg");
+                    }
+                    .doubleElevenInner{
+                        width: 92%;
+                        margin: 0 auto;
+                        background: #ee1c65;
+                        overflow: hidden;
+                    }
+                    .doubleElevenUl li{
+                        float: left;
+                        margin-right: 5%;
+                        width: 47%;
+                        height: 5.05rem;
+
+                    }
+                    .doubleElevenUl li:nth-child(even){
+                        margin-right: 0;
+                    }
+                    .doubleElevenUl{
+                        overflow: hidden;
+                    }
+                    .doubleElevenA img{
+                        height:22.5rem;
+                    }
+                    .doubleElevenA{
+                        width:47.5%;
+                        margin-right:5%;
+                        float: left;
+                    }
+                    .doubleElevenAwarp{
+                        overflow: hidden;
+                    }
+                    .doubleElevenAwarp a:nth-child(even){
+                        margin: 0;
+                    }
+                    .doubleElevenAmrB{
+                        margin-bottom: 20px;
+                    }
+                    .doubleElevenUlwarp{
+                        background: #ffffff;
+                        line-height:3rem;
+                        overflow:hidden;
+                    }
+                    .doubleElevenUlwarp li{
+                        float: left;
+                        width: 20%;text-align: center;font-weight: 600;font-size:13px;
+                    }
+                    img{
+
+                    }
+                </style>
+            </head>
+            <body>
+            <div class="doubleElevenWarp">
+                <img src="images/doubleEleven_02.png" style="height:16.75rem">
+                <a href=""><img src="images/doubleEleven_03.png" style="height:5.5rem"></a>
+                <div class="doubleElevenInner">
+                    <ul class="doubleElevenUl">
+                        <li style="margin-bottom: 2.25rem;" ng-click="SetCoupons(68)"><a href=""><img src="images/doubleEleven_05.png"></a></li>
+                        <li style="margin-bottom: 2.25rem;" ng-click="SetCoupons(69)"><a href=""><img src="images/doubleEleven_07.png"></a></li>
+                        <li style="margin-bottom: 2.25rem;" ng-click="SetCoupons(70)"><a href=""><img src="images/doubleEleven_11.png"></a></li>
+                        <li style="margin-bottom: 2.25rem;" ng-click="SetCoupons(71)"><a href=""><img src="images/doubleEleven_12.png"></a></li>
+                        <li ng-click="SetCoupons(72)"><a href=""><img src="images/doubleEleven_15.png"></a></li>
+                        <li ng-click="SetCoupons(73)"><a href=""><img src="images/doubleEleven_16.png"></a></li>
+                    </ul>
+                    <a href=""><img src="images/doubleEleven_19.png" style="height:5.5rem;margin-top: 10px"></a>
+                    <div class="doubleElevenAwarp">
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/doubleEleven_20.png"></a>
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/doubleEleven_22.png"></a>
+                        <a href="" class="doubleElevenA"><img src="images/doubleEleven_26.png"></a>
+                        <a href="" class="doubleElevenA"><img src="images/doubleEleven_29.png"></a>
+                    </div>
+                    <a><img src="images/doubleEleven_30.png" style="height:5.5rem"></a>
+                    <ul class="doubleElevenUlwarp">
+                        <li ng-click="doubleElevenClick(1)">户外服饰</li>
+                        <li ng-click="doubleElevenClick(2)">鞋袜配饰</li>
+                        <li ng-click="doubleElevenClick(3)">登山徒步</li>
+                        <li ng-click="doubleElevenClick(4)">骑行自驾</li>
+                        <li ng-click="doubleElevenClick(5)">野餐露营</li>
+                    </ul>
+                    <div class="doubleElevenAwarp" ng-show="doubleElevenOnClick.doubleElevenOnClick1" style="margin-bottom: 20px">
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/doubleEleven_33.png"></a>
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/doubleEleven_35.png"></a>
+                        <a href="" class="doubleElevenA"><img src="images/doubleEleven_39.png"></a>
+                        <a href="" class="doubleElevenA"><img src="images/doubleEleven_40.png"></a>
+                    </div>
+                    <div class="doubleElevenAwarp" ng-show="doubleElevenOnClick.doubleElevenOnClick2" style="margin-bottom: 20px">
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/21.png"></a>
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/22.png"></a>
+                        <a href="" class="doubleElevenA"><img src="images/23.png"></a>
+                        <a href="" class="doubleElevenA"><img src="images/24.png"></a>
+                    </div>
+                    <div class="doubleElevenAwarp" ng-show="doubleElevenOnClick.doubleElevenOnClick3" style="margin-bottom: 20px">
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/31.png"></a>
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/32.png"></a>
+                        <a href="" class="doubleElevenA"><img src="images/33.png"></a>
+                        <a href="" class="doubleElevenA"><img src="images/34.png"></a>
+                    </div>
+                    <div class="doubleElevenAwarp" ng-show="doubleElevenOnClick.doubleElevenOnClick4" style="margin-bottom: 20px">
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/41.png"></a>
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/42.png"></a>
+                        <a href="" class="doubleElevenA"><img src="images/43.png"></a>
+                        <a href="" class="doubleElevenA"><img src="images/44.png"></a>
+                    </div>
+                    <div class="doubleElevenAwarp" ng-show="doubleElevenOnClick.doubleElevenOnClick5" style="margin-bottom: 20px">
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/51.png"></a>
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/52.png"></a>
+                        <a href="" class="doubleElevenA"><img src="images/53.png"></a>
+                        <a href="" class="doubleElevenA"><img src="images/54.png"></a>
+                    </div>
+                    <a href=""><img src="images/doubleEleven_44.png" style="height:7.5rem;"></a>
+                    <a href=""><img src="images/doubleEleven_45.png" style="height:7.5rem;"></a>
+                    <div class="doubleElevenAwarp" style="margin-bottom: 20px">
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/doubleEleven_46.png"></a>
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/doubleEleven_48.png"></a>
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/doubleEleven_51.png"></a>
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/doubleEleven_52.png"></a>
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/doubleEleven_55.png"></a>
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/doubleEleven_56.png"></a>
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/doubleEleven_59.png"></a>
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/doubleEleven_60.png"></a>
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/doubleEleven_63.png"></a>
+                        <a href="" class="doubleElevenA doubleElevenAmrB"><img src="images/doubleEleven_65.png"></a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            </body>
+            </html>

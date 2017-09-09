@@ -1,0 +1,33 @@
+<ion-view view-title="账户与安全">
+    <ion-header-bar class="backimgNot background-343843 ">
+        <button class="button-icon icon ion-ios-arrow-left colorF" ng-click="rootBack()"></button>
+        <h1 class="title colorF fonF">
+            登录密码
+        </h1>
+    </ion-header-bar>
+    <ion-content class="has-header user_info">
+        <ion-item class="border-N pdmd_z">
+            <label class="item item-input border-N mT16">
+                <span class="input-label fonF">登录密码:</span>
+                <input type="password" placeholder="填写当前的登录密码" ng-model="password.oldPassword"/>
+            </label>
+            <label class="item item-input border-N mT16">
+                <span class="input-label fonF">设置新密码:</span>
+                <input type="password"
+                       placeholder="密码必须是数字字母组成(6-16位)" ng-model="password.newPasswordOne"
+                >
+            </label>
+            <label class="item item-input border-N mT16">
+                <span class="input-label fonF">确认新密码:</span>
+                <input type="password"
+                       placeholder="再次填写密码" ng-model="password.newPassWordTwo"
+                >
+            </label>
+            <div>
+                <button class="button button-full background-fe404c colorF mT32" ng-click="save()" ng-disabled="noClick()">
+                    完成
+                </button>
+            </div>
+        </ion-item>
+    </ion-content>
+</ion-view>

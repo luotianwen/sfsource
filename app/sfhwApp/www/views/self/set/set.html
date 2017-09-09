@@ -1,0 +1,46 @@
+<ion-view view-title="设置" class="backgroundF4">
+    <ion-header-bar class="backimgNot">
+        <button class="button-icon icon ion-ios-arrow-left" ng-click="rootBack()"></button>
+        <h1 class="title fonF">
+            设置
+        </h1>
+    </ion-header-bar>
+    <ion-content class="has-header mt-13">
+        <ion-list>
+        	
+            <ion-item class="border-N" ng-click="clearCache()">
+                    <span class="floatL display-ib fontW400">清除缓存</span>
+                    <div class="floatR">
+                        <span class="fontS14 color9" ng-bind="size"></span>
+                        <i class="ion ion-ios-arrow-right mL10"></i>
+                    </div>
+            </ion-item>
+            
+            <ion-item class="border-N" ng-click="showVersion()">
+                    <span class="floatL display-ib fontW400">版本</span>
+                    <div class="floatR">
+                        <i class="ion ion-ios-arrow-right mL10"></i>
+                    </div>
+            </ion-item>
+            
+            <ion-item class="border-N set_help_inner" href="#/tab/help">
+                <span class="floatL display-ib fontW400">帮助中心</span>
+                <div class="floatR">
+                    <i class="ion ion-ios-arrow-right mL10 floatL"></i>
+                </div>
+            </ion-item>
+            
+            <ion-item class="border-N set_help_inner" ng-click="update()" ng-if="projectType == 'android'">
+                <span class="floatL display-ib fontW400">检测更新</span>
+                <div class="floatR">
+                    <i class="ion ion-ios-arrow-right mL10 floatL"></i>
+                </div>
+            </ion-item>
+            
+            <ion-item class="background-343843 text_align" ng-click="logout()">
+                <i class="colorF">退出登录</i>
+            </ion-item>
+            
+        </ion-list>
+    </ion-content>
+</ion-view>

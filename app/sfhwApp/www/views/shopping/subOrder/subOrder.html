@@ -1,0 +1,225 @@
+<ion-view view-title="提交订单">
+    <ion-header-bar class="mB02" ng-click="$rootScrollTop()">
+        <button class="button-icon icon ion-ios-arrow-left" ng-click="goTargetNoLogin('tab.shopping')"></button>
+        <h1 class="title fonF">
+            提交订单
+        </h1>
+    </ion-header-bar>
+    <ion-content class="has-header backgroundF4">
+        <ion-list>
+
+            <ion-item class="border-N mB02" ng-if="userAddress.length > 0" ng-click="chooseAddress(userAddress[0].Id)" >
+                <div class="mB10">
+                	<span class="fonS032 color-333" ng-bind="userAddress[0].Consignee"></span>
+                    <span class="fonS032 color-333" ng-bind="userAddress[0].Phone"></span>
+                </div>
+                <p class="color-333 fonS035 overPaceN" ng-bind="userAddress[0].Area+userAddress[0].StreetAddress"></p>
+                <a class="display-ib w10 text-right fonS032 color-b6b6b6">其他地址＞</a>
+            </ion-item>
+
+            <ion-item class="item-icon-right border-N mB02 linH84px fonS035" ng-if="userAddress.length == 0" ng-click="addNewAddress()">
+	            <span>您还没有收货地址，点击这里创建</span>
+	            <i class="icon ion-ios-arrow-right ddd"></i>
+          	</ion-item>
+
+            <div>
+            	<div ng-repeat="shop in shops" style="margin-top: 10px;">
+	                <ion-item class="borderBf42 fonS037 pTpB">
+	                    <p class="borderBe lineH10666" ng-bind="shop.ShopName"></p>
+
+	                    <div ng-repeat="pro in shop.product" class="pT12pB12 mB10">
+	                        <div class="col col-31 subOrder_img floatL" ng-click="goProductDetailInfo(pro.SKU)" >
+	                        	<img src="{{ossUrl}}{{pro.Image}}">
+	                        </div>
+	                        <div class="col col-67 floatR">
+	                            <p ng-click="goProductDetailInfo(pro.SKU)" class="fonS032 color-343843 fontW600 overPaceN" ng-bind="pro.PName"></p>
+	                            <div>
+				                   <span class="floatR color-cc" ng-bind="'x'+pro.Count"></span>
+				                   <p class="fonS0293 color9" ng-bind-html="pro.Color+'&nbsp;'+pro.Specification"></p>
+				                 </div>
+	                            <div class="fonS035 w10 mt-13">
+
+	                            	<p ng-switch="pro.ProductType">
+		                                <i ng-switch-when="1" class="subOrder_vip floatL">赠品</i>
+		                                <i ng-switch-when="2" class="subOrder_vip floatL" ng-bind="pro.Discount+'折'"></i>
+		                                <i ng-switch-when="4" class="subOrder_vip floatL">包邮</i>
+	                                </p>
+
+	                                <span class="color-fe404c floatR" ng-bind="pro.InitPrice | currency:'¥'"></span>
+	                            </div>
+	                        </div>
+	                        <div class="clear"></div>
+	                    </div>
+
+	                </ion-item>
+
+	                <ion-item class="borderBf42 fonS037">
+	                    <span class="floatL">运费</span>
+	                    <span class="floatR">快递 <i ng-bind="shop.shopExpress.ExpressEelivery | currency:'¥'"></i></span>
+	                </ion-item>
+
+	                <ion-item class="pTpB lineH12 fonS037 borderBf42">
+	                    <i class="floatL w1">备注</i>
+	                    <input type="text" placeholder="请在这里添加备注" ng-model="shop.remark" class="floatL height12 w90" ng-click="">
+	                </ion-item>
+
+	                <ion-item class="borderBf42 fonS037">
+	                    <span class="floatR">
+	                        <i class="color9 fonS032">店铺合计金额</i>
+	                        <i class="fonS04 color-fe404c" ng-bind="shop.SoldTotalPrice | currency:'¥'"></i>
+	                    </span>
+	                </ion-item>
+
+                </div>
+
+                <ion-item class="borderBf42 fonS037 mT" ng-if="moneyInfo.CouponsBatchesDetails>0" ng-click="chooseCoupon()">
+                    <span class="floatL color-fe404c">使用优惠券</span>
+                    <span class="floatR color-b6b6b6" id="showCoupon">优惠券
+                        <i ng-bind="moneyInfo.CouponsBatchesDetails"></i>张＞
+                    </span>
+                </ion-item>
+
+                <div class="item item-toggle border-N borderBe fonS037 mT">
+                    <label class="toggle toggle-balanced" ng-click="toggleInvoice()">
+                        <input type="checkbox" ng-model="toggleInvoiceModel" />
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>普通发票
+                </div>
+<!--                <label class="checkbox checkbox-balanced subOrder_label item item-checkbox w10 borderBf42 mTB">
+                    <input type="checkbox" class="checkbox-balanced subOrder_online"><span class="fonS037">在线支付</span>
+                </label>-->
+
+                <div ng-class="{'display-N':invoiceType}" class="">
+                  <p class="item pT11pB11">
+                    <span class="floatL fonS037">类型 <a href="" class="subOrder_btn_two">纸质发票</a></span>
+                  </p>
+	                <div class="item user_group p616 fonS035">
+                    <i class="floatL lineH40 mR15">抬头</i>
+	                    <label class="checkbox checkbox-balanced subOrder_label_checkbox">
+	                        <input type="checkbox" class="checkbox-balanced subOrder_online fonS035 floatL"
+	                               ng-model="choose.user"
+	                               ng-click="chooseUser()"
+                          />
+	                        <span>个人</span>
+	                    </label>
+	                    <label class="checkbox checkbox-balanced subOrder_label_checkbox">
+	                        <input type="checkbox" class="checkbox-balanced subOrder_online fonS035 floatL"
+	                               ng-model="choose.group"
+	                               ng-click="chooseGroup()"/>
+	                        <span>公司</span>
+	                    </label>
+	                </div>
+
+	                <ion-item class="pTpB lineH12 fonS037" ng-class="{'display-N':invoiceUserName}">
+	                    <input type="text" placeholder="请输入单位名称" ng-model="choose.groupName" class="floatL height12 w90">
+	                </ion-item>
+                  <p class="item pT11pB11">
+                    <span class="floatL fonS037">内容 <a href="" class="subOrder_btn_two">明细</a></span>
+                  </p>
+                </div>
+
+            </div>
+          <ion-item class="border-N mT026 paddingB026 paddingT0 color-6 fonS032">
+            <p class="lineH10666 color-333">
+              <span class="floatL fonS037 fontW600">商品总价</span>
+              <span class="floatR fonS035 fontW600" ng-bind="moneyInfo.totalMoney | currency:'¥'"></span>
+            </p>
+
+            <p class="lineH04 subOrder_span_warp lineH34">
+              <span class="floatL">优惠金额</span>
+              <span class="floatR" ng-bind="'- '+(moneyInfo.activeCouponMoney | currency:'¥')"></span>
+              <!--<i class="floatR fonS32" ng-if="moneyInfo.activeCouponMoney != 0">-</i>-->
+            </p>
+
+            <p class="lineH10666 subOrder_span_warp">
+              <span class="floatL">运费</span>
+              <span class="floatR" ng-bind="'+ '+(moneyInfo.freight | currency:'¥')"></span>
+              <!--<i class="floatR fonS21 lineH34" ng-if="moneyInfo.freight != 0">+</i>-->
+            </p>
+
+            <p class="lineH04 subOrder_span_warp lineH34">
+              <span class="floatL">优惠券</span>
+              <span class="floatR" ng-bind="'- '+(moneyInfo.couponMoney | currency:'¥')"></span>
+              <!--<i class="floatR fonS32" ng-if="moneyInfo.activeCouponMoney != 0">-</i>-->
+            </p>
+          </ion-item>
+        </ion-list>
+    </ion-content>
+
+    <ion-footer-bar class="padding16 pTpB paddingR0 subOrder_footer">
+        <div class="floatL subOrder_footer_inner_div">
+          <p>共 <i class="text-center" ng-bind="moneyInfo.proCount"></i>件商品</p>
+          <p>
+          	合计
+          	<i class="color-fe404c fonS04"
+          		ng-bind="moneyInfo.totalMoney+moneyInfo.freight-moneyInfo.activeCouponMoney-moneyInfo.couponMoney | currency:'¥'"></i>
+          		<!-- 商品总价+运费-优惠金额-优惠券 -->
+          </p>
+        </div>
+        <a class="floatR subOrder_footer_btn" ng-click="submitOrder()">提交订单</a>
+    </ion-footer-bar>
+
+    <div class="zhezhao" ng-class="{'display-N':zhezhaoHide}"></div>
+
+    <custom class="custom_hide" ng-class="{'custom_show':choosePayType}">
+	    <ion-list class="subOrder_list_tanchuang">
+	        <ion-item class="border-N pTpB">
+	            <p class="text-center fonS037 color-333 borderBe lineH10666">支付金额 <i ng-bind="moneyInfo.totalMoney+moneyInfo.freight-moneyInfo.activeCouponMoney-moneyInfo.couponMoney | currency:'¥'"></i></p>
+	        </ion-item>
+
+	        <div class="item item-checkbox border-N borderBe mLR16" ng-repeat="item in payType" ng-if="!item.disabled">
+	            <label class="checkbox checkbox-balanced">
+	                <input type="checkbox" class="subOrder_online" ng-model="item.selected" ng-click="tooglePayType()"/>
+	            </label>
+	            <i class="subOrder_ion">
+	            	<img src="img/app/center/{{item.img}}" class="w3" ng-bind="item.name">
+	           		{{item.name}}
+	            </i>
+	        </div>
+
+	        <div class="subOrder_btn" ng-click="closeLayer()">×</div>
+	    </ion-list>
+
+	    <ion-footer-bar>
+	        <a class="title bar bar-assertive pdmd_z" ng-click="pay()">去支付</a>
+	    </ion-footer-bar>
+    </custom>
+  <!--17star-->
+
+
+  <!--custom_hide-->
+  <div class="commIntro__coupon custom_hide" ng-class="{'display-N':!chooseCoupons,'custom_show':chooseCoupons}">
+    <ion-list class="subOrder_list_tanchuang bottom0 paddingB20px comm_story_name">
+      <ion-item class="border-N pTpB">
+        <p class="text-center fonS037 color-33 lineH1">优惠券</p>
+      </ion-item>
+      <div class="padding16 commIntro-scoll">
+
+        <ion-item class="commIntro__coupon_inner" ng-repeat="item in couponse">
+          <div>
+            <p class="colorfc3f4c lineH09">
+              <i class="fonS046rem">¥</i>
+              <i class="fonS09 fonS0293" ng-bind="item.CouponsFaceValue"></i>
+              <i class="mL10">优惠券</i>
+            </p>
+            <div class="commIntro__div">
+              <p class="color-333 fonS0293">
+                <i>满{{item.TriggerCash}}减{{item.CouponsFaceValue}}</i>
+              </p>
+            </div>
+          </div>
+          <div class="commIntro_coupon_btn_warp">
+            <!-- commIntro_coupon_grey -->
+            <a class="commIntro_coupon_btn" ng-class="{'commIntro_coupon_grey':item.use,'commIntro_coupon_red':!item.use}" ng-click="useCoupon()">使用</a>
+          </div>
+        </ion-item>
+
+      </div>
+      <div class="subOrder_btn" ng-click="closeLayer()">×</div>
+    </ion-list>
+    <div class="clear"></div>
+  </div>
+  <!--17end-->
+</ion-view>

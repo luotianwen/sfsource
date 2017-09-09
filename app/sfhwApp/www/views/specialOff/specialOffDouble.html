@@ -1,0 +1,33 @@
+<ion-view>
+  <ion-header-bar class="background-343843 backimgNot">
+    <p class="specialOffTittle shishangzhonghei colorF">特卖<br><span class="specialOffTittle displayblack">sale</span></p>
+  </ion-header-bar>
+  <img src="img/app/center/special_02.png" style="height: 4.4rem">
+  <div class="specialOffDoubleBtnWarp">
+    <div class="specialOffDoubleInner">
+      <div class="specialOffDoubleBtn specialOffDoubleOnBtn" id="sdDiv"><span class="ion-ios-cart-outline"></span> 天天特卖</div>
+      <div class="specialOffDoubleBtn specialOffDoubleOffBtn" id="sdysDiv"><span class="ion ion-ios-time-outline"></span>明日特卖</div>
+    </div>
+  </div>
+  <ion-content style="top:5.8rem">
+    <ion-list id="sdList">
+      <ion-item class="specialOffItem specialOffDoubleItem" ng-repeat="pro in specialOffDoubleProduct">
+        <a href="#/tab/commIntro/{{pro.SKU}}"><img src="http://seebong-hangzhou.img-cn-hangzhou.aliyuncs.com/{{pro.ImageUrl}}@!app"></a>
+        <a href="#/tab/commIntro/{{pro.SKU}}"><p class="fangzhenglanting mB016" ng-bind="pro.ProductName"></p></a>
+        <p class="text-center specialOffPfirst"><span>RMB</span><span ng-bind="pro.ActivityPrice | number"></span></p>
+        <p class="text-center specialOffPfirst"><span class="text-decoration colorc9c9c9">RMB</span><span class="text-decoration colorc9c9c9" ng-bind="pro.MarketPrice | number"></span></p>
+      </ion-item>
+      
+    </ion-list>
+
+      <ion-list id="sdysList" style="display:none">
+      <ion-item class="specialOffItem specialOffDoubleItem" ng-repeat="pro in presellProduct">
+        <a href="#/tab/commIntro/{{pro.SKU}}"><img src="http://seebong-hangzhou.img-cn-hangzhou.aliyuncs.com/{{pro.ImageUrl}}@!app"></a>
+        <a href="#/tab/commIntro/{{pro.SKU}}"><p class="fangzhenglanting mB016" ng-bind="pro.ProductName"></p></a>
+        <p class="text-center specialOffPfirst"><span>RMB</span><span ng-bind="pro.ActivityPrice | number"></span></p>
+        <p class="text-center specialOffPfirst"><span class="text-decoration colorc9c9c9">RMB</span><span class="text-decoration colorc9c9c9" ng-bind="pro.MarketPrice | number"></span></p>
+      </ion-item>
+      
+    </ion-list>
+  </ion-content>
+</ion-view>

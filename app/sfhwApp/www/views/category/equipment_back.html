@@ -1,0 +1,21 @@
+<ion-view class="bgefede7" view-title="装备分类" >
+    <ion-header-bar class="bar-dark background-343843" ng-click="$rootScrollTop()">
+        <h1 class="title">装备分类</h1>
+        <!--<a class="button button-light icon ion-ios-search-strong button-clear" href="#/tab/screen"></a>-->
+    </ion-header-bar>
+
+
+        <div class="grade-eject" style="z-index: 3;">
+
+        		<ul class="grade-w gund" style="background-color: #474d5c;overflow-x:hidden;min-height: 200px;">
+                	<li ng-repeat="item in category1" ng-bind="item.Descript" ng-click="oneCategory()" ng-class="{'click-background':item.background}"></li>
+            	</ul>
+            	<ul class="gund" ng-class="{'two-left':two_left,'grade-t':true}" style="background-color: #5a6277;overflow-x:hidden;min-height: 200px;">
+                	<li ng-repeat="item in category2" ng-bind="item.Descript" ng-click="twoCategory()" ng-class="{'click-background':item.background}" ></li>
+            	</ul>
+            	<ul class="gund" ng-class="{'three-left':three_left,'grade-s':true}" style="background-color: #5a6277;overflow-x:hidden;min-height: 200px;">
+                	<li ng-repeat="item in category3" ng-bind="item.Descript" ng-click="threeCategory()" ng-class="{'three-borderBottom':item.background}" ></li>
+            	</ul>
+        </div>
+
+</ion-view>

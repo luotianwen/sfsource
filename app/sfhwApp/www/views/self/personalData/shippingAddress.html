@@ -1,0 +1,74 @@
+<ion-view title="添加管理收货地址">
+    <ion-header-bar class="bar-dark">
+        <i class=" icon ion-ios-arrow-left button button-clear"  ng-click="rootBack()"></i>
+        <h1 class="title">收货地址</h1>
+
+    </ion-header-bar>
+    <ion-content class="backgroundF4">
+
+        <ion-list ng-repeat="item in address">
+            <ion-item class="fons037 pt10pb19" ng-click="chooseAddress(item.Id)">
+                <span class="name color-333 lineH09" ng-bind="item.Consignee"></span>
+                <span class="phoneNumber position-r3 lineH09" ng-bind="item.Phone"></span><br/>
+                <span style="width: 100%;white-space:normal;clear: both;" ng-bind="item.Area+item.StreetAddress" class="fons032 line-Height048 display-ib"></span>
+            </ion-item>
+            <ion-item  style="margin-bottom: 10px;" class="pT6pB6">
+            	<label class="checkbox checkbox-balanced floatL shippingAddress_one" ng-if="chooseAddressId">
+                  <input type="checkbox" class="floatL border-cC shippingAddress_two" ng-checked="item.Id == chooseAddressId" ng-model="item.chooseCurrentAddress" ng-click="chooseCurrentAddress()" />
+                  <!--ng-checked="item.Id == chooseAddressId" -->
+                  <!--颜色不是红色 直接removeClass shipping_color-R-->
+                  <!--<span class="ml10 shipping_color-R">默认地址</span>-->
+                </label>
+                
+                <div style="width: 100%;text-align: right;">
+                    <a class="button-all" ng-click="edit(item)">编辑</a>
+                    <a class="button-all" ng-click="delete(item)">删除</a>
+                </div>
+            </ion-item>
+        </ion-list>
+        
+      <div  class="shopping_cart_null" ng-if="noData">
+        <i class="ion ion-ios-location-outline fonS4 mB20"></i>
+        <p class="color9">您还没有添加收货地址</p>
+      </div>
+    </ion-content>
+  <ion-footer-bar class="border-N" ng-if="address.length<10" ng-click="addNewAddress()" >
+    <h1 class="title background-343843 marginZ colorF lineH44">
+    	<i class="ion-plus-round lineH44 mR15"></i>添加新地址
+    </h1>
+  </ion-footer-bar>
+</ion-view>
+
+
+
+<!--<ion-view title="添加管理收货地址">
+    <ion-header-bar class="bar-dark">
+        <i class=" icon ion-ios-arrow-left button button-clear"  ng-click="rootBack()"></i>
+        <h1 class="title">收货地址</h1>
+
+    </ion-header-bar>
+    <ion-content class="backgroundF4">
+
+        <ion-list ng-repeat="item in address" class="display-N">
+            <ion-item >
+                <span class="name color-333" ng-bind="item.Consignee"></span>
+                <span class="phoneNumber position-r3" ng-bind="item.Phone"></span><br/>
+                <span style="width: 100%;white-space:normal;clear: both;" ng-bind="item.Area+item.StreetAddress"></span>
+            </ion-item>
+            <ion-item  style="margin-bottom: 10px;">
+                <div style="width: 100%;text-align: right;">
+                    <button class="button button-all" ng-click="edit(item)">编辑</button>
+                    <button class="button button-all" ng-click="delete(item)">删除</button>
+                </div>
+            </ion-item>
+        </ion-list>
+      <div  class="shopping_cart_null">
+        <i class="ion ion-ios-location-outline fonS4 mB20"></i>
+        <p class="color9">您还没有添加收货地址</p>
+      </div>
+    </ion-content>
+  <ion-footer-bar class="border-N">
+    <h1 class="title background-343843 marginZ colorF lineH44"><i class="ion-plus-round lineH44 mR15"></i>添加新地址</h1>
+  </ion-footer-bar>
+</ion-view>
+-->

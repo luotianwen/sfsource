@@ -1,0 +1,45 @@
+<ion-view view-title="登录" class="backgroundF4">
+
+    <ion-header-bar class="bar-dark">
+        <a class="button button-icon icon ion-ios-arrow-left" href="#/tab/center"></a>
+        <h1 class="title">登录</h1>
+    </ion-header-bar>
+
+    <ion-content scroll="false" class="content-css">
+        <ion-list>
+
+            <!--账号-->
+            <ion-item class="item-input border-M">
+                <span class="input-label padding-W">账号</span>
+                <input type="text" maxlength="50" ng-model="user.account" placeholder="手机号 / 邮箱 / 用户名">
+            </ion-item>
+            <!--账号-->
+
+            <!--密码-->
+            <ion-item class="item-input border-M position-r">
+                <span class="input-label padding-W">密码</span>
+                <input type="{{passwordType}}" maxlength="50" ng-model="user.password" placeholder="请输入6位以上密码(区分大小写)">
+                <i ng-class="{'icon-see':see,'icon-eye':!see}" class="position-ajZ" ng-click="togglePassword()"></i>
+            </ion-item>
+            <!--密码-->
+
+            <!--  登录  -->
+            <ion-item class="cut-off button-clear border-M padding0">
+                <button ng-disabled="checkLoginInfo()" ng-click="submit()" class="button button-block color-font all color" style="border:none;">登录</button>
+            </ion-item>
+            <!--  登录  -->
+
+            <!--  注册  -->
+            <ion-item class="button-clear mpwd">
+                <div class="display-ib" style="display: inline-block;width: auto;">
+                    <a class="button button-dark button-clear font-register color9" href="#/tab/register">立即注册</a>
+                </div>
+                <div class="dwf">
+                    <a class="button button-dark button-clear forget color9" href="#/tab/forgetPassword">忘记密码？</a>
+                </div>
+            </ion-item>
+            <!--  注册  -->
+
+        </ion-list>
+    </ion-content>
+</ion-view>

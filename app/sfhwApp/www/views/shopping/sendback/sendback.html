@@ -1,0 +1,104 @@
+<ion-view>
+    <ion-header-bar class="backimgNot">
+        <button class="button-icon icon ion-ios-arrow-left" ng-click="rootBack()"></button>
+        <h1 class="title fonF">
+            申请退货
+        </h1>
+    </ion-header-bar>
+    <ion-content class="backgroundF4">
+        <ion-item class="mT6 border-N ">
+            <p class="fons035 color-333 fontW200 fonF">订单号<span class="ml10" ng-bind="number.OrderId"></span></p>
+        </ion-item>
+        <!--<ion-item class="border-N paddingBT0  mT6">-->
+        <!--<p class="fons035 color-333 fontW200">于尔旺旗舰店</p>-->
+        <!--</ion-item>-->
+        <ion-item class="border-N padding6 pM0 pTpB">
+            <div class="sendback_top row borderT">
+                <img ng-src={{ossUrl}}{{number.ProductImage}} class="w4 phone4sW3 he5">
+                <div class="col col-67 floatL sendback_tra phone4sW7">
+                    <p class="overPaceN fonS032 fontW600" ng-bind="number.ProductName"></p>
+                    <p class="fonS0293 color-98" ng-bind="number.Color"></p>
+
+                    <div class="fonS035 color-98 overPaceN mT32 position-r">
+                        <span class="floatL">退货数量(最多<i ng-bind="number.Quantity"></i>件)</span></span>
+
+                      <div class="position-a-816 right8">
+                        <i ng-disabled="item.ProductType == 1" ng-click="subtract()" class="icon ion-ios-minus-empty position-a-816-i"></i>
+                        <i class="aa icon checkbox-vertical-sub-input" ng-bind="ueser.num"></i>
+                        <i ng-disabled="item.ProductType == 1" ng-click="Oplus()" class="icon ion-ios-plus-empty position-a-816-i"></i>
+                      </div>
+<!--                      <p class="floatR mL15" style="overflow: inherit">
+                        <i class="icon ion-ios-minus-empty  aa aa-padding-font checkbox-vertical-sub"
+                           ng-click="subtract()"></i>
+                        <input class="aa aa-middle w40 icon checkbox-vertical-sub-input" ng-model="ueser.num">
+                        <i class="icon ion-ios-plus-empty aa aa-padding-font"
+                           style="margin-right:0.05rem;vertical-align: sub;" ng-click="Oplus()"></i>
+                      </p>-->
+                    </div>
+                </div>
+            </div>
+
+        </ion-item>
+        <!--&lt;!&ndash;<ion-item class="sendback_main_bottom border-N borderT">-->
+            <!--<p class="fonS035 color-343843"><span class="color-fe404c">*</span>退款金额 <span class="color-98"> <span class="fonS035 color-fe5d67">499.00</span></span></p>-->
+        <!--</ion-item>&ndash;&gt;-->
+
+        <ion-item class="backgroundF">
+            <span class="floatL mR053 fonS035" style="line-height: 25px;">服务类型</span>
+            <span id="apply" class="border-N">
+                <span class="sendback_btn fonS035 applyFor1">申请退货</span>
+                <span class="sendback_red_btn fonS035 applyFor2 sendback_btn">申请换货</span>
+            </span>
+        </ion-item>
+
+        <ion-item class="border-N mT fonS035 mB02" id="show" style="display: none;">
+            <span class="mR053"> 退款金额</span> <i class="color-fe5d67" ng-bind="number.totalPrice"></i>
+        </ion-item>
+
+        <ion-item class="backgroundF4">
+            <span class="sendback_list_span"><span class="color-fe404c">*</span>退货原因</span>
+        </ion-item>
+
+
+        <ion-item class="border-N pdmd_z mT">
+            <!--<a class="send_use icon-right w10 fonS035 display-ib" href="#">-->
+            <!--<span><span class="color-fe404c">*</span>退货原因</span>-->
+            <!--</a>-->
+
+            <div data-role="fieldcontain" class="demo-cont settings" id="demo_cont_select" >
+                <select name="Cities" id="demo_select" data-role="none">
+                    <option value="1">商品规格不合适</option>
+                    <option value="2">性能/耗电/漏电断电/故障</option>
+                    <option value="3">与网站商品描述不符</option>
+                    <option value="4">包装商品破损</option>
+                    <option value="5">物流慢/收货太迟</option>
+                    <option value="6">七天无理由退换货</option>
+                    <option value="7">发错货</option>
+                    <option value="8">多发\漏发商品\配件</option>
+                </select>
+            </div>
+            <i class="icon ion-ios-arrow-right floatR" style="margin-top: -40px;margin-right: 20px"></i>
+            <!--<i class="icon ion-ios-arrow-right floatR"></i>-->
+        </ion-item>
+        <ion-item class="mT6 border-N" style="display: none;" id="explain1">
+            <p class="fonS035 color-343843"><span class="color-fe404c">*</span>退款说明</p>
+            <input type="text" placeholder="请描述您想退款的原因" class="border-N w10 resizeN textareah"
+                   ng-model="ueser.questionDesc">
+        </ion-item>
+        
+        <ion-item class="mT6 border-N" id="explain2">
+            <p class="fonS035 color-343843"><span class="color-fe404c">*</span>退货说明</p>
+            <input type="text" placeholder="请描述您想退款的原因" class="border-N w10 resizeN textareah"
+                   ng-model="ueser.questionDesc">
+        </ion-item>
+        
+        
+    </ion-content>
+    <ion-footer-bar class="bar-assertive" ng-show="submit"> 
+        <div class="w10 title" ng-click="submitOne()">提交</div>
+    </ion-footer-bar>
+    
+    <ion-footer-bar class="bar-assertive" ng-show="yesSubmit" style="background: #555;"> 
+        <div class="w10 title">提交内容审核中......</div>
+    </ion-footer-bar>
+</ion-view>

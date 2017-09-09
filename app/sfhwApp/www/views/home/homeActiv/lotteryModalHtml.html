@@ -1,0 +1,35 @@
+<ion-modal-view ng-controller="lotteryModalCtrl">
+
+
+        <ion-header-bar class="bar-balanced">
+            <h1 class="title">收货人信息</h1>
+            <a class="button" ng-click="closeLotteryModal()">关闭</a>
+        </ion-header-bar>
+
+        <ion-content class="padding">
+
+
+            <ion-list>
+            	
+                <ion-item class="item-input">
+                    <input ng-model="newUser.contacts" maxlength="10" type="text" placeholder="联系人名称">
+                </ion-item>
+                
+                <ion-item class="item-input">
+                    <input ng-model="newUser.phone" maxlength="11" type="text" placeholder="联系人电话">
+                </ion-item>
+                
+                <ion-item class="item-input">
+                    <input ng-model="newUser.address" maxlength="200" type="text" placeholder="收货地址">
+                </ion-item>
+                
+                <ion-item ng-if="isCreateUser()">
+                    <button class="button button-full button-balanced" ng-click="createContact()">确定</button>
+                </ion-item>
+
+            </ion-list>
+
+        </ion-content>
+
+
+    </ion-modal-view>

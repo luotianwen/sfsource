@@ -1,0 +1,38 @@
+<ion-view>
+    	
+    <ion-content ng-if="isLoadGuide" >
+		<!--
+			作者：798823035@qq.com
+			时间：2016-12-14
+			描述：does-continue属性，当滑动到最后一个的时候，是否切换为第一张
+			auto-play属性，是否自动滑动
+		-->
+	
+		<ion-slide-box ng-click="guideClick()" slide-interval="5000" auto-play="true" delegate-handle="guideSlideBox" on-slide-changed="slideHasChanged(index)" >
+		  
+		  <ion-slide>
+		    <div class="box">
+		    	<img width="100%;" src="img/app/guide/app_guide_01.jpg" />
+		    </div>
+		  </ion-slide>
+		  <ion-slide>
+		    <div class="box">
+		    	<img width="100%;" src="img/app/guide/app_guide_02.jpg" />
+		    </div>
+		  </ion-slide>
+		  <ion-slide>
+		    <div class="box">
+		    	<img width="100%;" src="img/app/guide/app_guide_03.jpg" />
+		    </div>
+		  </ion-slide>
+		  <ion-slide>
+		    <div class="box">
+		    	<img width="100%;" src="img/app/guide/app_guide_04.jpg" />
+		    </div>
+		  </ion-slide>
+		  
+		</ion-slide-box>
+	
+    </ion-content>
+</ion-view>
+	

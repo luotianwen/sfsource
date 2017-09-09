@@ -1,0 +1,74 @@
+<ion-view>
+    <ion-header-bar>
+        <h1 class="title">
+            筛选
+        </h1>
+    </ion-header-bar>
+    <ion-list class="has-header">
+        <div class="item item-toggle border-N fonS032 background-f6f5f5" style="margin-top: 65px">
+            <label class="toggle toggle-dark">
+                <input type="checkbox"/>
+                <div class="track">
+                    <div class="handle"></div>
+                </div>
+            </label>是否有折扣
+        </div>
+        <div class="item item-toggle border-N fonS032 background-f6f5f5 mT">
+            <label class="toggle toggle-dark">
+                <input type="checkbox"/>
+                <div class="track">
+                    <div class="handle"></div>
+                </div>
+            </label>是否免运费
+        </div>
+    </ion-list>
+    <div class="classify_two_view_main">
+        <ion-content class="classify_two_view_main_left">
+            <ion-list>
+                <ion-item class="item-icon-right">
+                    <span>分类</span><i class="icon ion-ios-arrow-right ddd"></i>
+                </ion-item>
+                <ion-item class="item-icon-right">
+                    <span>分类</span><i class="icon ion-ios-arrow-right ddd"></i>
+                </ion-item>
+                <ion-item class="item-icon-right shop_inner_btn">
+                    <span>分类</span><i class="icon ion-ios-arrow-right ddd"></i>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+        <ion-content class="classify_two_view_main_right">
+            <ion-list>
+                <ion-item class="item-icon-right border1Se">
+                    双肩包
+                </ion-item>
+
+                <ion-item class="item-icon-right border1Se">
+                    <span>分类</span><i class="icon ion-ios-arrow-down ddd"></i>
+                </ion-item>
+                <ion-item class="item-icon-right shop_inner_grey_btn border1Se">
+                    <span>分类</span></i>
+                </ion-item>
+                <ion-item class="item-icon-right border1Se">
+                    <span>分类</span><i class="icon ion-ios-arrow-up ddd"></i>
+                </ion-item>
+                <ul class="shop_inner_ul">
+                    <li>大型背包（50L以上）</li>
+                    <li>大型背包（50L以上）</li>
+                    <li>大型背包（50L以上）</li>
+                    <li>大型背包（50L以上）</li>
+                    <li>大型背包（50L以上）</li>
+                </ul>
+                <ion-item class="text-center border1Se">
+                    双肩包
+                </ion-item>
+                <ion-item class="border1Se text-center background-f6f5f5">
+                    牧高笛
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </div>
+    <ion-footer-bar class="paddingZ">
+        <a ng-click="reset()" class="screen-fontSize-b fontSize-b-f display-ib floatL borderTc w5 border-N">重选</a>
+        <a ng-click="closeFilter()" class="screen-fontSize-b display-ib floatL w5">确定</a>
+    </ion-footer-bar>
+</ion-view>

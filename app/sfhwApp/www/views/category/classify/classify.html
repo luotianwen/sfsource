@@ -1,0 +1,217 @@
+<ion-view class="bgefede7" on-drag-up="onDragUp()" on-drag-down="onDragDown()" on-drag-right="onDragRight()" >
+
+    <div ng-class="{'search-backdrop':searchBackdrop}" ng-click="closeFilter()"></div>
+
+    <ion-header-bar ng-class="{'header-slide-up':headerSlideUp,'header-slide-down':!headerSlideUp}" class="background-343843 backimgNot">
+
+        <button class="button button-icon colorF icon ion-ios-arrow-left" ng-click="rootBack()"></button>
+
+        <div ng-click="showSearchModal()" class="item-input classify_search border-N display-Ih backgroundF">
+            <i class="icon ion-ios-search placeholder-icon search_ion"></i>
+          	<span id="classify_search_key_word" class="w8 color-cc">商品名称</span>
+            <!--<input type="text" placeholder="订单编号/商品名称" id="classify_search_key_word" ng-model="searchKeyword" ng-click="showSearchModal()">-->
+        </div>
+
+        <a ng-class="{'icon-paixu':!showClassiFy,'top-icon-paixu':showClassiFy}" class="icon-paixu" ng-click="showClassiFy = !showClassiFy"></a>
+    </ion-header-bar>
+
+    <ion-header-bar class="bar-subheader text-center" style="position: relative;" ng-class="{'subheader-slide-up':headerSlideUp,'subheader-slide-down':!headerSlideUp}" >
+    	<!--筛选条件-->
+        <span class="col col-25" ng-repeat="item in sortArray"
+              ng-class="{'color-fe404c':item.fontRed}"
+              ng-click="sortHandle(item.sort)"
+              ng-bind="item.script">
+            <i ng-if="item.iconSort" class="icon" ng-class="{'ion-ios-arrow-up':item.asc,'ion-ios-arrow-down':!item.asc}" ></i>
+        </span>
+        <span class="col col-25" ng-click="filter()">筛选</span>
+        <!--<i class="myClassify-redW"></i>-->
+    </ion-header-bar>
+
+
+    <ion-content class="backgroundF4" scroll="{{scrollCustom}}" style="bottom: 0;" lazy-scroll ng-class="{'content-top':headerSlideUp}">
+        <ion-list ng-if="!showClassiFy" style="width: 100%;">
+        	<!--上啦加载-->
+            <ion-infinite-scroll ng-if="isfiniteShow" ng-show="infiniteShow" spinner="ios" on-infinite="loadMore()" style="background-color: #f4f4f4;" ></ion-infinite-scroll>
+
+            <ion-item class="abcd" style="white-space: inherit;width: 100%;padding: 0;margin: 0;border:none;background-color: #f4f4f4;">
+                <a href="#/tab/commIntro/{{item.sku}}" ng-repeat="item in productData" id="{{item.sku}}" class="backgroundF icon mTr backgroundFF cardname" style="display: inline-block;width: 48.5%;">
+                    <img image-lazy-src="http://seebong-hangzhou.img-cn-hangzhou.aliyuncs.com/{{item.ipath}}@!app"
+                    	 image-lazy-loader="lines"
+                    	 image-lazy-distance-from-bottom-to-load="100"
+                         class="w10"/>
+
+                     <!--image-lazy-src="{{ossUrl}}{{item.ipath}}" image-lazy-loader="lines"
+                         image-lazy-distance-from-bottom-to-load="100"-->
+
+                    <span class="money-css333-class slide-zoom" ng-bind="item.pname"></span>
+                    <span class="money-css-class text-left-mL" ng-bind="item.price | currency:'¥'"></span><!--
+                    <span class="color9 money-css-class text-left-mL"  style="margin-top: 0;"
+                    	ng-bind-html="'评价'+item.evaluate+'条'+'&nbsp;&nbsp;好评'+item.praise+'%'">-->
+
+                    </span>
+                    <!--<button ng-click="addShopCart(item.sku)">add shop cart</button>-->
+                </a>
+            </ion-item>
+        </ion-list>
+
+        <ion-list ng-if="showClassiFy">
+            <ion-infinite-scroll ng-if="isfiniteShow" ng-show="infiniteShow" spinner="ios" on-infinite="loadMore()" style="background-color: #f4f4f4;" ></ion-infinite-scroll>
+
+            <ion-item ng-repeat="item in productData"  class=" item item-thumbnail-left border-N" style="margin-top: 3px;">
+                <img ng-click="goProductDetailInfo(item.sku)" src="http://seebong-hangzhou.img-cn-hangzhou.aliyuncs.com/{{item.ipath}}@!app" class="left-img-icon-all">
+                <div class="onebyone mL353rem">
+                    <p class="fonts16 color-343843 mT-10" ng-bind="item.pname" ng-click="goProductDetailInfo(item.sku)" ></p>
+                    <p class="color-fe404c" ng-bind="item.price | currency:'¥'"></p>
+                    <p class="font12-c9" style="margin-top: 14px;"
+                    	ng-bind="'评价'+item.evaluate+'条&nbsp;&nbsp;好评'+item.praise+'%'"></p>
+                    <p class="font12-c9" ng-bind="item.sshopName"></p>
+                    <i class="icon ion-ios-cart-outline icon-img-css color-fe404c" ng-click="addShopCart(item.sku,item.shop_id,item.id)"></i>
+                </div>
+                <!--<ion-option-button class="button-assertive" ng-click="remove(items,item)">-->
+                <!--删除-->
+                <!--</ion-option-button>-->
+            </ion-item>
+        </ion-list>
+        <!--  为空时显示  -->
+			<div class="shopping_cart_null w10 text-center sendback_list_bottom_ion" ng-if="vacancy">
+          		<p class="mT034rem">暂时没有找到相关单品，请重新搜索</p>
+        	</div>
+    </ion-content>
+
+    <!--  当点击时left应该为20%  -->
+    <ion-view ng-class="{'filter-left-show':filterLeft,'filter-left-hide':filterRight,'filter-page':true}">
+        <ion-content style="top: 0;" >
+            <ion-list class="has-header">
+                <ion-list class="button-clear">
+                    <ion-item class="border-N bar">品牌
+                        <i class="icon float-font"
+                           ng-class="{'ion-ios-arrow-down':down,'ion-ios-arrow-up':!down}"
+                           ng-if="brands.length>3" ng-click="showAndHideAllBrands()">
+                        </i>
+                    </ion-item>
+                    <ion-item class="row text-center border-N padding-rL row-wrap" style="margin-bottom: -21px;">
+                        <span class="col col-31 color-E" ng-repeat="item in brands"
+                              ng-bind="item.BrandName" id="{{item.Id}}" ng-show="item.display || $index < 3"
+                              ng-click="brandClickChangeClass()" ng-class="{'color-3438':item.choose}">
+                        </span>
+                    </ion-item>
+                </ion-list>
+
+                <ion-list ng-repeat="items in propertyLookup" class="mT-20">
+                    <ion-item  class="border-N">
+                        {{items[0].PropertyName}}
+                        <i class="icon float-font"
+                           ng-class="{'ion-ios-arrow-down':!items.up,'ion-ios-arrow-up':items.up}"
+                           ng-if="items.length>3" ng-click="showAndHideSku(items)"></i>
+                    </ion-item>
+                    <ion-item class="row text-center border-N padding-rL row-wrap">
+                        <span class="col col-31 color-E"
+                              ng-repeat="item in items" ng-bind="item.PropertyValueContent"
+                              id="{{item.PropertyValueID}}" ng-show="item.display || $index < 3"
+                              ng-click="propertyClickChangeClass(items)" ng-class="{'color-3438':item.choose}">
+                        </span>
+                    </ion-item>
+                </ion-list>
+
+            </ion-list>
+
+        </ion-content>
+
+            <ion-footer-bar class="row" style="padding: 0;border-top:1px solid #ddd;">
+
+                  <a ng-click="reset()" class="screen-fontSize-b fontSize-b-f col col-50">重置</a>
+
+                  <a ng-click="closeFilter()" class="screen-fontSize-b col col-50" >确定</a>
+
+        </ion-footer-bar>
+    </ion-view>
+	</ion-view>
+
+
+	<ion-view ng-class="{'display-N':hideSearchView}" >
+
+	    <ion-header-bar ng-click="$rootScrollTop()" class="backimgNot" id="searchGoodHeader">
+	        <div class="item-input searchGood_1_search_input border-N display-Ih backgroundF4">
+	            <i class="icon ion-ios-search placeholder-icon ml10 search_ion"></i>
+	            <input ng-model="search.keyword" id="in_search_input" class="classify-input-lineH" type="text" placeholder="搜索" >
+	            <i ng-click="clearKeyword()" class="icon ion-close-round placeholder-icon mR15" ng-show="search.keyword != ''"></i>
+	        </div>
+	        <div class="button-clear color-b search_cancel" ng-click="cancel()" style="line-height: 17px !important;">取消</div>
+	    </ion-header-bar>
+
+	    <ion-content class="backgroundF4" id="searchGoodContent" style="bottom: 0px;top:64px;">
+	        <!--标签-->
+	        <ion-list class="searchGood_1_btn_item">
+
+
+	            <ion-item class="border-N pTpB mB1">
+	                <p>
+	                	<span class="floatL fonS035">最近搜索</span>
+	                	<i class="floatR ion-trash-a color9" ng-click="clearHistorySearch()"></i>
+	                </p>
+	                <div class="overPaceN searchGood_1_btn_warp" style="border-bottom: none;"> <!--分割线：searchGood_1_btn_warp-->
+	                    <p id="no_history_search_p" class="fons032 color9" >无搜索历史</p>
+	                </div>
+	            </ion-item>
+
+
+	            <ion-item class="border-N pTpB display-N">
+	                <p><span class="floatL">热门搜索</span></p>
+	                <div class="fons0293 searchGood_1_btn_warp overPaceN border-N">
+	                    <a href="" class="color-b">裤子</a>
+	                </div>
+	            </ion-item>
+	        </ion-list>
+
+	        <!--店铺-->
+	        <ion-list ng-show="showModule.shop" class="searchGood_1_list_two">
+	            <div class="searchGood_1_list_two_warp">
+	                <p class="marginZ">
+	                    <span class="floatL">
+	                        <i>牧高笛旗舰店</i>
+	                        <i>4.555</i>
+	                    </span>
+	                    <a href="" class="floatR">进入店铺</a>
+	                <div class="clear"></div>
+	                </p>
+	                <div class="searchGood_1_img_warp">
+	                    <div>
+	                        <img src="img/app/center/colthing.jpg" alt="">
+	                        <p>1111</p>
+	                    </div>
+	                    <div>
+	                        <img src="img/app/center/colthing.jpg" alt="">
+	                        <p>2222</p>
+	                    </div>
+	                </div>
+	            </div>
+	        </ion-list>
+
+
+	        <!--搜索的关键字-->
+	        <ion-list>
+	            <!--<ion-item class="pTpB" ng-show="keyword != ''">
+	                <div class="borderBe">
+	                    <div class="searchGood_1_three_div">
+	                    <span class="floatL">
+	                        搜索“
+	                        <i ng-bind="keyword"></i>
+	                        ”相关的店铺
+	                    </span>
+	                        <i class="floatR">
+	                            <img src="img/app/center/redshop.png" alt="">
+	                            <div class="clear"></div>
+	                        </i>
+	                    </div>
+	                    <div class="clear"></div>
+	                </div>
+	            </ion-item>-->
+	            <ion-item class="border-N pTpB" ng-show="searchData.length > 0">
+	                <p ng-click="getKeywordSearchData(item,0)" ng-repeat="item in searchData" ng-bind="item" class="borderBe searchGood_1_item_p"></p>
+	            </ion-item>
+	        </ion-list>
+
+
+	    </ion-content>
+
+	</ion-view>

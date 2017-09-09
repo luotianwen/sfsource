@@ -1,0 +1,202 @@
+<ion-view view-title="订单详情">
+    <ion-header-bar> <!--ng-click="$rootScrollTop()"-->
+        <i class=" icon ion-ios-arrow-left button button-clear" ng-click="rootBack()" style="color: #333 !important;"></i>
+        <h1 class="title">订单详情</h1>
+    </ion-header-bar>
+    <ion-content class="backgroundF4" style="bottom: 44px;">
+        <!--  页面中有个弹窗  -->
+        <ion-list>
+        	<!-- 订单状态 -->
+            <ion-item class="m5 border-N">
+                <div class="color3 mT-0 fontS13" ng-switch="orderInfo.OrderStatus">
+                	状态：
+                	<i class="color3 fontS13 orderInfo orderInfo_yiquxiao" ng-switch-when="0">等待付款</i>
+                	<i class="color3 fontS13 orderInfo orderInfo_yiquxiao" ng-switch-when="1">等待发货</i>
+                	<i class="color3 fontS13 orderInfo orderInfo_yiquxiao" ng-switch-when="2">等待收货</i>
+                	<i class="color3 fontS13 orderInfo orderInfo_jiaoyichenggong" ng-switch-when="3">交易完成</i>
+                	<i class="color3 fontS13 orderInfo orderInfo_yiquxiao" ng-switch-when="4">取消订单</i>
+                </div>
+            </ion-item>
+
+            <!--  头部进度条  -->
+            <div ng-switch="orderInfo.OrderStatus">
+                <ion-item class="row backgroundF4 border-N height70" ng-switch-when="0">
+                    <div class="indentParticulars-top">
+	                    <span class="indentParticulars-wire">
+	                        <i class="one indentParticulars-circle-all indentParticulars-circle_last"></i>
+	                        <i class="indentParticulars-circle-all indentParticulars-circle-1"></i>
+	                        <i class="indentParticulars-circle-all indentParticulars-circle-2"></i>
+	                        <i class="indentParticulars-circle-all indentParticulars-circle-3"></i>
+	                        <i class="indentParticulars-circle-all indentParticulars-circle-4"></i>
+		                </span>
+	                </div>
+                </ion-item>
+                <ion-item class="row backgroundF4 border-N height70" ng-switch-when="1">
+                    <div class="indentParticulars-top">
+	                    <span class="indentParticulars-wire">
+	                        <i class="one indentParticulars-circle-all"></i>
+	                        <i class="one1 indentParticulars-circle-all indentParticulars-circle-1 indentParticulars-circle_last"></i>
+	                        <i class="indentParticulars-circle-all indentParticulars-circle-2"></i>
+	                        <i class="indentParticulars-circle-all indentParticulars-circle-3"></i>
+	                        <i class="indentParticulars-circle-all indentParticulars-circle-4"></i>
+	                	</span>
+                	</div>
+                </ion-item>
+                
+                <!--
+                <ion-item class="row backgroundF4 border-N height70" ng-switch-when="2">
+                    <div class="indentParticulars-top">
+	                    <span class="indentParticulars-wire">
+	                        <i class="one indentParticulars-circle-all"></i>
+	                        <i class="one1 indentParticulars-circle-all indentParticulars-circle-1"></i>
+	                        <i class="one2 indentParticulars-circle-all indentParticulars-circle-2 indentParticulars-circle_last"></i>
+	                        <i class="indentParticulars-circle-all indentParticulars-circle-3"></i>
+	                        <i class="indentParticulars-circle-all indentParticulars-circle-4"></i>
+	                	</span>
+                    </div>
+                </ion-item>
+                -->
+                
+                <ion-item class="row backgroundF4 border-N height70" ng-switch-when="2">
+                    <div class="indentParticulars-top">
+	                    <span class="indentParticulars-wire">
+	                        <i class="one indentParticulars-circle-all"></i>
+	                        <i class="one1 indentParticulars-circle-all indentParticulars-circle-1"></i>
+	                        <i class="one2 indentParticulars-circle-all indentParticulars-circle-2"></i>
+	                        <i class="one3 indentParticulars-circle-all indentParticulars-circle-3 indentParticulars-circle_last"></i>
+	                        <i class="indentParticulars-circle-all indentParticulars-circle-4"></i>
+	                	</span>
+                    </div>
+                </ion-item>
+                <ion-item class="row backgroundF4 border-N height70" ng-switch-when="3">
+                    <div class="indentParticulars-top">
+	                    <span class="indentParticulars-wire">
+	                        <i class="one indentParticulars-circle-all"></i>
+	                        <i class="one1 indentParticulars-circle-all indentParticulars-circle-1"></i>
+	                        <i class="one2 indentParticulars-circle-all indentParticulars-circle-2"></i>
+	                        <i class="one3 indentParticulars-circle-all indentParticulars-circle-3"></i>
+	                        <i class="one4 indentParticulars-circle-all indentParticulars-circle-4 indentParticulars-circle_last"></i>
+	                	</span>
+                    </div>
+                </ion-item>
+            </div>
+            <!--  头部进度条  -->
+
+            <ion-item>
+                <span class="color3 fontS14 fontW400">收货信息</span>
+            </ion-item>
+
+            <ion-item class="borderBottom-N mB20">
+                <div>
+                    <span class="fontS14 color3" ng-bind="orderInfo.ReceiveName"></span>
+                    <span class="floatR font12-W600" ng-bind="orderInfo.PhoneNumber"></span>
+                </div>
+                <div>
+                    <span class="color3 font12-W500 mT10 white-N" ng-bind="'地址:'+orderInfo.Address"></span>
+                </div>
+            </ion-item>
+
+        </ion-list>
+
+        <ion-list ng-if="localExpressInfo && ExpressInfo.ExpressNumber">
+            <ion-item class="item-icon-right border-N" ng-disabled="!logistics" ng-click="chakanwuliu(orderInfo.OrderInfo.OrderId,ExpressInfo.ExpressNumber,ExpressInfo.ExpressType,ExpressInfo.Val,orderInfo.OrderInfo.SubTime)" >
+            	<!--<ion-item class="item-icon-right border-N" ng-click="chakanwuliu(orderInfo.OrderDetailInfos[0].OrderId,'1000723821471','yunda',ExpressInfo.Val,orderInfo.SubTime)" >-->
+                <span class="color3 fontS14 fontW400">物流信息</span>
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+            
+            <ion-item ng-if="logistics">
+            	<span class="font14-W600 white-N" ng-bind="logistics.data[0].context"></span>
+                <p class="fonS0293 color9 white-N mB8" ng-bind="logistics.data[0].time"></p>
+            </ion-item>
+            
+            <ion-item ng-if="expressInfoLoadFail" >
+            	<span class="font14-W600 white-N" ng-bind="expressInfoLoadFail"></span>
+            </ion-item>
+        </ion-list>
+
+        <ion-list>
+        	
+            <ion-item class="mT16 backgroundF border-N orderInfo_Item pTpB">
+                <span class="shop-Name-css lineHeight" ng-bind="orderInfo.SShopName"></span>
+                <i class="display-ib orderInfo_btn" ng-if="orderInfo.OrderStatus == 3">评价</i>
+            </ion-item>
+
+            <ion-item ng-click="goProductDetailInfo(item.ProductId)" ng-repeat="item in orderInfo.OrderDetailInfos" class=" item item-thumbnail-left backgroundF4">
+                <img ng-src="{{ossUrl}}{{item.ProductImage}}" class="left-img-icon-all">
+                <a>
+                    <p class="fonts16 color-343843" ng-bind="item.ProductName"></p>
+                    <p class="font12-c9" ng-bind-html="item.Color+'&nbsp;'+item.Specification"></p>
+                    <!--<p class="activity-label">活动专享</p>-->
+                    <p class="color-fe404c mT10" ng-bind="item.SoldPrice | currency:'¥'"></p>
+                    <i class="icon icon-img-css amount" ng-bind="'x'+item.Quantity"></i>
+                </a>
+            </ion-item>
+            <ion-item class="border-N fontS14">
+                <div class="color3 w10 m5">运费 <i class="floatR color3" ng-bind="orderInfo.ExpressMoney | currency:'¥'"></i></div>
+                <br/>
+                <div class="color3 w10 m5">商品总价<i class="floatR color3" ng-bind="productsTotalMoney | currency:'¥'"></i>
+                </div>
+                <br/>
+                <div class="color3 w10 m5">优惠券抵扣<i class="floatR color3" ng-bind="procouponmoney | currency:'¥'"></i>
+                </div>
+                <br/>
+                <div class="color3 w10 m5 mT-0">实付金额 <i class="floatR color3" ng-bind="totalMoney | currency:'¥'"></i>
+                </div>
+                <br/>
+                <div class="color6 m10 mT-0">订单编号 <i class="floatR color6" ng-bind="orderInfo.OrderDetailInfos[0].OrderId"></i>
+                </div>
+                <div class="color6 m10">下单时间 <i class="floatR color6" ng-bind="orderInfo.SubTime | date:'yyyy-MM-dd HH:mm:ss'"></i></div>
+            </ion-item>
+
+        </ion-list>
+        
+    </ion-content>
+
+    <ion-footer-bar ng-if="orderInfo.OrderStatus == 0 || orderInfo.OrderStatus == 1 || orderInfo.OrderStatus == 2 || (orderInfo.OrderStatus == 3 && orderInfo.confirmTimeInterval <= 15)" 
+    	class="indentParticulars-4Sfooter indentParticulars-footer w10" ng-switch="orderInfo.OrderStatus">
+    	
+        <div ng-switch-when="0">
+	        <a class="indentParticulars-btn" ng-click="pay()">付款</a>
+	        <!--<a class="indentParticulars-btn" ng-click="cancelOrder()">取消订单</a>-->
+        </div>
+        <!--<div ng-switch-when="1" >
+	        <a class="indentParticulars-btn">催单</a>
+        </div>-->
+        <div ng-switch-when="2">
+	        <a class="indentParticulars-btn" ng-click="confirmOrder()">确认收货</a>
+	        <a class="indentParticulars-btn" ng-click="chakanwuliu(orderInfo.ExpressInfo.OrderId,ExpressInfo.ExpressNumber,ExpressInfo.ExpressType,ExpressInfo.Val,ExpressInfo.SubTime)">查看物流</a>
+        </div>
+        
+        <!-- 超过7天不能退，超过15天不能换，超过1年不能修 -->
+        <div ng-switch-when="3" ng-if="orderInfo.confirmTimeInterval <= 15">
+	        <a class="indentParticulars-btn" href="#/tab/sendback_list/{{orderInfo.OrderInfo.OrderId}}">申请售后</a>
+        </div>
+    </ion-footer-bar>
+        
+
+  <div class="zhezhao" ng-class="{'display-N':!zhezhao}"></div>
+    <custom class="custom_hide" ng-class="{'custom_show':choosePayType}">
+	    <ion-list class="subOrder_list_tanchuang">
+	        <ion-item class="border-N pTpB">
+	            <p class="text-center fonS037 color-333 borderBe lineH10666">支付金额 <i ng-bind="showPayMoney | currency:'¥'"></i></p>
+	        </ion-item>
+
+	        <div class="item item-checkbox border-N borderBe mLR16" ng-repeat="item in payType" ng-if="!item.disabled">
+	            <label class="checkbox checkbox-balanced">
+	                <input type="checkbox" class="subOrder_online" ng-model="item.selected" ng-click="tooglePayType()"/>
+	            </label>
+	            <i class="subOrder_ion">
+	            	<img src="img/app/center/{{item.img}}" class="w3" ng-bind="item.name">
+	           		{{item.name}}
+	            </i>
+	        </div>
+
+	        <div class="subOrder_btn" ng-click="closeLayer()">×</div>
+	    </ion-list>
+
+	    <ion-footer-bar>
+	        <a class="title bar bar-assertive pdmd_z" ng-click="goPay()">去支付</a>
+	    </ion-footer-bar>
+    </custom>
+</ion-view>

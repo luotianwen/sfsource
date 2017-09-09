@@ -1,0 +1,20 @@
+
+<ion-modal-view title="修改性别">
+    <ion-header-bar class="bar-dark">
+        <!--<i class=" icon ion-ios-arrow-left button button-clear"  ng-click="genderModal.hide()"></i>-->
+        <h1 class="title">修改性别</h1>
+        <i class="button button-clear" ng-click="saveGender()">确定</i>
+    </ion-header-bar>
+    <ion-content>
+        <ion-radio value="男" ng-model="user.usex" >
+            <span style="color: #333333;font-size: 18px;font-weight: 500;margin-left: 16px;">男</span>
+        </ion-radio>
+        <ion-radio value="女" ng-model="user.usex">
+            <span style="color: #333333;font-size: 18px;font-weight: 500;margin-left: 16px;">女</span>
+        </ion-radio>
+        <ion-radio value="保密" ng-model="user.usex">
+            <span style="color: #333333;font-size: 18px;font-weight: 500;margin-left: 16px;">保密</span>
+        </ion-radio>
+
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,74 @@
+<ion-view class="backgroundF4">
+  <div ng-class="{'search-backdrop':searchBackdrop}" ng-click="closeFilter()"></div>
+
+
+  <div class="shop_list_header">
+    <div class="shop_list_header_top">
+      <div class="w3 text-left floatL">
+        <span class="ion-ios-arrow-left" ng-click="rootBack()"></span>
+      </div>
+      <div class="w3 text-center floatL fons035" ng-bind="num"></div>
+      <!--<div class="w3 text-right floatL">
+        <span class="shop_list_three">
+            <img src="img/app/shop_inner/three.png">
+        </span>
+        <span class="ion-ios-more"></span>
+      </div>-->
+      <div class="clear"></div>
+    </div>
+    <div class="shop_list_bottom w10 shop_list_4Sbottom">
+      <span class="shop_list_story" ng-click="shop_skip()">品牌故事</span>
+      <span class="shop_list_red" ng-click="remove()" ng-if="showObj.myButton">收藏</span>
+      <span class="shop_list_grey" ng-if="showObj.myCollect">已收藏</span>
+    </div>
+  </div>
+  <ion-item class="shop_list_subheader padding0 backgroundF mB006666 position-r">
+    <a class="text-center color3 oneIndex" ng-click="myclick(3)" style="width: 25%;">综合</a>
+    <a class="text-center color3 oneIndex" ng-click="myclick(1)" style="width: 25%;">销量</a>
+    <a class="text-center color3 oneIndex" ng-click="myclick(2)" style="width: 25%;">价格</a>
+   <!-- <a class="w20 text-center color3 oneIndex" ng-click="filter()">筛选</a>-->
+    <a class="text-center color3 oneIndex shop_listSort" ng-class="{'shop_listSort':!choose,'shop_listSortVersa':choose}"  ng-click="paixuTwo()" style="width: 25%;text-align: center;"></a>
+<!--<a ng-class="{'icon-paixu':!showClassiFy,'top-icon-paixu':showClassiFy}" class="text-center color3 oneIndex icon-paixu"></a> -->
+    <i class="shop_list_redW position-a"></i>
+  </ion-item>
+    <ion-content class="backgroundF4" style="top:4.027rem">
+
+    <ion-infinite-scroll ng-if="infinite" ng-show="infiniteShow" on-infinite="loadMore()"></ion-infinite-scroll>
+    <!--//文本模式-->
+    <ion-list class="shop_list_list" ng-if="showObj.chooseOne">
+      <ion-item class="item-thumbnail-left border-N shop_list_item overPaceN mT8 shop_list_h325" ng-repeat="itemSendback in showObj.proList">
+        <img ng-src={{ossUrl}}{{itemSendback.ImagePath}} class="left-img-icon-all" ng-click="skip()">
+        <div class="mL353rem shop_list_onebyone position-r" >
+          <p class="fonts16 color-343843 mT-10 chaoguolianghangshengluexianshi overPaceN" ng-bind="itemSendback.PName" ng-click="skip()"></p>
+          <p class="color-fe404c shop_list_money" ng-bind="itemSendback.Price | currency:'¥'" ng-click="skip()"></p>
+          <!--<p class="font12-c9">评价11条&nbsp;好评100%</p>-->
+          <p class="font12-c9 shop_inner-shop-title" ng-bind="num">
+          </p>
+          <i class="icon ion-ios-cart-outline shop_inner_icon_btn" ng-click="myAddition(itemSendback.Sku,itemSendback.PId,itemSendback.Sid)"></i>
+
+        </div>
+        <!--<ion-option-button class="button-assertive" ng-click="remove(items,item)"> 删除</ion-option-button>-->
+      </ion-item>
+    </ion-list>
+    <!--//列表模式-->
+    <ion-list ng-if="choose">
+
+      <ion-item class="abcd" style="white-space: inherit;width: 100%;padding: 0;margin: 0;border:none;background-color: #f4f4f4;">
+
+        <a ng-repeat="itemSendback in showObj.proList" class="icon mT backgroundF cardname ml6mr6" style="display: inline-block;width: 48%;">
+          <img ng-src={{ossUrl}}{{itemSendback.ImagePath}} class="w10" ng-click="skip()"/>
+          <span class="money-css333-class slide-zoom" ng-bind="itemSendback.PName"></span>
+          <span class="money-css-class text-left-mL" ng-bind="itemSendback.Price | currency:'¥'"></span>
+        </a>
+      </ion-item>
+    </ion-list>
+    <div class="shopping_cart_null" ng-show="showObj.proList.length==0" style="left: 49%;display: none;">
+      <p>hi，小屁孩<br>
+      世峰那家伙刚派了3驾战机来接俺，俺也迫不及待的想见你啦
+      </p>
+    </div>
+  </ion-content>
+  <!--  筛选  -->
+
+  <!--  筛选  -->
+</ion-view>

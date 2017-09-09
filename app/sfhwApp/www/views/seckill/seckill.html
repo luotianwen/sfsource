@@ -1,0 +1,46 @@
+<ion-view>
+  <ion-header-bar class="seckill-header">
+    <button class="button-icon icon ion-ios-arrow-left" ng-click="rootBack()"></button>
+    <h1 class="title">整点秒杀</h1>
+  </ion-header-bar>
+  <div class="seckill-subar">
+    <div id="seckillUlWarp">
+      <ul id="seckillUl">
+        
+    
+
+        <!--<li><p>08:00</p><p>即将开抢</p></li>-->
+      </ul>
+    </div>
+    <p class="seckill-subarDiv">
+      <span class="floatL">精彩享不停~</span>
+      <span class="floatR" ng-bind-html="dateString"></span>
+    </p>
+  </div>
+  <ion-content id="seckillContent">
+    <ion-list>
+      <ion-item ng-repeat="pro in Product">
+      <div class="seckillContentFirstDivs">
+        <a href="#/tab/commIntro/{{pro.SKU}}"><img src="http://seebong-hangzhou.img-cn-hangzhou.aliyuncs.com/{{pro.ImageUrl}}@!app"></a>
+        <p  ng-show="pro.Inventory==0">已抢完</p>
+      </div>
+      <div class="seckill-item-div">
+        <p class="chaoguolianghangshengluexianshi" ng-bind="pro.ProductName"></p>
+        <div class="seckill-item-div-inner">
+          <span class="floatL" ng-bind="pro.ActivityPrice | currency:'¥'"></span>
+          <br>
+          <span class="floatL" ng-bind="pro.MarketPrice | currency:'¥'"></span>
+          <br>
+            <span class="seckillRate">
+              <i  style="width:{{ pro .point; }}%"></i>
+            </span>
+          <span class="seckilSold" ng-bind="'已售'+ pro.point+'%'"></span>
+        </div>
+        <!--</div><div class="seckillMore">更多推荐</div>-->
+      </div>
+      <a ng-href="{{pro.Inventory==0||Descript=='已经结束'||Descript=='即将开始'?'':'#/tab/commIntro/'+pro.SKU+''}}" ><div ng-class="{true:'seckillOver',false:'seckillNow'}[pro.Inventory==0||Descript=='已经结束'||Descript=='即将开始']" ng-bind="Descript=='已经结束'?'已经结束':Descript=='即将开始'?'即将开始': pro.Inventory==0?'已售罄':'马上买'"></div></a>
+         
+    </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

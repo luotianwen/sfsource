@@ -1,0 +1,154 @@
+
+<!--
+                    [Description("等待付款")]
+                    WAIT_BUYER_PAY = 0,
+
+                    [Description("等待发货")]
+                    WAIT_SELLER_SEND_GOODS = 1,//买家已付款，等待卖家发货
+
+                    [Description("等待收货")]
+                    WAIT_BUYER_CONFIRM_GOODS = 2,//卖家已发货，等待买家确认
+
+                    [Description("交易成功")]
+                    TRADE_FINISHED = 3,//交易成功结束
+
+                    [Description("取消订单")]
+                    CANCEL = 4,
+
+                    [Description("交易中途关闭")]
+                    TRADE_CLOSED = 5,//交易中途关闭（已结束，未成功完成）
+
+                    [Description("退货")]
+                    RETURN = 6,
+
+                    [Description("锁定")]
+                    LOCK = 7,
+                    -->
+
+
+<ion-view view-title="查看订单页面">
+    <ion-header-bar > <!--ng-click="$rootScrollTop()"-->
+        <i class=" icon ion-ios-arrow-left button button-clear" ng-click="goBack()" style="color: #333 !important;"></i>
+        <h1 class="title" ng-switch="status">
+        	<span ng-switch-when="255">全部订单</span>
+        	<span ng-switch-when="0">待付款</span>
+        	<span ng-switch-when="1">待发货</span>
+        	<span ng-switch-when="2">待收货</span>
+        </h1>
+    </ion-header-bar>
+
+    <ion-content class="backgroundF4">
+    	<!--
+        	作者：798823035@qq.com
+        	时间：2016-08-17
+        	描述：下拉刷新
+        -->
+    	<ion-refresher pulling-text="下拉刷新" spinner="ios" refreshing-text="加载中..." on-refresh="doRefresh()"></ion-refresher>
+        <!-- 上啦刷新 -->
+        <ion-infinite-scroll ng-show="infiniteShow" spinner="ios" on-infinite="loadMoreOrder()"></ion-infinite-scroll>
+
+        <ion-list ng-repeat="item in datas" class="border-N">
+            <ion-item  class="mT16 border-N" ng-switch="item.OrderStatus">
+                <span class="shop-Name-css" ng-bind="item.SShopName"></span>
+                <span ng-switch-when="0" class="reminder" >等待支付</span>
+                <span ng-switch-when="1" class="reminder" >等待发货</span>
+                <span ng-switch-when="2" class="reminder" >卖家已发货</span>
+                <span ng-switch-when="3" class="reminder" >交易成功</span>
+                <span ng-switch-when="4" class="reminder" style="color: #333;" >已取消的订单</span>
+                <span ng-switch-when="6" class="reminder" style="color: #333;" >退货</span>
+                <span ng-switch-when="7" class="reminder" style="color: #333;" ng-if="item.OrderStatus == 7">锁定</span>
+            </ion-item>
+            <!--  取自 classify-list里 部分css可合并  -->
+            <ion-item ng-repeat="product in item.OrderDetailInfos" ng-click="orderInfo(product.OrderId)" class="border-N item item-thumbnail-left backgroundF4"  style="margin-left: 1px;min-height:110px">
+                <img ng-src="{{ossUrl}}{{product.ProductImage}}" alt="#" class="left-img-icon-all">
+                <a class="onebytwo mL-085rem">
+                    <p class="fonts16 color-343843 overPaceN w10" style="margin-top: -4px;" id="character" ng-bind="product.ProductName.length>=26?product.ProductName.substr(0,26)+'...':product.ProductName"></p>
+                    <p class="font12-c9" ng-bind="product.Color+'&nbsp;&nbsp;'+product.Specification"></p>
+                    <!--<p class="activity-label self-indexH">活动专享</p>-->
+                    <p class="color-fe404c " style="margin-top: 13px"><i class="fontS19" ng-bind="product.SoldPrice | currency:'¥'"></i></p>
+                    <i class="icon icon-img-css amount" ng-bind="'×'+product.Quantity"></i>
+                </a>
+            </ion-item>
+
+            <ion-item class="border-N">
+                <div class="close-an-account">
+                    <span>共<span ng-bind="item.OrderDetailInfos.length"></span>件商品</span>
+                    &nbsp;&nbsp;&nbsp;
+                    <span>
+                        合计：<i class="fontS14" ng-bind="item.ProductTotalMoney+item.ExpressMoney | currency:'¥'"></i>
+                    </span>
+                    &nbsp;
+                    <span>（运费¥：<span ng-bind="item.ExpressMoney"></span>）</span>
+                </div>
+
+                <div class="button-all-css">
+
+                    <!-- 未支付的订单可进行取消操作 -->
+                    <button class="self-button-all button-one" ng-if="item.OrderStatus == 0" ng-click="cancelOrder(item.OrderId)" >取消订单</button>
+
+                    <!-- 未支付的订单可进行支付操作 -->
+                    <button class="self-button-all button-two" ng-if="item.OrderStatus == 0" ng-click="pay(item.paysn,item.OrderTotalMoney)">去支付</button>
+
+                    <!-- 卖家已发货，等待买家确认的订单可进行取消操作 -->
+                    <button class="self-button-all button-one" ng-if="item.OrderStatus == 2" ng-click="chakanwuliu(item.OrderId)">查看物流</button>
+
+                    <!-- 卖家已发货，等待买家确认的订单可进行取消操作 -->
+                    <button class="self-button-all button-two" ng-if="item.OrderStatus == 2" ng-click="confirmOrder(item.OrderId)" >确认收货</button>
+
+					<!-- 交易成功的订单可进行取消操作 -->
+                    <!--<button class="self-button-all button-two" >评价</button>-->
+                </div>
+            </ion-item>
+        </ion-list>
+
+        <div class="shopping_cart_null" ng-if="noData">
+            <i><img src="img/app/center/dingdan.png" alt=""></i>
+            <p class="fonS0293 mT16 color-cc">暂时没有订单哦</p>
+            <span ng-click="goSearchShop()">去逛逛</span>
+        </div>
+    </ion-content>
+
+
+  <div class="zhezhao" ng-class="{'display-N':!zhezhao}"></div>
+  <div class="commIntro__coupon custom_hide" ng-class="{'custom_show':chooseCancelDiv}">
+    <ion-list class="subOrder_list_tanchuang bottom0 paddingB20px comm_story_name H8">
+      <ion-item class="pTpB border-N position-r">
+        <p class="borderBe lineH10666 text-center color-333">请选择关闭理由</p>
+        <span class="order_btn position-a" ng-click="submitCancel()">确定</span>
+      </ion-item>
+      <div class="tranFor commIntro-region position-r w10">
+        <div class="w10 commIntro-scoll H585 position-a">
+          <ul class="he10 childText">
+            <li ng-repeat="item in cancelInfo" ng-click="chooseCancelInfo(item.content)" ng-bind="item.content" ng-class="{'commIntro-liClick':item.choose}" ></li>
+          </ul>
+        </div>
+      </div>
+      <div class="subOrder_btn" ng-click="closeLayer()">×</div>
+    </ion-list>
+    <div class="clear"></div>
+  </div>
+
+    <custom class="custom_hide" ng-class="{'custom_show':choosePayType}">
+	    <ion-list class="subOrder_list_tanchuang">
+	        <ion-item class="border-N pTpB">
+	            <p class="text-center fonS037 color-333 borderBe lineH10666">支付金额 <i ng-bind="showPayMoney | currency:'¥'"></i></p>
+	        </ion-item>
+
+	        <div class="item item-checkbox border-N borderBe mLR16" ng-repeat="item in payType" ng-if="!item.disabled">
+	            <label class="checkbox checkbox-balanced">
+	                <input type="checkbox" class="subOrder_online" ng-model="item.selected" ng-click="tooglePayType()"/>
+	            </label>
+	            <i class="subOrder_ion">
+	            	<img src="img/app/center/{{item.img}}" class="w3" ng-bind="item.name">
+	           		{{item.name}}
+	            </i>
+	        </div>
+
+	        <div class="subOrder_btn" ng-click="closeLayer()">×</div>
+	    </ion-list>
+
+	    <ion-footer-bar>
+	        <a class="title bar bar-assertive pdmd_z" ng-click="goPay()">去支付</a>
+	    </ion-footer-bar>
+    </custom>
+</ion-view>

@@ -1,0 +1,81 @@
+.specialOffTittle{
+  line-height:19px;
+  text-align: center;
+  width: 100%;
+  font-size:0.4rem;
+  font-weight:500;
+}
+.specialOffItem img{
+  width: 100%;
+}
+.specialOffItem .fangzhenglanting{
+  margin-top: 10px;
+  text-align: center;
+  font-size: 0.29rem;
+}
+.specialOffItem{
+  width: 45%;
+  margin-left:3.333333%;
+  background: #FFFFFF;
+  border: 1px solid #0f0f0f;
+  margin-top: 0.32rem;
+  float: left;
+}
+.specialOffPfirst span{
+   color: #ff0000;
+  margin-left:5px;
+}
+.specialOffPfirst{
+  color: #ff0000;
+  font-weight: 600;
+}
+.colorc9c9c9{
+  color: #c9c9c9!important;
+}
+.specialOffDoubleItem{
+  border: none;
+  margin: 0;
+  margin-top: 15px;
+  width: 33.3333%;
+  padding: 6px;
+}
+.specialOffDoubleBtnWarp{
+  height:0.8rem;
+  margin-top: 15px;
+  line-height: 0.8rem;
+  position: relative;
+}
+.specialOffDoubleInner{
+  width:66.66667%;
+  height: 100%;
+  border-radius: 5px;
+  border: 2px solid #0f0f0f;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.specialOffDoubleOffBtn{
+  background: #FFFFFF;
+  color: #0f0f0f;
+}
+.specialOffDoubleOnBtn{
+  background:#0f0f0f;
+  color: #FFFFFF;
+}
+.specialOffDoubleBtn span:before{
+
+  font-size: 15px;
+}
+.specialOffDoubleBtn span{
+  margin-right:5px;
+}
+.specialOffDoubleBtn{
+  width: 50%;
+  height: 100%;
+  border-radius: 3px 3px 3px 3px;
+  float: left;
+  text-align: center;
+}
+.specialOffOffContent .list{
+  margin-bottom: 30px;
+  padding-bottom: 30px;}
+

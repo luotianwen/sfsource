@@ -1,0 +1,146 @@
+.sendback_list_nav_btn{
+    position:relative;
+}
+.sendback_list_nav_btn a{
+    margin-top: 0!important;
+    text-align: center;
+    width: 50%;
+}
+.selfIndex-redWWW{
+    display: inline-block;
+    height: 2px;
+    background: red;
+    position:absolute;
+    left: 0;
+    bottom: 0;
+}
+.shop_list_num_top{
+    width: 100%;
+    display: inline-block;
+    line-height:0.987rem;
+    padding: 0 16px;
+    border-bottom: 1px  solid #eeeeee;
+}
+.sendback_list_main_btn{
+    display: inline-block;
+    width: 1.753rem;
+    line-height:0.727rem;
+    font-size: 0.32rem;
+    text-align: center;
+    color: #333333;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    margin-left: 0.33rem;
+}
+
+/*  demo_select退款理由弹窗插件  */
+#demo_select::value{
+    color: red;
+}
+#demo_select {
+    width: 100%;
+    /*padding: .625em;*/
+    margin: 0 0 .625em 0;
+    border: 1px solid #aaa;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.sendback_list_span{
+    font-size: 0.35rem;
+}
+.header {
+    padding: .625em;
+    background: #5185a8;
+}
+.header h1 {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #000;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.content-sendback {
+    padding: 1em;
+}
+#demo_select_dummy{
+    background: #fff;
+    line-height: 44px;
+    font-size:0.35rem!important;
+}
+/*sendback_list*/
+.sendback_list_main p{
+    margin-bottom: 10px;
+}
+.sendback_list_main{
+    height:2.23rem;
+}
+.sendback_list_main div:nth-child(1){
+    -webkit-transform: translateY(5px);
+    -moz-transform: translateY(5px);
+    -ms-transform: translateY(5px);
+    -o-transform: translateY(5px);
+    transform: translateY(5px);
+    margin-left: 16px;
+    border: 1px solid #eeeeee;
+    margin-right: 20px;
+    margin-bottom:10px;
+}
+.sendback_list_title{
+    line-height:0.973rem;
+}
+.sendback_list_text{
+    position: relative;
+    height: 100%;
+}
+.sendback_list_text a{
+    position: absolute;
+    bottom: 0.25rem;
+    right: 0;
+}
+.sendback_list_search_warp{
+    /*padding: 0.253rem 0.467rem 0.267rem 0.413rem;*/
+}
+.sendback_list_search{
+    /*height:0.933rem!important;*/
+    border-radius:5px!important;
+  padding: 0 0 0 20px;
+}
+.classify_search{
+	/*height:0.833rem!important;*/
+    border-radius:5px!important;
+    width:70%;
+    margin: 0 auto;
+    margin-left: 10px;
+}
+.searchGood_1_search_input{
+    /*height:0.833rem!important;*/
+    border-radius:5px;
+    width:75%;
+    margin-left: 10px!important;
+  padding: 0 0 0 16px!important;
+}
+/* Listview demo styling */
+.mbsc-lv-cont { margin: 1em -1em; }
+/*sendback*/
+#demo_select_dummy{
+    border: none;
+    padding: 0 16px;
+    height: 59px;
+    width: 100%;
+    margin: 0;
+    font-size: 0.35rem;
+}
+/*sendback_state*/
+.sendback_state_item p span:nth-child(1){
+  float: left;
+}
+.sendback_state_item p span:nth-child(2){
+  float: right;
+  color: #999999;
+}

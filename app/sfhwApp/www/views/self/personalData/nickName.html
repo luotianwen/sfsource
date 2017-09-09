@@ -1,0 +1,13 @@
+<ion-modal-view view-title="修改昵称" class="backgroundF4">
+    <ion-header-bar class="bar-dark">
+        <button class=" icon ion-ios-arrow-left button button-clear" ng-click="backPersonDataView()"></button>
+        <h1 class="title">昵称</h1>
+        <i class="button button-clear" ng-click="nickNameModalQ()">确定</i>
+    </ion-header-bar>
+    <ion-content scroll="false" class="bar-subheader" style="height: 100px;">
+      <ion-item class="item-icon-right backgroundCF overF">
+        <input type="text" id="inEditUserName" placeholder="设置个性昵称(4-20字)" style="width: 100%;font-size: 16px;" ng-model="user.editName"/>
+        <i class="icon ion-ios-close-outline" ng-show="user.editName !=null && user.editName != ''" ng-click="clearEditName()"></i>
+      </ion-item>
+    </ion-content>
+</ion-modal-view>

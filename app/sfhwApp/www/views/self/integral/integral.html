@@ -1,0 +1,60 @@
+<ion-view view-title="我的积分">
+    <ion-header-bar class="backimgNot">
+        <button class="button-icon icon ion-ios-arrow-left" ng-click="rootBack()"></button>
+        <h1 class="title fonF">
+            我的积分
+        </h1>
+    </ion-header-bar>
+    
+    <div style="position: relative;top: 0px;width: 100%;top: 64px;">
+    	<div style="position: absolute;top: 0px;width: 100%;" id="customerDiv">
+    		
+            <ion-item class="integral_item background-343843 border-N">
+                <a href="#/tab/mem_rule" class="w10 text-right display-ib">积分规则</a>
+                
+                <p class="integral_03146">
+                	您当前的积分
+                	<span class="color-fe404c fonS_066 ml10" ng-bind="data.datas.userScore"></span>
+                </p>
+                
+                <p>
+                	会员级别
+                	<span class="ml10 integral_category" ng-bind="vipData.levelDesc"></span>
+                	<span class="ml10 color-ddbe72" ng-bind="vipData.levelNextScore">
+                	</span>
+                </p>
+                
+                <!--<p>
+                	消费金额 
+                	<span class="color-fe404c ml10">
+                		￥
+                		<span class="fonS04">111</span>
+                		元
+                	</span>
+                </p>
+                
+                <p>
+                	注册时间
+                	<span class="ml10">2016年8月5日09:52:27</span>
+                </p>-->
+                
+            </ion-item>
+    	</div>
+    </div>
+    <ion-content id="ion-content">
+        <ion-list>
+        	<!--上啦加载-->
+        	<ion-infinite-scroll ng-if="isInfinite" ng-show="loadIcon" spinner="ios" on-infinite="loadMore()" style="background-color: #f4f4f4;"></ion-infinite-scroll>
+        
+            <ion-item class="border-N">
+                <p class="fonS043 fontW600" style="margin-top: 16px;padding-bottom: 1px;">积分记录</p>
+                <div class="integral_record" ng-repeat="item in scopes">
+                	<span class="fonS032 col-33" ng-bind="item.Description"></span>
+                	<span class="fonS04 col-33 text_align color-fe404c fonF" ng-bind="'+'+item.ScorePoint"></span>
+                	<span class="fonS0293 col-33 text-alignR" ng-bind="item.SubTime | date:'yyyy-MM-dd hh:mm'"></span>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    
+</ion-view>

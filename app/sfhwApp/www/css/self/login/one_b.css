@@ -1,0 +1,46 @@
+.one{background: url("../../../img/app/center/background.jpg") no-repeat;width: 100%;background-size: cover;}
+.mt15{margin-top: 42.66% !important;}
+.mt{background: rgba(0,0,0,0.5);border-radius: 20px;margin: 5px 16px;}
+.mt30{margin-top: 16.54%;}
+.fs32px{background: url("../../../img/app/center/icon-people.png") no-repeat;background-size: cover;width: 16px;height:16px;margin-right: 8px;}
+.fspx{background: url("../../../img/app/center/icon-lock.png") no-repeat;background-size: cover;width: 16px;height: 19px;margin-right: 8px;}
+.icon-see{
+background: url("../../../img/app/center/icon-eye.png") no-repeat;
+  width: 26px;
+  height: 7px;
+}
+.icon-eye{
+    background: url("../../../img/app/center/icon-see.png") no-repeat;
+    width: 26px!important;
+    height: 7px!important;
+}
+.icon-qq{
+    width: 48px;margin-right: 32px;
+}
+.icon-weixin{
+    width: 48px;margin-left: 32px;
+}
+.cut-off{
+    background: none;border: none;padding-top: 0;text-align: center;
+}
+.mt11{
+    margin-top: 11.98%;
+}
+.color{
+    color: #ccc;
+}
+.register{
+    background: #ff8a01;color: #fff;letter-spacing:5px;border-radius: 20px !important;
+}
+.register1{background: none;border: none;margin-top: -24px;}
+.font-register{color: #ff8a01;margin-left: 8px;font-size: 12px;}
+.display-ib{
+    display: inline-block;
+}
+.display-ibF{
+    display: inline-block;
+    float: right;
+}
+.forget{
+    color: #fff;font-size: 12px;
+}

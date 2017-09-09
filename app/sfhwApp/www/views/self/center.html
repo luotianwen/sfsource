@@ -1,0 +1,170 @@
+<ion-view view-title="个人中心">
+  <ion-content class="backgroundF4">
+    <ion-list>
+      <ion-item class="background-img padding16" ng-if="noLogin">
+              <p class="w10">
+                <a class="icon ion-ios-gear-outline mRF fontS floatL" href="#/tab/set"></a>
+                <!--<a class="icon ion-ios-bell-outline fontS mRF floatR"></a>-->
+              </p>
+              <div class="center_header_mian" ng-click="goTargetNoLogin('tab.login')">
+                <div class="circle aa backgroundF display-iB">
+                  <img href="#/tab/personalData"
+                       src="img/app/center/user_logo.png"
+                       class="circle"/>
+                  <span class="fontF display-B text-center mT">注册/登录</span>
+                </div>
+              </div>
+            </ion-item>
+      <ion-item class="background-img padding16 position-r" ng-if="!noLogin">
+        <p class="w10">
+          <a class="icon ion-ios-gear-outline mRF fontS floatL" href="#/tab/set"></a>
+          <!--<a class="icon ion-ios-bell-outline fontS mRF floatR"></a>-->
+        </p>
+        <div class="center_header_mian">
+          <div class="text-center display-iB position-r">
+            <img ng-click="loginGoTarget('tab.personalData')"
+                 src="{{user.UPortrait}}"
+                 class="circle"/>
+            <!--<span class="fontF w10 display-B text-center">123123653456357456846846456453653456324562</span>-->
+            <span class="fontF w10 display-B text-center" ng-click="loginGoTarget('tab.personalData')" ng-bind="user.UAccount || '设置用户名'"></span>
+            <span class="fontF mTl paddingR position-a center_num" ng-click="loginGoTarget('tab.personalData')" ng-bind="user.Uphone || '绑定手机号'"></span>
+            <!---->
+          </div>
+        </div>
+      </ion-item>
+
+      <!--
+
+                      <div class="circle-lT">
+
+                          <span class="position-M">
+                              <span class="fontF display-B" href="#/tab/personalData" ng-bind="user.UName || '设置用户名'"></span>
+                              <span class="fontF mTl paddingR" href="#/tab/personalData" ng-bind="user.Uphone || '绑定手机号'"></span>
+                          </span>
+                      </div>
+
+                      <a href="#/tab/personalData" class="color-C absolute">
+                          个人资料
+                          <i class="mL10 color-C icon ion-ios-arrow-right"></i>
+                      </a>-->
+
+      <ion-item class="pM0 padding032" ng-click="goOrder(255)">
+        <span class="font3-left mT-0">全部订单</span>
+        <span class="color9 item-note">查看全部订单<i class="icon ion-ios-arrow-right mL10"></i></span>
+      </ion-item>
+      <ion-item class="row" style="padding-top: 10px;border-right-width: 0;">
+        <a ng-click="goOrder(0)" class="col col-25 text-center">
+          <i class="img-icon-1 position-r">
+            <i class="badge top-red" ng-if="user.WAIT_BUYER_PAY != 0" ng-bind="user.WAIT_BUYER_PAY"></i>
+          </i>
+          <span class="color3">待付款</span>
+        </a>
+
+        <a ng-click="goOrder(1)" class="col col-25 text-center">
+          <i class="img-icon-1 position-r">
+            <i class="badge top-red" ng-if="user.WAIT_SELLER_SEND_GOODS != 0" ng-bind="user.WAIT_SELLER_SEND_GOODS"></i>
+          </i>
+          <span class="color3">待发货</span>
+        </a>
+
+        <a ng-click="goOrder(2)" class="col col-25 text-center">
+          <i class="img-icon-2 position-r">
+            <i class="badge top-red" ng-if="user.WAIT_BUYER_CONFIRM_GOODS != 0"
+               ng-bind="user.WAIT_BUYER_CONFIRM_GOODS"></i>
+          </i>
+          <span class="color3">待收货</span>
+        </a>
+
+        <a class="col col-25 text-center" ng-click="loginGoTarget('tab.sendback_list')">
+          <i class="img-icon-4 position-r">
+            <i class="badge top-red" ng-if="user.RESULT != 0" ng-bind="user.RESULT"></i>
+          </i>
+          <span class="color3">退换货</span>
+        </a>
+      </ion-item>
+      <ion-item class="row mT16 border-N">
+        <a ng-click="loginGoTarget('tab.integral')" class="col col-20 text-center mT10">
+          <i class="img-icon-5"></i>
+          <span class="font3-left ml-0">
+          	积分
+          	<i class="color-fe404c" ng-bind=" '(' + (user.integral || 0) + ')' "></i>
+          </span>
+        </a>
+
+
+
+        <a href="{{newHomePageForeshowActivityImgLink}}" class="col col-20 text-center mT10">
+          <i class="img-icon-8"></i>
+          <span class="font3-left ml-0">
+          	预告
+          </span>
+        </a>
+        <a href="{{newHomePageNewProductImgLink}}" class="col col-20 text-center mT10">
+          <i class="img-icon-9"></i>
+          <span class="font3-left ml-0">
+          	新品展示
+          </span>
+        </a>
+        <a ng-click="goTargetNoLogin('tab.brand_street')" class="col col-20 text-center mT10">
+          <i class="img-icon-10"></i>
+          <span class="font3-left ml-0">
+          	品牌街
+          </span>
+        </a>
+        
+        
+        
+        <a ng-click="loginGoTarget('tab.coupon')" class="col col-20 text-center mT10">
+          <i class="img-icon-6"></i>
+          <span class="font3-left ml-0">
+          	优惠券
+          	<i class="color-fe404c" ng-bind=" '(' + (user.coupon || 0) + ')' "></i>
+          </span>
+        </a>
+      </ion-item>
+
+      <ion-item ng-click="loginGoTarget('tab.myCollect')" class="item-icon-right mT16">
+        <span class="font3-left ml-0">我的收藏</span>
+        <i class="icon ion-ios-arrow-right ddd"></i>
+      </ion-item>
+
+      <!--<ion-item class="item-icon-right">
+        <span class="font3-left ml-0">联系客服</span>
+        <i class="icon ion-ios-arrow-right ddd"></i>
+      </ion-item>-->
+
+      <ion-item ng-click="loginGoTarget('tab.safety')" class="mT16 border-N item-icon-right">
+        <span class="font3-left ml-0">账户与安全</span>
+        <i class="icon ion-ios-arrow-right ddd"></i>
+      </ion-item>
+
+      <ion-item ng-click="goTargetNoLogin('tab.user_feedback')" class="item-icon-right">
+        <span class="font3-left ml-0">用户反馈</span>
+        <i class="icon ion-ios-arrow-right ddd"></i>
+      </ion-item>
+
+      <ion-item ng-click="goTargetNoLogin('tab.about_our')" class="item-icon-right">
+        <span class="font3-left ml-0">关于我们</span>
+        <i class="icon ion-ios-arrow-right ddd"></i>
+      </ion-item>
+<!--
+      <ion-item href="#/tab/testT">
+        <a style="color: red">
+          水壶已完成页面
+        </a>
+      </ion-item>
+-->
+            <!--<ion-item href="#/tab/seckill">
+              <a style="color: red">
+                水壶已完成页面
+              </a>
+            </ion-item>-->
+
+            <!--<ion-item ng-click="testWechat()">
+              <a style="color: red">
+                微信支付测试
+              </a>
+            </ion-item>-->
+    </ion-list>
+  </ion-content>
+</ion-view>

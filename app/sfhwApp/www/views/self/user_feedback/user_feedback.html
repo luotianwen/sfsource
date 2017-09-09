@@ -1,0 +1,26 @@
+<ion-view view-title="意见反馈">
+    <ion-header-bar class="bar-dark">
+        <i class=" icon ion-ios-arrow-left button button-clear"  ng-click="rootBack()"></i>
+        <h1 class="title">用户意见反馈</h1>
+        <i class="button button-clear" ng-click="submit()">提交</i>
+    </ion-header-bar>
+
+    <ion-content class="has-header user_info backgroundF4">
+        <ion-item class="border-N backgroundF4">
+            <label class="item item-input border-N">
+                <textarea
+                        ng-model="info.textarea"
+                        class="resizeN w10"
+                        placeholder="请留下您的宝贵意见和建议"
+                        rows="5"
+                        maxlength="200"
+                ></textarea>
+
+            </label>
+            <span class="w10 text-right display-ib padding16 color9 backgroundF" ng-bind="info.len"></span>
+            <label class="item item-input border-N mT">
+                <input type="text" maxlength="50" ng-model="info.phoneOrEmail" placeholder="请填写您的邮箱或手机号">
+            </label>
+        </ion-item>
+    </ion-content>
+</ion-view>
