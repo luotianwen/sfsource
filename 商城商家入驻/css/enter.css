@@ -1,0 +1,383 @@
+body,p{padding: 0;margin: 0;}
+body{background: #fff;}
+a{text-decoration: none;}
+ul,li{list-style: none;padding: 0;margin: 0;}
+/*  头部logo  */
+.attract-investment{width: 1200px;margin: 0 auto;height: 83px;line-height: 83px;}
+.enter-top{
+    width: 226px;
+    height: 24px;
+    background: url("../img/logo.png")no-repeat;
+    background-position: 1px -1px;
+    display: inline-block;
+}
+/*  头部logo  */
+
+/*  导航条部分  */
+.navigation-strip{
+    width: 100%;
+    background-color: #343434;
+    height: 36px;
+    line-height: 36px;
+}
+.red{
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    background-color: #fe4949;
+}
+.navigation-font{
+    padding: 0 40px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 800;
+}
+
+/*  导航条部分  */
+
+/*  轮播图部分  */
+.focus-img{
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+.focus-img-subject{
+
+    overflow: hidden;
+}
+.button{
+    font-size: 18px;
+    font-weight: 900;
+    color: #fff;
+    padding: 13px 20px;
+    background-color: #ff2323;
+    position: absolute;
+    bottom: 50px;
+    left: 47.5%;
+}
+/*  轮播图部分  */
+
+/*  入住流程部分  */
+.w100{
+    width: 100%;
+}
+.flow{
+    width: 376px;
+    margin: 0 auto;
+
+}
+.wire-font{
+    margin-top: 36px;
+    display: inline-block;
+    width: 376px;
+    font-size: 24px;
+    color: #333;
+    line-height: 40px;
+    text-align: center;
+    border-bottom: 3px solid #fb6666;
+}
+.w120{
+    width: 1200px;
+    margin: 0 auto;
+}
+.flow-align-at{
+    margin-top: 26px;
+    text-align: center;
+}
+/*  入住流程部分  */
+
+/*  商务合作部分  */
+.badge{
+    display: inline-block;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #fb6666;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 38px;
+    text-align: center;
+}
+.float>li{
+    display: inline-block;
+    width: 97%;
+    padding: 0 1%;
+    margin: 3px;
+    background-color: #fff;
+}
+.firm{
+    color: #fb6666;
+    font-size: 18px;
+    font-weight: 700;
+}
+.mt{margin-top: 27px;}
+.font{
+    font-size: 14px;
+    color: #333;
+    margin-left: 52px;
+}
+.float{
+    width: 50%;
+    float: left;
+}
+/*  商务合作部分  */
+
+/*  联系方式部分  */
+.relation{
+    padding: 80px 252px;
+    background-color: #fff;
+    color: #333333;
+    font-size: 14px;
+    line-height: 30px;
+}
+.relative{
+    position: relative;
+}
+.font-red{
+    color: #fe3f3f;
+    margin-left: 116px;
+}
+.background-img{
+    background: url("../img/logo.png") no-repeat;
+    display: inline-block;
+    width: 50px;
+    height: 60px;
+    background-position:-241px 0px;
+    position: absolute;
+    bottom: -38px;
+    left: 200px;
+}
+/*  联系方式部分  */
+
+
+/*  第二部分--查询入住进度 头部部分  */
+.overstriking{
+    font-size: 16px;
+    font-weight: 900;
+    color: #535353;
+    margin: 0 5px;
+}
+.background-c{
+    height: 45px;
+    line-height: 45px;
+    background-color: #eaeaea;
+    margin-top: 24px;
+}
+.fc33{
+    font-size: 16px;
+    color: #333;
+}
+.ml52{
+    margin-left: 52px;
+}
+.font-weight{
+    font-weight: 800;
+}
+.weight-normor{
+    font-weight: normal;
+}
+/*  第二部分--查询入住进度 头部部分  */
+.aa{border: 1px solid #ddd;}
+/*  查询入驻进度 进度条部分  */
+.gray-line{
+    width: 960px;
+    border: 2px solid #e5e5e5;
+    margin: 0 auto;
+    margin-top: 115px;
+    position: relative;
+}
+.h276{
+    height: 276px;
+    border: 1px solid rgba(0,0,0,0);
+}
+.plan-top-font{
+    font-size: 14px;
+    color: #535353;
+    font-weight: 800;
+}
+
+.circle1{
+    width: 19px;
+    height: 19px;
+    background: url("../img/circle.png") no-repeat;
+    background-position: 0px 0px;
+    display: inline-block;
+    margin: 22px 0;
+}
+/*  灰色小圆点  */
+.circle2{
+    width: 19px;
+    height: 19px;
+    background: url("../img/circle.png") no-repeat;
+    background-position: -24px 0px;
+    display: inline-block;
+    margin: 22px 0;
+}
+
+.f9{
+    font-size: 12px;
+    color: #999;
+}
+/*  绿字  */
+.font-green{
+    font-size: 16px;
+    color: #0bac17;
+}
+
+/*  红字  */
+.font-pink{
+    color: #ff3f3f;
+    font-size: 16px;
+}
+
+/*  按钮样式  */
+.pl-12T-5{
+    padding: 5px 12px;
+    background-color: #ff3f3f;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.absolute1{
+    position: absolute;
+    top:67px;
+    left: 59px;
+    text-align: center;
+}
+.absolute2{
+    position: absolute;
+    top:67px;
+    left: 299px;
+    text-align: center;
+}
+.absolute3{
+    position: absolute;
+    top:67px;
+    left: 539px;
+    text-align: center;
+}
+.absolute4{
+    position: absolute;
+    top:67px;
+    left: 779px;
+    text-align: center;
+}
+.absolute5{
+    position: absolute;
+    top:67px;
+    left: 1030px;
+    text-align: center;
+}
+/*  查询入驻进度 进度条部分  */
+
+/*  查询入驻 操作审核进度部分  */
+.w1142{
+    width: 1143px;
+    padding: 28px;
+}
+.font18{
+    font-size: 18px;
+    color: #666;
+    font-weight: 800;
+}
+.w110{
+    width: 110px;
+}
+.w200{
+    width: 200px;
+}
+.w720{
+    width: 720px;
+
+}
+.list>td{
+    text-align: center;
+    font-size: 14px;
+    color: #6c6c6c;
+    background-color: #fff;
+    font-weight: normal;
+}
+.list-top{
+    border-collapse:collapse;
+    height: 45px;
+    line-height: 45px;
+    font-size: 18px;
+    color: #333;
+    font-weight: 800;
+    background-color: #eaeaea;
+}
+/*  查询入驻 操作审核进度部分  */
+
+
+/*  第三页  */
+.dd{border: 1px solid red;}
+/*  第三页头部部分  */
+
+.mt24{
+    margin-top: 24px;
+}
+.there-top{
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    margin-top: 20px;
+}
+.ptb75{
+    padding: 75px 70px;
+}
+.font14{
+    font-size: 14px;
+    color: #333;
+    line-height: 36px;
+}
+/*  第三页头部部分  */
+
+/*  列表部分  */
+.w668{
+    width: 668px;
+    margin: 0 auto;
+}
+.standard{
+    width: 333px;
+    background-color: #fb6666;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 900;
+}
+.standard-list>td{
+    text-align: left;
+    padding-left: 15px;
+}
+.standard-list>td{
+    border: 1px solid #fdb2b2;
+}
+.font-state{
+    font-size: 12px;
+    color: #fb6666;
+}
+/*  列表部分  */
+
+/*  第三页  */
+
+
+/*  第四页  */
+.pd58{
+    padding: 50px 58px;
+    margin-top: 24px;
+}
+.pd58>p{
+    margin-top: 60px;
+}
+.logout{
+    display: inline-block;
+    font-size: 14px;
+    color: #fe4949;
+    margin-top: 30px;
+}
+/*  第四页  */

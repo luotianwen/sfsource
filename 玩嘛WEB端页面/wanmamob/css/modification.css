@@ -1,0 +1,111 @@
+.backgroundF2{
+    background: #f2f2f2;
+}
+.phpTop{
+    width: 100%;
+    height: 1.2rem;
+    background: #fff;
+    position: relative;
+}
+.phpTopH{
+    font-size: .48rem;
+    color: #000;
+    text-align: center;
+    line-height: 1.2rem;
+    display: block;
+}
+
+.save{
+    font-size: .4rem;
+    color: #ff8a01;
+    border: none;
+    background: none;
+    position: absolute;
+    top: 0.35rem;
+    right: .4rem;
+    font-weight: 600;
+}
+.subjectContent{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+.myHead{
+    width: 1.63rem;
+    height: 1.63rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.8rem;
+    left: 50%;
+    margin-left: -.815rem;
+}
+.modificationPhp{
+    font-size: .32rem;
+    color: #ffffff;
+    border: 1px solid #fff;
+    background: none;
+    padding: 0.3rem .53rem;
+    position: absolute;
+    top: 3.33rem;
+    left: 50%;
+    margin-left: -1.25rem;
+    border-radius: 5px;
+}
+.subjectImg{
+    width: 100%;
+    max-height: 6rem;
+}
+.nickname{
+    width: 100%;
+    padding: .1rem 0;
+    background: #fff;
+    margin-top: .4rem;
+}
+.nicknameFont{
+    font-size: .32rem;
+    color: #555;
+    line-height: 1.2rem;
+    margin-left: .4rem;
+    position: absolute;
+    top: -0.01rem;
+}
+.nicknameInput{
+    font-size: .4rem;
+    color: #ff8a01;
+    border: none;
+    margin-left: 1.8rem;
+    width: 76%;
+    display: none;
+    /* position: absolute;
+     top: .38rem;
+     left: 1.45rem;*/
+}
+.nicknameSpan{
+    font-size: .4rem;
+    color: #ff8a01;
+    border: none;
+    margin-left: 1.8rem;
+    width: 76%;
+    display: inline-block;
+    /* position: absolute;
+     top: .38rem;
+     left: 1.45rem;*/
+}
+.padding2{
+    padding: .3rem 0;
+}
+#tabOne{
+    text-align: center;
+    padding: 0.1rem 0.5rem;
+    background: #ff8a01;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -22%;
+}
+.zheOne{
+    width: 100%;
+    padding-bottom: 100%;
+    background: rgba(0,0,0,0.5);
+}

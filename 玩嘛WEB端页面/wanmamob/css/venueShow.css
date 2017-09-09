@@ -1,0 +1,344 @@
+.nevueShowTop{
+    width: 100%;
+}
+.nevueShowTopD{
+    margin-top: 0.93rem;
+}
+.nevueShowTitle{
+    font-size: 0.48rem;
+    text-align: center;
+    color: #333333;
+}
+.headPortrait{
+    display: inline-block;
+    width: 0.66rem;
+    height: 0.66rem;
+    background: url("../img/aaa.jpg") no-repeat center;
+    background-size: cover;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: .21rem
+}
+.headPortrait1{
+    display: inline-block;
+    width: 0.66rem;
+    margin-right: 0.66rem;
+    vertical-align: middle;
+}
+.name{
+    margin-top: .33rem;
+    font-size: 0.293rem;
+    color: #555555;
+    text-align: center;
+}
+.time{
+    display: block;
+    color: #aaaaaa;
+    font-size: 0.27rem;
+    margin-top: .27rem;
+    text-align: center;
+}
+.fontIcon{
+    color: #555555;
+    font-size: 0.293rem;
+    float: right;
+    margin-right: 0.4rem;
+    line-height: 32px;
+    margin-top: .53rem;
+    padding-bottom: .27rem;
+}
+.icon{
+    display: inline-block;
+    width: .45rem;
+    height: .45rem;
+    background: url("../img/a1.png") no-repeat;
+    background-size: cover;
+    vertical-align: sub;
+    margin-right: 4px;
+}
+.w10{
+    width: 100%;
+}
+.banner{
+    width: 100%;
+    height: 5rem;
+    background: url("../img/17.png") no-repeat center;
+    background-size: cover;
+    margin-top: 1.5rem;
+}
+.goTime{
+    display: inline-block;
+    width: 41%;
+    font-size: 0.38rem;
+    color: #666666;
+}
+.padding30{
+    padding: 0 0 0.67rem 0.4rem;
+}
+.fontCS{
+    font-size: 0.4rem;
+    color: #555555;
+    text-align: justify;
+    line-height: 0.7rem;
+    letter-spacing:1px;
+}
+.goT{
+    margin-top: 0.53rem;
+}
+.goT>span:nth-child(2n){
+    margin-left: 0.9rem;
+}
+.goT>span:nth-child(3){
+    margin-top: 0.4rem;
+}
+.goT>span:nth-child(4){
+    margin-top: 0.4rem;
+}
+.location{
+    color: #555555;
+    font-size: .32rem;
+    display: block;
+    padding: .26rem 0 0 .4rem;
+}
+.peopleN{
+    color: #999999;
+    font-size: .32rem;
+    display: block;
+    padding: .26rem 0 0 .4rem;
+}
+.paddongAll{
+    padding: 0.53rem 0.4rem 0 0.4rem;
+}
+.marginT{
+    margin-top: 1rem;
+}
+.textL{
+    text-align: left;
+    margin-top: 0.8rem;
+    margin-bottom: .4rem;
+}
+.mT613{
+    margin-top: .613rem;
+}
+.marginP{
+    margin-top: 1.1rem;
+    padding: 0 .4rem;
+}
+.textJust{
+    text-align: justify;
+    line-height: 0.7rem;
+    letter-spacing: 1px;
+}
+.position{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 10%;
+    background: rgba(0,0,0,0.7);
+    width: 5rem;
+    height: 1.25rem;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.catalogueImg{
+    display: inline-block;
+    width: .453rem;
+    height: .5rem;
+    background: url("../img/a5.png") no-repeat;
+    background-size: cover;
+    vertical-align: middle;
+}
+.numIcon{
+    display: inline-block;
+    width: .5rem;
+    height: .5rem;
+    background: url("../img/a7.png") no-repeat;
+    background-size: cover;
+    vertical-align: middle;
+    margin-left: 0.53rem;
+}
+.zhan{
+    display: inline-block;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    background: rgba(255,138,1,0.75);
+    margin-top: 0.08rem;
+    float: right;
+    margin-right: 0.08rem;
+}
+.zhanIcon{
+    width: .6rem;
+    height: .6rem;
+    background: url("../img/a4.png") no-repeat;
+    background-size: cover;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0.2rem;
+    margin-left: 0.3rem;
+}
+.fixedTop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+}
+.iconN{
+    width: .6rem;
+    height: .6rem;
+    display: inline-block;
+    background: url("../img/a2.png") no-repeat;
+    background-size: cover;
+    vertical-align: bottom;
+    position: absolute;
+    top: -4px;
+    left: -25px;
+}
+.iconT{
+    width: .45rem;
+    height: .52rem;
+    display: inline-block;
+    background: url("../img/a3.png") no-repeat;
+    background-size: cover;
+    vertical-align: bottom;
+    margin-left: .453rem;
+}
+.goTop{
+    width: 1.33rem;
+    height: 1.33rem;
+    border-radius: 50%;
+    background: rgba(255,138,1,0.9);
+    position: fixed;
+    right: 0.4rem;
+    bottom: 10%;
+}
+.goTopIcon{
+    width: 0.7rem;
+    height: 0.7rem;
+    display: block;
+    background: url("../img/a6.png") no-repeat;
+    background-size: cover;
+    margin-left: 0.3rem;
+    margin-top: 0.25rem;
+}
+.topHeadPortrait{
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background: url("../img/aaa.jpg") no-repeat center;
+    background-size: cover;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: .21rem;
+    /*margin-top: -5px;*/
+}
+.displayN{
+    display: none;
+}
+.borderB{
+    border-bottom: 1px solid #aaa;
+}
+.fTop{
+    text-align: left;
+    margin: 0;
+    height: 1.33rem;
+    line-height: 1.33rem;
+    display: inline-block
+}
+.mL4{
+    margin-left: 0.4rem;
+}
+.font325{
+    font-size: .32rem;
+    color: #555555;
+    display: inline-block;
+}
+.diplayWt{
+    display: inline-block;
+    width: 51%;
+    text-align: right;
+}
+.catalogueSpan{
+    color: #fff;
+    font-size: 0.4rem;
+    margin-left: 0.4rem;
+    line-height: 1.33rem;
+    display: inline-block;
+    height: 100%;
+}
+.numSpan{
+    color: #fff;
+    font-size: 0.4rem;
+    display: inline-block;
+    height: 100%;
+    margin-left: -9px;
+}
+.tier{
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
+.particularsMenu{
+    width: 85%;
+    height: 100%;
+    background: #fff;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left:-200% ;
+    overflow-x: hidden;
+}
+.particularsMenuH{
+    margin: 0;
+    padding: 0.4rem 0.27rem;
+}
+.particularsMenuU{
+    width: 100%;
+}
+.particularsMenuL{
+    width: 100%;
+    height: 1.2rem;
+    border-bottom: 1px solid #ddd;
+    line-height: 1.2rem;
+    color: #333333;
+}
+.fontGreen{
+    font-size: 0.4rem;
+    color: #42bd56;
+    margin-left: 0.4rem;
+    font-weight: 500;
+}
+.green{
+    display: block;
+    width: 100%;
+    font-size: 0.4rem;
+    color: #333;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    border-bottom: 1px solid #ddd;
+    font-weight: 500;
+}
+.symbol{
+    vertical-align: initial;
+    text-align: right;
+    display: block;
+    float: right;
+    margin-right: 0.4rem;
+}
+.dataTime{
+    margin-left: 1rem;
+    margin-right: 0.4rem;
+    color: #666666;
+}
+.zIndex1{
+    z-index: 1;
+}
+.zIndex3{
+    z-index: 3;
+}

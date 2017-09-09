@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, address, big, cite, code, del, em, font, img, ins, small, strong, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend { margin: 0; padding: 0;}
+ol,ul,li{ list-style:none; list-style-position:outside;}
+:focus { outline: 0 none;}
+a,img {border: 0 none;}
+img {vertical-align: middle;}
+a,a:hover{text-decoration:none;}
+table{border-collapse:collapse;border-spacing:0;}
+address, caption, cite, code, dfn, em, th, var, b, i, s{font-style:normal;font-weight:normal;}
+body{font-size:14px; font-family: 'Microsoft Yahei', 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', Tahoma, 'Hiragino Sans GB', STHeiti; color:#6c6c6c;background: #fff;}
+.fl{float:left;display:inline;}
+.fr{float:right;display:inline;}
+.boxw{width:1200px;margin:0 auto;}
+.clearfix:before, .clearfix:after {content: ".";display: block;height: 0;visibility: hidden;}
+.clearfix:after {clear: both;}
+.clearfix {zoom: 1;} /* IE < 8 */
+
+/* 翻页 */
+.page{width:100%;overflow: hidden;background: #fff;padding:15px 0;text-align: center;}
+.page a{width:32px;height: 32px;display: inline-block;background: #343434;font-size:16px;color: #fff;text-align: center;line-height:30px;cursor: pointer;margin:0 3px;}
+.page a:hover{color:#ff3333;}
+.page a.selected{color:#ff3333;}
+.page a.pn-prev,.page a.pn-next{width:86px;}
+.page .pn-break{width:32px;height: 32px;display: inline-block;font-size:16px;color: #242424;text-align: center;line-height:30px;margin:0 17px;}
+/*  回退按钮  */
+.goBotton{
+    color: #ff8a01;
+    background: none;
+    border: none;
+    width: 1.2rem;
+    height: 1.2rem;
+    position: absolute;
+}
+.goBotton:before{
+    content: "";
+    display: block;
+    width: .27rem;
+    height: .47rem;
+    background: url("../img/left.png") no-repeat center;
+    background-size: cover;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+

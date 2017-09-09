@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html id="htmlOne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>个人主页</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/personageHomeOage.css"/>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+</head>
+<body class="backgroundF2">
+    <div class="phpTop">
+        <button class="goBotton"></button>
+        <span class="phpTopH">个人主页</span>
+    </div>
+
+    <div class="subject">
+        <div class="subjectContent">
+            <img src="img/phpTopIcon.png" alt="#" class="subjectImg"/>
+            <img src="img/aaa.jpg" alt="#" class="myHead"/>
+            <span class="phpMan"></span><!--切换性别 男or女-->
+            <span class="myName">一个好听的昵称</span>
+            <span class="myHeadline">旅行就行去一个地方，少一个地方...</span>
+            <a class="modificationPhp" href="http://localhost:3000/modification.html">修改个人资料</a>
+        </div>
+    </div>
+
+    <div class="phpTop">
+        <span style="text-align: center;display: block;border-bottom: 1px solid #a9a9a9;position: relative;">
+            <span class="phpMiddleSpan">游记</span>
+            <span class="phpMiddleSpan">问答</span>
+            <span class="phpMiddleSpan">足迹</span>
+            <span class="phpBb" style="left: 2.255rem;"></span>
+        </span>
+    </div>
+
+    <div class="" >
+
+<!--游记-->
+        <div  class="phpBottom">
+            <img src="img/Nodefinition.png" alt="#" class="phpBottomI displayB" id="phpBottomI1"/>
+            <div class="phpBottomD displayB" id="phpBottomD1">
+                <p class="phpBottomP">这里空空的，您什么也没有留下！</p>
+                <p class="phpBottomP">游记是一个帮所有人的文章，用你的旅行经验，去帮助其他人更好的体验生活。</p>
+            </div>
+            <!--<img src="img/youji.png" alt="#" class="travelNotes"/>-->
+        </div>
+
+<!--问答-->
+
+        <div  class="phpBottom">
+            <img src="img/Nodefinition.png" alt="#" class="phpBottomI" id="phpBottomI2"/>
+            <div class="phpBottomD" id="phpBottomD2">
+                <p class="phpBottomP">这里空空的，您什么也没有留下！</p>
+                <p class="phpBottomP">通过帮助路人解答问题，或者自己提出需要解决的问题问，需求好友帮助。</p>
+            </div>
+        </div>
+
+<!--足迹-->
+
+        <div  class="phpBottom">
+            <img src="img/Nodefinition.png" alt="#" class="phpBottomI" id="phpBottomI3"/>
+            <div class="phpBottomD" id="phpBottomD3">
+                <p class="phpBottomP">这里空空的，您什么也没有留下！</p>
+                <p class="phpBottomP">留下您走过的国家，走过的城市在这里志同道合的好友会看到您的足迹，社交更多的朋友</p>
+            </div>
+        </div>
+
+
+    </div>
+
+<!--  如果有游记--游记展示  -->
+    <div class="yesTravelNotes">
+        <div>
+            <div class="zhezhao"></div>
+            <img src="img/youji.png" alt="#" class="travelNotes"/>
+        </div>
+        <div class="allFont">
+            <span class="allFontH2">越南十天游~两个情怀汉子的暴走之行</span>
+            <span class="allFontTime">2016-9-29   10:11</span>
+            <span class="allFontIcon"><i class="allFontIconI"></i>160 张图，8645 字</span>
+            <p class="allFontP">很早就有计划，寒假要和小伙伴出去玩，但决定目的地是越南时，离出游时间仅仅还有一个月左右。所以，行程...</p>
+            <div class="allFontMr">
+                <span class="allFontSite"><i class="allFontSiteI"></i>北京</span>
+                <span class="allFontSee">6501人查看</span>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    $(".phpMiddleSpan").on("click",function(){
+        var num=$(this).index();
+        $(".phpBb").animate({"left":2.255+(2.24*num)+"rem"});
+        var ste="phpBottomD"+(num+1);
+        var phpIcon="phpBottomI"+(num+1);
+        $(".phpBottomD").removeClass("displayB");
+        $("#"+ste).addClass("displayB");
+        $(".phpBottomI").removeClass("displayB");
+        $("#"+phpIcon).addClass("displayB");
+        if(num>0){
+            $(".yesTravelNotes").hide()
+        }else{
+            $(".yesTravelNotes").show();
+        }
+    });
+</script>
+</html>

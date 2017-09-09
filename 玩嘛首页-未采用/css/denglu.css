@@ -1,0 +1,160 @@
+body {
+    font-size: 12px;
+    font-family: Arial,"Lucida Grande","Microsoft Yahei","Hiragino Sans GB","Hiragino Sans GB W3",SimSun,STHeiti;
+    _font-family: Tahoma,Arial,Helvetica,STHeiti;
+    color: #666
+}
+
+html.hasFontSmoothing-false body {
+    font-family: Arial,SimSun,"Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3",STHeiti
+}
+
+input,select,textarea,button {
+    font-family: Arial,"Lucida Grande","Microsoft Yahei","Hiragino Sans GB","Hiragino Sans GB W3",STHeiti;
+    _font-family: Tahoma,Arial,Helvetica,STHeiti
+}
+
+body,p,div {
+    margin: 0;
+    padding: 0;
+    word-wrap: break-word
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    padding: 0;
+    font-size: 100%
+}
+
+ul,ol,li,dl,dd,dt {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer
+}
+
+a:hover {
+    color: #ff8a00;
+    text-decoration: underline
+}
+
+td {
+    font-size: 12px;
+    color: #666
+}
+
+img {
+    border: 0;
+    vertical-align: middle
+}
+
+input {
+    outline: 0
+}
+.top-one{
+    width: 100%;
+    height:24px;
+    padding: 20px 0;
+    overflow: hidden;
+    position: relative;
+}
+.top-one-one{
+    width: 80%;
+    margin: 0 auto;
+}
+.top-one-one>span{
+    font-size: 20px;
+    margin-left: 20px;
+}
+.top-one-button button{
+    background: none;
+}
+.top-one-span1>a{
+    font-size: 14px;
+    color:#ff9d00;
+}
+.top-one-button{
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    width: 90px;
+    height: 50px;
+    font-size: 20px;
+    color: #ff8a00;
+    background: #fff;
+    vertical-align: middle;
+    list-style: none;
+}
+
+.top-one-button2{
+    padding: 17px 40px;
+    border-radius: 10px;
+    vertical-align: middle;
+    background:#ff9d00 ;
+    color: #fff;
+}
+.top-one-right{
+    border: 1px solid red;
+    position: absolute;
+    right: 50px;
+    top:7px;
+}
+.cp_num{
+    width: 10%;
+    display: inline-block;
+}
+.cp_num>i{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: green;
+}
+.top-one-span2>a{
+    color: #666;
+    font-size: 12px;
+    text-align: left;
+
+}
+.top-two{
+    width: 80%;
+    height: 375px;
+    background: yellow;
+    margin: 0 auto;
+    border: 1px solid red;
+    position: relative;
+}
+
+em{
+    list-style: none;
+    font-style: normal;
+}
+
+.top-two-span1:before{
+    content: "";
+    width: 100px;
+    height: 76px;
+    background: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 28px 50px 0 0;
+}
+.top-two-span1{
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 20px;
+    border: 1px solid red;
+    margin-left: 100px;
+}
+.top-two-input{
+    width: 60%;
+    margin: 0 auto;
+    height: 50px;
+
+}

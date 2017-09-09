@@ -1,0 +1,109 @@
+body{
+    background-color: rgba(169,169,169,0.15);
+}
+.feedBackTop{
+    background-color: #fff;
+    width: 100%;
+    height: 1.2rem;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+.feedBack{
+    color: #333;
+    font-size: .48rem;
+    text-align: center;
+    display: block;
+    line-height: 1.2rem;
+}
+.issue{
+    color: #ff8a01;
+    font-size: .426rem;
+    position: absolute;
+    right: 0;
+    padding: 0 .425rem;
+    line-height: 1.2rem;
+    top: 0;
+}
+.feedBackNeck{
+    height: 1.2rem;
+    line-height: 1.2rem;
+}
+.neckIssue{
+    font-size: 0.4rem;
+    color: #000;
+    margin-left: .4rem;
+    font-weight: 500;
+}
+.feedBackBody{
+    width: 100%;
+    height: 3.6rem;
+    background-color: #fff;
+    position: relative;
+}
+.bodyInput{
+    width: 100%;
+    border: none;
+    background: none;
+    margin-left: 10px;
+}
+.font-limited{
+    position: absolute;
+    color: #999999;
+    font-size: .24rem;
+    bottom: .2rem;
+    right: .4rem;
+}
+.font-num{
+    color: #f74c31;
+    font-size: .32rem;
+}
+.font-color{
+    font-size: .24rem;
+    color: #999;
+}
+.font-numColor{
+    font-size: .24rem;
+    color: #f74c31;
+}
+.uploading-icon{
+    width: 100%;
+    background-color: #fff;
+    padding: .4rem;
+}
+.yellowIcon{
+    display: inline-block;
+    float: left;
+}
+.feedBackLeg{
+    width: 100%;
+    height: 1.2rem;
+    background-color: #fff;
+}
+.legInput{
+    color: #999;
+    font-size: .4rem;
+    border: none;
+    background: none;
+    line-height: 1.2rem;
+    margin-left: .4rem;
+}
+.feedBackBottom{
+    width: 100%;
+    height: 4.6rem;
+    color: #999;
+    text-align: center;
+}
+.iconWH{
+    width: 2.2rem;
+    height: 2.2rem;
+}
+.ml13{
+    margin-left: .133rem;
+}
+.mt176{
+    display: inline-block;
+    margin-top: 1.76rem;
+}
+.noFloat{
+    clear: both;
+}

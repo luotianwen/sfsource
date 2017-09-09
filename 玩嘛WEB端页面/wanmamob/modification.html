@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html id="htmlOne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/modification.css"/>
+    <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+
+</head>
+<body class="backgroundF2">
+    <div class="phpTop">
+        <button class="goBotton"></button>
+        <span class="phpTopH">设置个人资料</span>
+        <button class="save">保存</button>
+    </div>
+
+    <div class="subject">
+        <div class="subjectContent">
+            <img src="img/phpTopIcon.png" alt="#" class="subjectImg"/>
+            <img src="img/aaa.jpg" alt="#" class="myHead"/>
+            <button class="modificationPhp">更换头像</button>
+        </div>
+    </div>
+
+    <div class="nickname">
+        <div class="subjectContent padding2">
+            <span class="nicknameFont">昵&nbsp;&nbsp;称</span>
+            <input type="text" value="一个好听的昵称" class="nicknameInput" id="nicknameInput1"/>
+            <span class="nicknameSpan">一个好听的昵称</span>
+        </div>
+    </div>
+
+    <div class="nickname">
+        <div class="subjectContent padding2">
+            <span class="nicknameFont">性&nbsp;&nbsp;别</span>
+            <input type="text" value="男" class="nicknameInput"  id="nicknameInput2" maxlength="10"/>
+            <span class="nicknameSpan">男</span>
+        </div>
+    </div>
+
+    <div class="nickname">
+        <div class="subjectContent padding2">
+            <span class="nicknameFont">签&nbsp;&nbsp;名</span>
+            <input type="text" value="旅行就是去一个地方收一个地方" class="nicknameInput"  id="nicknameInput3"/>
+            <span class="nicknameSpan">旅行就是去一个地方收一个地方</span>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    $(".nickname").on("click",function(){
+        var num=$(this).index();
+        var nnInput="nicknameInput"+(num-1);
+        var that=$("#"+nnInput);
+        console.log(that);
+        var font=that.val();
+        var str=font;
+        $(this).find(".nicknameSpan").hide();
+        that.show().val("").focus().val(font).on("change",function(){
+            if(that.val() == ""){
+                $(this).hide();
+                $(this).next(".nicknameSpan").show().html(str);
+            }else{
+                $(this).hide();
+                $(this).next(".nicknameSpan").show();
+                if($(this).attr("id") != "nicknameInput1"){
+                    $(this).next(".nicknameSpan").html($(this).val());
+                }
+                var _that=$("#nicknameInput1");
+                if(_that.val().length > 10){
+                    window.clearTimeout(dataTime);
+                    var checkbox1 = $("<div id='tanOne1' style='width: 100%;padding-bottom: 100%;height: 100%;background: rgba(0,0,0,0.5);position: absolute;top: 0;left: 0;right: 0;bottom: 0;'></div>").appendTo($("body"));
+                    var checkbox = $("<span id='tanOne' style='text-align: center;padding: 0.1rem 0.5rem;background: #ff8a01;color: #fff;position: absolute;top: 50%;left: 50%;margin-left: -22%;'>名字最大长度为10个字</span>").appendTo($("body"));
+                    var dataTime=setTimeout(function(){
+                        $("#tanOne").remove();
+                        $("#tanOne1").remove();
+                    },2000);
+                    var txt=$.trim(_that.val()).substr(0,10);
+                    _that.val(txt);
+                    _that.next(".nicknameSpan").html(txt);
+                }
+            }
+        });
+    });
+
+</script>
+</html>

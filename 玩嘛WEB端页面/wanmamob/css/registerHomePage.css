@@ -1,0 +1,41 @@
+.registerANOne{
+    display: inline-block;
+    width: .533rem;
+    height: .533rem;
+    background: url("../img/shield.png") no-repeat center;
+    background-size: cover;
+    margin-top: .133rem;
+    margin-left: .533rem;
+}
+.registerANTwo{
+    display: inline-block;
+    width: .667rem;
+    height: .493rem;
+    background: url("../img/card.png") no-repeat center;
+    background-size: cover;
+    margin-top: .133rem;
+    margin-left: .533rem;
+}
+.registerANFrameOne{
+    border: none;
+    background: none;
+    width: 50%;
+    position: absolute;
+    top: .133rem;
+    left: 1.333rem;
+    bottom: .133rem;
+    right: 1.333rem;
+    color: #333;
+    font-size: .4rem;
+    border-right: 1px solid #999999;
+}
+.gain{
+    color: #aaaaaa;
+    font-size: .373rem;
+    position: absolute;
+    top: 0.133rem;
+    right: .266rem;
+}
+.noClass{
+    margin-top: .266rem;
+}

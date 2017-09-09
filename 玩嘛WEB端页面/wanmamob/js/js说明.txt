@@ -1,0 +1,1 @@
+base为公用js文件确定回退键和页面中根元素的像素值，以此确定REM值。touchslide与venueshow为轮播图文件，依赖jquery.
